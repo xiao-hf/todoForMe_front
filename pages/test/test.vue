@@ -1,18 +1,16 @@
 <template>
     <view>
-        
+        <button @click="send()">发送</button>
     </view>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { userApi } from '@/api/userApi'
 import { request } from '@/utils/request'
-
-const test = ref('')
-console.log('dsfsf')
-request.get('/test').then(res => {
-	test.value = res.data
-})
+const send = async () => {
+    const res = await request.get('/user/updatePasswordCode/13800138000')
+    console.log(res)
+}
 </script>
 
 <style lang="scss" scoped>
