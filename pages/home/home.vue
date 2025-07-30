@@ -1,4 +1,4 @@
-<template>
+ <template>
 	<view class="home-container">
 		<!-- 背景图片 -->
 		<image v-if="currentBackgroundImage" 
@@ -12,14 +12,23 @@
 		<!-- 顶部导航 -->
 		<view class="nav-header">
 			<view class="nav-left">
-				<uni-icons type="gear" size="24" color="#fff" @click="openSettings"></uni-icons>
+				<view class="icon-wrapper">
+					<uni-icons type="undo" size="24" color="#fff" @click="handleLogout"></uni-icons>
+				</view>
+				<view class="icon-wrapper">
+					<uni-icons type="chatboxes" size="24" color="#fff" @click="openAIMenu"></uni-icons>
+				</view>
 			</view>
 			<view class="nav-center">
 				<text class="money-text">¥{{ formattedMoney }}</text>
 			</view>
 			<view class="nav-right">
-				<uni-icons type="more-filled" size="24" color="#fff" @click="openMore"></uni-icons>
-				<uni-icons type="undo" size="24" color="#fff" @click="handleLogout"></uni-icons>
+				<view class="icon-wrapper">
+					<uni-icons type="more-filled" size="24" color="#fff" @click="openMore"></uni-icons>
+				</view>
+				<view class="icon-wrapper">
+					<uni-icons type="gear" size="24" color="#fff" @click="openSettings"></uni-icons>
+				</view>
 			</view>
 		</view>
 
@@ -29,7 +38,15 @@
 		</view>
 
 		<!-- 任务列表 -->
-		<scroll-view class="task-list" scroll-y="true" @scroll="handleScroll">
+		<scroll-view class="task-list" 
+			scroll-y="true" 
+			@scroll="handleScroll"
+			refresher-enabled="true"
+			refresher-background="transparent"
+			:refresher-triggered="refresherTriggered"
+			@refresherpulling="handleRefresherPulling"
+			@refresherrefresh="handleRefresherRefresh"
+			@refresherrestore="handleRefresherRestore">
 			<!-- 未完成的任务 -->
 			<uni-card v-for="(task, index) in uncompletedTasks" :key="task.id" 
 				:is-shadow="false" 
@@ -91,7 +108,7 @@
 							@touchmove="handleTouchMove($event, task.id)"
 							@touchend="handleTouchEnd($event, task.id)">
 							<view class="task-checkbox" @click="toggleTask(task.id)">
-								<uni-icons type="checkboxfilled" 
+								<uni-icons type="checkbox" 
 									:size="24" 
 									color="#4CD964">
 								</uni-icons>
@@ -272,24 +289,6 @@
 			</view>
 		</view>
 
-		<!-- 删除确认弹窗 -->
-		<view class="modal-overlay delete-overlay" v-if="showDeleteConfirm" @click="cancelDelete">
-			<view class="modal-content delete-modal" @click.stop>
-				<view class="popup-header">
-					<text class="popup-title">删除任务</text>
-				</view>
-				
-				<view class="delete-message">
-					<text>将永久删除"{{ getTaskById(deleteTaskId)?.taskDescription }}"。</text>
-				</view>
-				
-				<view class="popup-actions">
-					<button class="cancel-btn" @click="cancelDelete">取消</button>
-					<button class="delete-btn" @click="executeDelete">删除</button>
-				</view>
-			</view>
-		</view>
-
 		<!-- 更多菜单弹窗 -->
 		<view class="modal-overlay" v-if="showMoreMenu" @click="closeMoreMenu">
 			<view class="modal-content more-menu" :class="{ 'closing': moreMenuClosing }" @click.stop>
@@ -311,13 +310,46 @@
 					</view>
 					
 					<view class="menu-item" @click="goToCharts">
-						<uni-icons type="chart" size="20" color="#333"></uni-icons>
+						<uni-icons type="circle" size="20" color="#333"></uni-icons>
 						<text class="menu-text">图表</text>
+					</view>
+					
+					<view class="menu-item" @click="goToMilestone">
+						<uni-icons type="flag" size="20" color="#333"></uni-icons>
+						<text class="menu-text">里程</text>
 					</view>
 					
 					<view class="menu-item" @click="goToTemplate">
 						<uni-icons type="list" size="20" color="#333"></uni-icons>
 						<text class="menu-text">模板</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<!-- AI机器人菜单弹窗 -->
+		<view class="modal-overlay" v-if="showAIMenu" @click="closeAIMenu">
+			<view class="modal-content more-menu" :class="{ 'closing': aiMenuClosing }" @click.stop>
+				<view class="menu-header">
+					<view class="menu-handle"></view>
+					<text class="menu-title">AI助手</text>
+					<text class="menu-done" @click="closeAIMenu">完成</text>
+				</view>
+				
+				<view class="menu-items">
+					<view class="menu-item" @click="goToChat">
+						<uni-icons type="chatbubble" size="20" color="#333"></uni-icons>
+						<text class="menu-text">会话</text>
+					</view>
+					
+					<view class="menu-item" @click="goToPersona">
+						<uni-icons type="person" size="20" color="#333"></uni-icons>
+						<text class="menu-text">人设</text>
+					</view>
+					
+					<view class="menu-item" @click="goToAISettings">
+						<uni-icons type="settings" size="20" color="#333"></uni-icons>
+						<text class="menu-text">设置</text>
 					</view>
 				</view>
 			</view>
@@ -355,6 +387,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { onShow } from '@dcloudio/uni-app'
 import { utilApi } from '@/api/utilApi'
 import { userApi } from '@/api/userApi'
 import { taskApi } from '@/api/taskApi'
@@ -392,12 +425,14 @@ const swipeStates = ref({}) // 记录每个任务的滑动状态
 const touchStartX = ref(0)
 const touchStartY = ref(0)
 const currentSwipeTaskId = ref(null)
-const showDeleteConfirm = ref(false)
-const deleteTaskId = ref(null)
 
 // 更多菜单相关状态
 const showMoreMenu = ref(false)
 const moreMenuClosing = ref(false) // 控制更多菜单弹窗关闭动画
+
+// AI机器人菜单相关状态
+const showAIMenu = ref(false)
+const aiMenuClosing = ref(false) // 控制AI菜单弹窗关闭动画
 
 // 用户信息修改相关
 const showUserInfoModal = ref(false) // 显示用户信息修改弹框
@@ -408,6 +443,10 @@ const showCostModal = ref(false) // 显示消费弹框
 const costModalClosing = ref(false) // 控制消费弹窗关闭动画
 const costAmount = ref('1') // 消费金额
 const focusCostAmount = ref(false) // 控制消费金额输入框聚焦
+
+// 下拉刷新相关
+const isRefreshing = ref(false) // 是否正在刷新
+const refresherTriggered = ref(false) // 刷新触发状态
 
 // 添加任务按钮滑动相关
 const addBtnTouchStartX = ref(0)
@@ -483,6 +522,52 @@ const openSettings = () => {
 
 const openMore = () => {
 	showMoreMenu.value = true
+}
+
+// AI机器人菜单相关方法
+const openAIMenu = () => {
+	showAIMenu.value = true
+}
+
+const closeAIMenu = () => {
+	aiMenuClosing.value = true // 开始关闭动画
+	
+	// 延迟隐藏弹窗，等待动画完成
+	setTimeout(() => {
+		showAIMenu.value = false
+		aiMenuClosing.value = false
+	}, 300) // 动画持续300ms
+}
+
+// AI菜单项点击事件
+const goToChat = () => {
+	closeAIMenu()
+	// 延迟跳转，等待弹窗关闭动画完成
+	setTimeout(() => {
+		uni.navigateTo({
+			url: '/pages/chat/chat'
+		})
+	}, 300)
+}
+
+const goToPersona = () => {
+	closeAIMenu()
+	// 延迟跳转，等待弹窗关闭动画完成
+	setTimeout(() => {
+		uni.navigateTo({
+			url: '/pages/aiRole/aiRole'
+		})
+	}, 300)
+}
+
+const goToAISettings = () => {
+	closeAIMenu()
+	// 延迟跳转，等待弹窗关闭动画完成
+	setTimeout(() => {
+		uni.navigateTo({
+            url: '/pages/aiSetting/aiSetting'
+		})
+	}, 300)
 }
 
 const toggleTask = async (taskId) => {
@@ -604,24 +689,36 @@ const handleScroll = () => {
 
 const confirmDelete = (taskId) => {
 	resetAllSwipeStates()
-	deleteTaskId.value = taskId
-	showDeleteConfirm.value = true
+	
+	// 找到对应的任务
+	const task = getTaskById(taskId)
+	if (!task) {
+		console.error('未找到要删除的任务:', taskId)
+		return
+	}
+	
+	// 使用uni-app自带的showModal样式，与人设页面一致
+	uni.showModal({
+		title: '删除确认',
+		content: `确定要删除"${task.taskDescription}"任务吗？`,
+		confirmColor: '#f56c6c',
+		success: async (res) => {
+			if (res.confirm) {
+				await executeDelete(taskId)
+			}
+		}
+	})
 }
 
-const cancelDelete = () => {
-	showDeleteConfirm.value = false
-	deleteTaskId.value = null
-}
-
-const executeDelete = async () => {
-	if (!deleteTaskId.value) return
+const executeDelete = async (taskId) => {
+	if (!taskId) return
 	
 	uni.showLoading({
 		title: '删除中...'
 	})
 	
 	try {
-		const res = await taskApi.deleteTask(deleteTaskId.value)
+		const res = await taskApi.deleteTask(taskId)
 		uni.hideLoading()
 		
 		if (res.code === 200 || res.code === '200') {
@@ -644,8 +741,6 @@ const executeDelete = async () => {
 			icon: 'none'
 		})
 		console.error('删除任务失败:', error)
-	} finally {
-		cancelDelete()
 	}
 }
 
@@ -666,35 +761,41 @@ const closeMoreMenu = () => {
 
 const goToFavorites = () => {
 	closeMoreMenu()
-	// 延迟显示toast，等待弹窗关闭动画完成
+	// 延迟跳转，等待弹窗关闭动画完成
 	setTimeout(() => {
-		uni.showToast({
-			title: '跳转到收藏页面',
-			icon: 'none'
+		uni.navigateTo({
+			url: '/pages/like/like'
 		})
-		// TODO: 实现跳转到收藏页面的逻辑
 	}, 300)
 }
 
 const goToStatistics = () => {
-	// closeMoreMenu()
+	closeMoreMenu()
 	// 延迟跳转，等待弹窗关闭动画完成
-	// setTimeout(() => {
-	// 	uni.navigateTo({
-	// 		url: '/pages/statistics/statistics'
-	// 	})
-	// }, 300)
+	setTimeout(() => {
+		uni.navigateTo({
+			url: '/pages/statistics/statistics'
+		})
+	}, 300)
 }
 
 const goToCharts = () => {
 	closeMoreMenu()
-	// 延迟显示toast，等待弹窗关闭动画完成
+	// 延迟跳转，等待弹窗关闭动画完成
 	setTimeout(() => {
-		uni.showToast({
-			title: '跳转到图表页面',
-			icon: 'none'
+		uni.navigateTo({
+			url: '/pages/charts/charts'
 		})
-		// TODO: 实现跳转到图表页面的逻辑
+	}, 300)
+}
+
+const goToMilestone = () => {
+	closeMoreMenu()
+	// 延迟跳转，等待弹窗关闭动画完成
+	setTimeout(() => {
+		uni.navigateTo({
+			url: '/pages/milestore/milestore'
+		})
 	}, 300)
 }
 
@@ -1066,10 +1167,6 @@ const chooseBackgroundImage = () => {
 			})
 		},
 		fail: () => {
-			uni.showToast({
-				title: '选择图片失败',
-				icon: 'none'
-			})
 		}
 	})
 }
@@ -1226,6 +1323,53 @@ const executeCost = async () => {
 	}
 }
 
+// 下拉刷新相关方法
+const handleRefresherPulling = (e) => {
+	// 下拉过程中，可以根据下拉距离来调整样式
+	// e.detail.dy 为下拉距离
+}
+
+const handleRefresherRefresh = async () => {
+	// 触发刷新
+	refresherTriggered.value = true
+	isRefreshing.value = true
+	
+	try {
+		// 并行刷新数据
+		await Promise.all([
+			fetchTaskList(),
+			refreshMoney(),
+			refreshUserInfo(),
+			fetchCurrentTime()
+		])
+		
+		uni.showToast({
+			title: '刷新成功',
+			icon: 'success',
+			duration: 1500
+		})
+	} catch (error) {
+		console.error('刷新失败:', error)
+		uni.showToast({
+			title: '刷新失败，请重试',
+			icon: 'none',
+			duration: 2000
+		})
+	} finally {
+		// 延迟一点时间让用户看到刷新效果
+		setTimeout(() => {
+			refresherTriggered.value = false
+			isRefreshing.value = false
+		}, 800)
+	}
+}
+
+const handleRefresherRestore = () => {
+	// 刷新被终止
+	refresherTriggered.value = false
+	isRefreshing.value = false
+}
+
 // 退出登录
 const handleLogout = async () => {
 	uni.showModal({
@@ -1275,6 +1419,20 @@ onMounted(async () => {
 	fetchTaskList()
 })
 
+onShow(async () => {
+	// 页面显示时刷新数据
+	try {
+		await Promise.all([
+			fetchTaskList(),
+			refreshMoney(),
+			refreshUserInfo(),
+			fetchCurrentTime()
+		])
+	} catch (error) {
+		console.error('页面刷新失败:', error)
+	}
+})
+
 onUnmounted(() => {
 	// 清理定时器
 	if (nextDayTimer) {
@@ -1316,9 +1474,9 @@ onUnmounted(() => {
 	justify-content: space-between;
 	align-items: center;
 	padding: 20rpx 30rpx;
-	padding-top: 60rpx;
+	padding-top: 80rpx;
 	position: fixed;
-	top: -50rpx;
+	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 100;
@@ -1328,6 +1486,20 @@ onUnmounted(() => {
 		align-items: center;
 		gap: 20rpx;
 		flex: 1;
+		
+		.icon-wrapper {
+			width: 40rpx;
+			height: 40rpx;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.2s ease;
+			
+			&:active {
+				transform: scale(0.9);
+				opacity: 0.8;
+			}
+		}
 		
 		.nav-title {
 			color: #fff;
@@ -1357,16 +1529,27 @@ onUnmounted(() => {
 		gap: 30rpx;
 		flex: 1;
 		justify-content: flex-end;
+		
+		.icon-wrapper {
+			width: 40rpx;
+			height: 40rpx;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.2s ease;
+			
+			&:active {
+				transform: scale(0.9);
+				opacity: 0.8;
+			}
+		}
 	}
 }
-.uni-scroll-view-content {
-	
-}
 .date-header {
-	padding: 20rpx 30rpx;
+	padding: 15rpx 30rpx;
 	position: fixed;
 	display: flex;
-	top: -50rpx;
+	top: 120rpx;
 	left: 0;
 	right: 0;
 	z-index: 90;
@@ -1384,7 +1567,7 @@ onUnmounted(() => {
 
 .task-list {
 	position: fixed;
-	top: 150rpx;
+	top: 180rpx;
 	left: 0;
 	right: 0;
 	bottom: 180rpx;
@@ -1523,73 +1706,6 @@ onUnmounted(() => {
 	
 	&:active {
 		background: #e84057;
-	}
-}
-
-.delete-overlay {
-	align-items: center !important;
-	justify-content: center !important;
-}
-
-.delete-modal {
-	background: #fff;
-	border-radius: 20rpx;
-	max-width: 600rpx;
-	width: 90%;
-	margin: 0 auto;
-	animation: none;
-	overflow: hidden;
-	
-	.delete-message {
-		padding: 0 40rpx 30rpx;
-		text-align: center;
-		
-		text {
-			font-size: 28rpx;
-			color: #666;
-			line-height: 1.5;
-		}
-	}
-	
-	.popup-actions {
-		display: flex;
-		margin-top: 0;
-		
-		.cancel-btn, .delete-btn {
-			flex: 1;
-			padding: 30rpx;
-			font-size: 30rpx;
-			border: none;
-			margin: 0;
-			border-radius: 0;
-			
-			&:first-child {
-				border-bottom-left-radius: 20rpx;
-			}
-			
-			&:last-child {
-				border-bottom-right-radius: 20rpx;
-			}
-		}
-		
-		.cancel-btn {
-			background: #f5f5f5;
-			color: #666;
-			border-right: 1rpx solid #e0e0e0;
-			
-			&:active {
-				background: #ebebeb;
-			}
-		}
-		
-		.delete-btn {
-			background: #ff4757;
-			color: #fff;
-			
-			&:active {
-				background: #e84057;
-			}
-		}
 	}
 }
 
@@ -1945,4 +2061,6 @@ onUnmounted(() => {
 		padding: 0;
 	}
 }
+
+
 </style>

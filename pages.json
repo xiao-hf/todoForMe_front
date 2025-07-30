@@ -3,56 +3,120 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "todo+"
+				"navigationBarTitleText": "todo+",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path" : "pages/home/home",
 			"style" : 
 			{
-				"navigationBarTitleText" : "todo+"
+				"navigationBarTitleText" : "home",
+				"navigationStyle": "custom",
+				"disableSwipeBack": true
 			}
 		},
 		{
 			"path" : "pages/register/register",
 			"style" : 
 			{
-				"navigationBarTitleText" : "register"
+				"navigationBarTitleText" : "register",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path" : "pages/changePassword/changePassword",
 			"style" : 
 			{
-				"navigationBarTitleText" : "changePassword"
+				"navigationBarTitleText" : "changePassword",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path" : "pages/statistics/statistics",
 			"style" : 
 			{
-				"navigationBarTitleText" : "statistics"
+				"navigationBarTitleText" : "statistics",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path" : "pages/account/account",
 			"style" : 
 			{
-				"navigationBarTitleText" : "account"
+				"navigationBarTitleText" : "account",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path" : "pages/test/test",
 			"style" : 
 			{
-				"navigationBarTitleText" : "test"
+				"navigationBarTitleText" : "test",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path" : "pages/template/template",
 			"style" : 
 			{
+				"navigationBarTitleText" : "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/like/like",
+			"style" : 
+			{
+				"navigationBarTitleText" : "todo+",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/charts/charts",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/milestore/milestore",
+			"style" : 
+			{
+				"navigationBarTitleText" : "milestore",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/chat/chat",
+			"style" : 
+			{
+				"navigationBarTitleText" : "chat",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/testVoice/testVoice",
+			"style" : 
+			{
 				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/aiRole/aiRole",
+			"style" : 
+			{
+				"navigationBarTitleText" : "airole",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/aiSetting/aiSetting",
+			"style" : 
+			{
+				"navigationBarTitleText" : "aiSetting",
+				"navigationStyle": "custom"
 			}
 		}
 	],

@@ -23,7 +23,15 @@
 		</view>
 
 		<!-- 模板任务列表 -->
-		<scroll-view class="task-list" scroll-y="true" @scroll="handleScroll">
+		<scroll-view class="task-list" 
+			scroll-y="true" 
+			@scroll="handleScroll"
+			refresher-enabled="true"
+			refresher-background="transparent"
+			:refresher-triggered="refresherTriggered"
+			@refresherpulling="handleRefresherPulling"
+			@refresherrefresh="handleRefresherRefresh"
+			@refresherrestore="handleRefresherRestore">
 			<uni-card v-for="(template, index) in templateList" :key="template.id" 
 				:is-shadow="false" 
 				:border="false"
@@ -44,9 +52,6 @@
 								<uni-icons type="wallet" size="14" color="#666"></uni-icons>
 								<text class="value-text">{{ template.value }}</text>
 							</view>
-						</view>
-						<view class="task-actions">
-							<uni-icons type="star" size="24" color="#C7C7CC"></uni-icons>
 						</view>
 					</view>
 					<view class="delete-action" 
@@ -156,24 +161,6 @@
 			</view>
 		</view>
 
-		<!-- 删除确认弹窗 -->
-		<view class="modal-overlay delete-overlay" v-if="showDeleteConfirm" @click="cancelDelete">
-			<view class="modal-content delete-modal" @click.stop>
-				<view class="popup-header">
-					<text class="popup-title">删除模板</text>
-				</view>
-				
-				<view class="delete-message">
-					<text>将永久删除"{{ getTemplateById(deleteTemplateId)?.taskDescription }}"。</text>
-				</view>
-				
-				<view class="popup-actions">
-					<button class="cancel-btn" @click="cancelDelete">取消</button>
-					<button class="delete-btn" @click="executeDelete">删除</button>
-				</view>
-			</view>
-		</view>
-
 		<!-- 更多菜单弹窗 -->
 		<view class="modal-overlay" v-if="showMoreMenu" @click="closeMoreMenu">
 			<view class="modal-content more-menu" :class="{ 'closing': moreMenuClosing }" @click.stop>
@@ -229,12 +216,14 @@ const swipeStates = ref({}) // 记录每个模板的滑动状态
 const touchStartX = ref(0)
 const touchStartY = ref(0)
 const currentSwipeTemplateId = ref(null)
-const showDeleteConfirm = ref(false)
-const deleteTemplateId = ref(null)
 
 // 更多菜单相关状态
 const showMoreMenu = ref(false)
 const moreMenuClosing = ref(false) // 控制更多菜单弹窗关闭动画
+
+// 下拉刷新相关
+const isRefreshing = ref(false) // 是否正在刷新
+const refresherTriggered = ref(false) // 刷新触发状态
 
 // 计算属性 - 当前显示的背景图片
 const currentBackgroundImage = computed(() => {
@@ -248,8 +237,8 @@ const showBackgroundImage = computed(() => {
 
 // 方法
 const goBack = () => {
-	uni.navigateTo({
-		url: '/pages/home/home'
+	uni.navigateBack({
+		delta: 1
 	})
 }
 
@@ -326,26 +315,82 @@ const handleScroll = () => {
 	resetAllSwipeStates()
 }
 
+// 下拉刷新相关方法
+const handleRefresherPulling = (e) => {
+	// 下拉过程中，可以根据下拉距离来调整样式
+	// e.detail.dy 为下拉距离
+}
+
+const handleRefresherRefresh = async () => {
+	// 触发刷新
+	refresherTriggered.value = true
+	isRefreshing.value = true
+	
+	try {
+		// 刷新模板列表数据
+		await fetchTemplateList()
+		
+		uni.showToast({
+			title: '刷新成功',
+			icon: 'success',
+			duration: 1500
+		})
+	} catch (error) {
+		console.error('刷新失败:', error)
+		uni.showToast({
+			title: '刷新失败，请重试',
+			icon: 'none',
+			duration: 2000
+		})
+	} finally {
+		// 延迟一点时间让用户看到刷新效果
+		setTimeout(() => {
+			refresherTriggered.value = false
+			isRefreshing.value = false
+		}, 800)
+	}
+}
+
+const handleRefresherRestore = () => {
+	// 刷新被终止
+	refresherTriggered.value = false
+	isRefreshing.value = false
+}
+
 const confirmDelete = (templateId) => {
 	resetAllSwipeStates()
-	deleteTemplateId.value = templateId
-	showDeleteConfirm.value = true
+	
+	// 找到对应的模板
+	const template = getTemplateById(templateId)
+	if (!template) {
+		console.error('未找到要删除的模板:', templateId)
+		return
+	}
+	
+	// 使用uni-app自带的showModal样式，与home.vue一致
+	uni.showModal({
+		title: '删除确认',
+		content: `确定要删除"${template.taskDescription}"模板吗？`,
+		confirmColor: '#f56c6c',
+		success: async (res) => {
+			if (res.confirm) {
+				await executeDelete(templateId)
+			}
+		}
+	})
 }
 
-const cancelDelete = () => {
-	showDeleteConfirm.value = false
-	deleteTemplateId.value = null
-}
 
-const executeDelete = async () => {
-	if (!deleteTemplateId.value) return
+
+const executeDelete = async (templateId) => {
+	if (!templateId) return
 	
 	uni.showLoading({
 		title: '删除中...'
 	})
 	
 	try {
-		const res = await templateTaskApi.deleteTemplateTask(deleteTemplateId.value)
+		const res = await templateTaskApi.deleteTemplateTask(templateId)
 		uni.hideLoading()
 		
 		if (res.code === 200 || res.code === '200') {
@@ -368,8 +413,6 @@ const executeDelete = async () => {
 			icon: 'none'
 		})
 		console.error('删除模板失败:', error)
-	} finally {
-		cancelDelete()
 	}
 }
 
@@ -674,9 +717,9 @@ onMounted(() => {
 	justify-content: space-between;
 	align-items: center;
 	padding: 20rpx 30rpx;
-	padding-top: 60rpx;
+	padding-top: 80rpx;
 	position: fixed;
-	top: -50rpx;
+	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 100;
@@ -713,7 +756,7 @@ onMounted(() => {
 
 .task-list {
 	position: fixed;
-	top: 140rpx;
+	top: 120rpx;
 	left: 0;
 	right: 0;
 	bottom: 130rpx;
@@ -795,15 +838,6 @@ onMounted(() => {
 				color: #666;
 			}
 		}
-	}
-	
-	.task-actions {
-		flex-shrink: 0;
-		width: 44rpx;
-		height: 44rpx;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 }
 

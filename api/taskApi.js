@@ -28,6 +28,14 @@ const like = (id) => {
 	return request.get(`/task/like/${id}`)
 }
 
+const queryLike = (data) => {
+	return request.post('/task/queryLike', data)
+}
+
+const statistic = (data) => {
+	return request.post('/task/statistic', data)
+}
+
 export const taskApi = {
 	queryList,
 	addTask,
@@ -35,5 +43,7 @@ export const taskApi = {
 	deleteTask,
 	complete,
 	updSorts,
-	like
+	like,
+	queryLike,
+	statistic
 }

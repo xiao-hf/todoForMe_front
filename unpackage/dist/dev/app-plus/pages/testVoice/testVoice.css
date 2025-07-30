@@ -1,0 +1,162 @@
+
+.voice-recognition[data-v-b72c4926] {
+        width: 100%;
+}
+.popup-content[data-v-b72c4926] {
+        padding: 1.25rem;
+        min-height: 18.75rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+    /* 标题区域样式 */
+.header[data-v-b72c4926] {
+        text-align: center;
+        margin-bottom: 1.875rem;
+}
+.title[data-v-b72c4926] {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        display: block;
+        margin-bottom: 0.5rem;
+}
+.subtitle[data-v-b72c4926] {
+        font-size: 0.875rem;
+        color: #999;
+}
+
+    /* 录音按钮区域样式 */
+.record-area[data-v-b72c4926] {
+        position: relative;
+        width: 100%;
+        height: 9.375rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.record-btn[data-v-b72c4926] {
+        width: 6.25rem;
+        height: 6.25rem;
+        border-radius: 50%;
+        background: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        position: relative;
+        box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+.btn-inner[data-v-b72c4926] {
+        width: 5.625rem;
+        height: 5.625rem;
+        border-radius: 50%;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+}
+.mic-icon[data-v-b72c4926] {
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+.mic-icon uni-image[data-v-b72c4926] {
+        width: 1.875rem;
+        height: 1.875rem;
+        transition: all 0.3s ease;
+}
+
+    /* 录音状态样式 */
+.record-btn.recording[data-v-b72c4926] {
+        background: #469CF8;
+        transform: scale(1.05);
+}
+.record-btn.recording .btn-inner[data-v-b72c4926] {
+        background: #469CF8;
+}
+.record-btn.cancel[data-v-b72c4926] {
+        background: #ff4444;
+        transform: scale(1.05);
+}
+.record-btn.cancel .btn-inner[data-v-b72c4926] {
+        background: #ff4444;
+}
+
+    /* 波纹动画 */
+.ripple[data-v-b72c4926] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        animation: ripple-b72c4926 1.5s infinite;
+}
+@keyframes ripple-b72c4926 {
+0% {
+            transform: scale(0.8);
+            opacity: 0.5;
+}
+100% {
+            transform: scale(1.5);
+            opacity: 0;
+}
+}
+
+    /* 提示文字区域样式 */
+.tip-area[data-v-b72c4926] {
+        text-align: center;
+        margin-top: 1.25rem;
+}
+.tip-text[data-v-b72c4926] {
+        font-size: 1rem;
+        color: #666;
+        display: block;
+        margin-bottom: 0.5rem;
+}
+.cancel-tip[data-v-b72c4926] {
+        font-size: 0.875rem;
+        color: #ff4444;
+}
+
+    /* 结果展示区域样式 */
+.result-area[data-v-b72c4926] {
+        width: 100%;
+        margin-top: 1.25rem;
+        padding: 0.9375rem;
+        background: #f8f8f8;
+        border-radius: 0.5rem;
+}
+.result-title[data-v-b72c4926] {
+        font-size: 0.875rem;
+        color: #999;
+        margin-bottom: 0.5rem;
+}
+.result-content[data-v-b72c4926] {
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.6;
+        word-break: break-all;
+}
+
+    /* 脉冲动画 */
+.pulse[data-v-b72c4926] {
+        animation: pulse-b72c4926 1.5s infinite;
+}
+@keyframes pulse-b72c4926 {
+0% {
+            box-shadow: 0 0 0 0 rgba(70, 156, 248, 0.4);
+}
+70% {
+            box-shadow: 0 0 0 0.625rem rgba(70, 156, 248, 0);
+}
+100% {
+            box-shadow: 0 0 0 0 rgba(70, 156, 248, 0);
+}
+}

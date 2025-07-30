@@ -1,15 +1,37 @@
 {
-  "hash": "ff697007",
+  "hash": "a6bf3258",
   "configHash": "54a77c09",
-  "lockfileHash": "24975328",
-  "browserHash": "ac646b76",
+  "lockfileHash": "26bd2f50",
+  "browserHash": "bf2f12c9",
   "optimized": {
     "axios": {
       "src": "../../../../../../../../node_modules/axios/index.js",
       "file": "axios.js",
-      "fileHash": "89333b49",
+      "fileHash": "a5d64a22",
+      "needsInterop": false
+    },
+    "element-plus": {
+      "src": "../../../../../../../../node_modules/element-plus/es/index.mjs",
+      "file": "element-plus.js",
+      "fileHash": "5ae5d473",
+      "needsInterop": false
+    },
+    "marked": {
+      "src": "../../../../../../../../node_modules/marked/lib/marked.esm.js",
+      "file": "marked.js",
+      "fileHash": "3321cfb9",
+      "needsInterop": false
+    },
+    "dompurify": {
+      "src": "../../../../../../../../node_modules/dompurify/dist/purify.es.mjs",
+      "file": "dompurify.js",
+      "fileHash": "03d8860d",
       "needsInterop": false
     }
   },
-  "chunks": {}
+  "chunks": {
+    "chunk-KX4S3TY3": {
+      "file": "chunk-KX4S3TY3.js"
+    }
+  }
 }

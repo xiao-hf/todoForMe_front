@@ -1,7 +1,8 @@
 // 基础配置
-// const baseURL = 'http://127.0.0.1:9999'
+// const baseURL = 'http://192.168.199.113:9999'
 const baseURL = 'http://110.42.210.113:9999'
 const timeout = 30000
+const baseURL_ = baseURL
 
 class Request {
     constructor() {
@@ -108,4 +109,4 @@ class Request {
 
 const request = new Request()
 
-export { request, baseURL }
+export { request, baseURL, baseURL_ }

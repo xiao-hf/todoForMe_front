@@ -72,7 +72,7 @@
                             @blur="validatePasswordBlur"
                         />
                         <view class="eye-icon" @tap="togglePassword">
-                            <text class="iconfont">{{ showPassword ? '👁️' : '👁️‍🗨️' }}</text>
+                            <uni-icons :type="showPassword ? 'eye' : 'eye-slash'" size="20" color="#999"></uni-icons>
                         </view>
                     </view>
                     <!-- 密码错误提示 -->
@@ -103,7 +103,7 @@
                             @blur="validateConfirmPasswordBlur"
                         />
                         <view class="eye-icon" @tap="toggleConfirmPassword">
-                            <text class="iconfont">{{ showConfirmPassword ? '👁️' : '👁️‍🗨️' }}</text>
+                            <uni-icons :type="showConfirmPassword ? 'eye' : 'eye-slash'" size="20" color="#999"></uni-icons>
                         </view>
                     </view>
                     <!-- 确认密码错误提示 -->

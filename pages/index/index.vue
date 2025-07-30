@@ -6,7 +6,10 @@
 		<image class="img-b" src="/static/3.png"></image>
 		<!-- 标题 -->
 		<view class="t-b">{{ title }}</view>
-		<view class="t-b2">欢迎使用，todo+</view>
+		<view class="t-b2">
+			欢迎使用，todo+
+			<text class="usage-link" @tap="showUsageModal">使用说明</text>
+		</view>
 		<form class="cl">
 			<view class="t-a">
 				<image src="/static/sj.png"></image>
@@ -18,25 +21,73 @@
 				<view class="line"></view>
 				<input :type="showPassword ? 'text' : 'password'" name="code" placeholder="请输入密码" v-model="password" />
 				<view class="eye-icon" @tap="togglePassword">
-					<text>{{ showPassword ? '👁️' : '👁️‍🗨️' }}</text>
+					<uni-icons :type="showPassword ? 'eye' : 'eye-slash'" size="20" color="#999"></uni-icons>
 				</view>
 			</view>
 			<button @tap="login()">登 录</button>
 			<view class="button-group">
-				<button type="primary" style="background-color: gray;" plain="true" class="t-forget" @tap="forgetPassword()">忘记密码</button>
-				<button type="primary" style="background-color: rgb(109, 142, 160);" plain="true" class="t-register" @tap="register()">注册</button>
+				<button type="primary" style="background-color: #f8f9fa; color: #6c757d; border-color: #dee2e6;" plain="true" class="t-forget" @tap="forgetPassword()">忘记密码</button>
+				<button type="primary" style="background-color: transparent; color: #5677fc; border-color: #5677fc;" plain="true" class="t-register" @tap="register()">注册</button>
 			</view>
 		</form>
+
+		<!-- 使用说明弹框 -->
+		<view class="modal-overlay" v-if="showUsage" @tap="closeUsageModal">
+			<view class="modal-content" :class="{ 'closing': usageModalClosing }" @tap.stop>
+				<view class="modal-header">
+					<text class="modal-title">使用说明</text>
+					<view class="modal-close" @tap="closeUsageModal">
+						<uni-icons type="close" size="20" color="#666"></uni-icons>
+					</view>
+				</view>
+				
+				<view class="modal-body">
+					<text class="usage-title">todo+ 智能自律管理软件</text>
+					<text class="usage-subtitle">让自律变得有趣，让坚持变得简单！</text>
+					
+					<view class="feature-list">
+						<view class="feature-item">
+							<text class="feature-icon">✓</text>
+							<text class="feature-text">智能任务规划 - AI管家协助制定个性化计划</text>
+						</view>
+						<view class="feature-item">
+							<text class="feature-icon">✓</text>
+							<text class="feature-text">奖励机制 - 完成任务获得金币奖励</text>
+						</view>
+						<view class="feature-item">
+							<text class="feature-icon">✓</text>
+							<text class="feature-text">惩罚机制 - 未完成任务自动扣除余额</text>
+						</view>
+						<view class="feature-item">
+							<text class="feature-icon">✓</text>
+							<text class="feature-text">数据统计 - 直观查看完成率和收益情况</text>
+						</view>
+						<view class="feature-item">
+							<text class="feature-icon">✓</text>
+							<text class="feature-text">模板功能 - 快速创建常用任务</text>
+						</view>
+					</view>
+				</view>
+				
+				<view class="modal-footer">
+					<button class="confirm-btn" @tap="closeUsageModal">我知道了</button>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { onShow } from '@dcloudio/uni-app'
 import { userApi } from '@/api/userApi'
 import { useUserStore } from '@/stores/user'
 const userStore = useUserStore()
+const title = ref('todo+')
 const phone = ref('')
 const password = ref('')
 const showPassword = ref(false)
+const showUsage = ref(false)
+const usageModalClosing = ref(false)
 
 function register() {
 	uni.navigateTo({
@@ -52,6 +103,19 @@ function forgetPassword() {
 
 function togglePassword() {
 	showPassword.value = !showPassword.value
+}
+
+function showUsageModal() {
+	showUsage.value = true
+}
+
+function closeUsageModal() {
+	usageModalClosing.value = true
+	// 延迟隐藏弹窗，等待动画完成
+	setTimeout(() => {
+		showUsage.value = false
+		usageModalClosing.value = false
+	}, 300) // 动画持续300ms
 }
 
 //当前登录按钮操作
@@ -79,6 +143,21 @@ const login = async () => {
 		uni.showToast({ title: '登录失败', icon: 'none' });
 	}
 }
+
+// 重置页面状态
+const resetPageState = () => {
+	// 只重置弹框相关状态，保留用户输入
+	showUsage.value = false
+	usageModalClosing.value = false
+}
+
+onMounted(() => {
+	resetPageState()
+})
+
+onShow(() => {
+	resetPageState()
+})
 </script>
 
 <style>
@@ -163,10 +242,13 @@ const login = async () => {
 .t-login .t-a .eye-icon {
 	position: absolute;
 	right: 30rpx;
-	top: 25rpx;
+	top: 50%;
+	transform: translateY(-50%);
 	padding: 10rpx;
-	font-size: 32rpx;
-	color: #999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
 }
 
 .t-login .t-b {
@@ -181,6 +263,16 @@ const login = async () => {
 	font-size: 32rpx;
 	color: #aaaaaa;
 	padding: 0rpx 0 120rpx 0;
+	display: flex;
+	align-items: center;
+	gap: 20rpx;
+}
+
+.usage-link {
+	color: #5677fc;
+	font-size: 28rpx;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 .t-login .t-c {
@@ -244,5 +336,147 @@ const login = async () => {
 	visibility: hidden;
 	height: 0;
 	content: '\20';
+}
+
+/* 使用说明弹框样式 */
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+
+.modal-content {
+	width: 90%;
+	max-width: 600rpx;
+	background: #fff;
+	border-radius: 20rpx;
+	overflow: hidden;
+	animation: modalShow 0.3s ease-out;
+	
+	&.closing {
+		animation: modalHide 0.3s ease-in;
+	}
+}
+
+@keyframes modalShow {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes modalHide {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30rpx;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+
+.modal-title {
+	font-size: 36rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+.modal-close {
+	padding: 10rpx;
+	cursor: pointer;
+}
+
+.modal-body {
+	padding: 40rpx 30rpx;
+}
+
+.usage-title {
+	display: block;
+	font-size: 32rpx;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 10rpx;
+}
+
+.usage-subtitle {
+	display: block;
+	font-size: 28rpx;
+	color: #5677fc;
+	margin-bottom: 30rpx;
+	font-weight: 500;
+}
+
+.feature-list {
+	margin-top: 20rpx;
+}
+
+.feature-item {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 20rpx;
+	gap: 15rpx;
+}
+
+.feature-icon {
+	color: #4caf50;
+	font-weight: bold;
+	font-size: 28rpx;
+	line-height: 1.2;
+}
+
+.feature-text {
+	color: #666;
+	font-size: 28rpx;
+	line-height: 1.5;
+	flex: 1;
+}
+
+.modal-footer {
+	padding: 20rpx 30rpx 30rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.confirm-btn {
+	background: #5677fc !important;
+	color: #fff !important;
+	border: none !important;
+	border-radius: 30rpx !important;
+	padding: 25rpx 80rpx !important;
+	font-size: 30rpx !important;
+	font-weight: 500 !important;
+	box-shadow: 0 4rpx 12rpx rgba(86, 119, 252, 0.3) !important;
+	transition: all 0.2s ease !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	height: 80rpx !important;
+	line-height: 1 !important;
+	
+	&:active {
+		transform: scale(0.98) !important;
+		box-shadow: 0 2rpx 8rpx rgba(86, 119, 252, 0.4) !important;
+	}
 }
 </style>
