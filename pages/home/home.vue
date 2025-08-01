@@ -299,6 +299,11 @@
 				</view>
 				
 				<view class="menu-items">
+					<view class="menu-item" @click="goToTrade">
+						<uni-icons type="wallet" size="20" color="#333"></uni-icons>
+						<text class="menu-text">交易</text>
+					</view>
+					
 					<view class="menu-item" @click="goToFavorites">
 						<uni-icons type="star" size="20" color="#333"></uni-icons>
 						<text class="menu-text">收藏</text>
@@ -416,7 +421,7 @@ const editTask = ref({
 	description: '',
 	value: '1'
 })
-const showCompletedTasks = ref(true) // 控制已完成任务的显示/隐藏
+const showCompletedTasks = ref(false) // 控制已完成任务的显示/隐藏
 const currentTimestamp = ref(Date.now()) // 默认值为当前时间戳
 let nextDayTimer = null // 每日更新定时器
 
@@ -807,6 +812,16 @@ const goToTemplate = () => {
         uni.navigateTo({
             url: '/pages/template/template'
         })
+	}, 300)
+}
+
+const goToTrade = () => {
+	closeMoreMenu()
+	// 延迟跳转，等待弹窗关闭动画完成
+	setTimeout(() => {
+		uni.navigateTo({
+			url: '/pages/trade/trade'
+		})
 	}, 300)
 }
 

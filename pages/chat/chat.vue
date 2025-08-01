@@ -34,11 +34,14 @@
         </view>
 
         <!-- 侧边栏-聊天历史 -->
-        <view class="sidebar-overlay" v-if="sidebarVisible" :class="{ 'active': isSidebarOpen }" @click="closeSidebar">
+        <view class="sidebar-overlay" v-if="sidebarVisible" :class="{ 'active': isSidebarOpen }" @click="closeSidebar" @touchstart.stop @touchmove.stop @touchend.stop>
             <view class="sidebar" 
                 :class="{ active: isSidebarOpen, closing: sidebarClosing }" 
                 :style="{ transform: isDraggingSidebar ? `translateX(${(sidebarDragPosition - 100)}%)` : '' }"
-                @click.stop>
+                @click.stop
+                @touchstart.stop
+                @touchmove.stop
+                @touchend.stop>
                 <view class="sidebar-header">
                     <text class="sidebar-title">会话历史</text>
                     <view class="sidebar-actions">
@@ -48,15 +51,21 @@
                         </view>
                     </view>
                 </view>
-                <scroll-view class="history-list" scroll-y>
+                <scroll-view class="history-list" scroll-y 
+                    @touchstart.stop="handleHistoryTouchStart" 
+                    @touchmove.stop="handleHistoryTouchMove" 
+                    @touchend.stop="handleHistoryTouchEnd">
                     <view 
-                        v-for="(chat, index) in chatStore.chatHistory" 
+                        v-for="(chat, index) in validChatHistory" 
                         :key="chat.id"
                         class="history-item"
-                        :class="{ active: chatStore.chatIndex === index }"
-                        @click="switchChat(chat.id)"
+                        :class="{ 
+                            active: chatStore.chatIndex === index,
+                            'last-item': index === validChatHistory.length - 1
+                        }"
+                        @click.stop="switchChat(chat.id)"
                     >
-                        <text class="history-title">{{ chat.chatName || 'undefined' }}</text>
+                        <text class="history-title">{{ chat.chatName || '未命名会话' }}</text>
                         <view class="history-meta">
                             <text class="history-time">{{ formatDate(chat.createdAt) }}</text>
                             <text class="history-count" v-if="chat.messageCount">{{ chat.messageCount }}条消息</text>
@@ -64,17 +73,19 @@
                         
                         <!-- 会话操作按钮 -->
                         <view class="history-actions" @click.stop>
-                            <view class="icon-wrapper action-btn edit-btn" @click="editChat(chat)">
+                            <view class="icon-wrapper action-btn edit-btn" @click.stop="editChat(chat)">
                                 <uni-icons type="compose" size="20" color="#999"></uni-icons>
                             </view>
-                            <view class="icon-wrapper action-btn delete-btn" @click="confirmDeleteChat(chat)">
+                            <view class="icon-wrapper action-btn delete-btn" @click.stop="confirmDeleteChat(chat)">
                                 <uni-icons type="trash-filled" size="22" color="#ff5a5f"></uni-icons>
                             </view>
                         </view>
                     </view>
-                    <view class="empty-history" v-if="chatStore.chatHistory.length === 0">
+                    <view class="empty-history" v-if="validChatHistory.length === 0">
                         <text>暂无会话历史</text>
                     </view>
+                        <!-- 非常小的底部间距，只为了防止内容紧贴底部 -->
+    <view class="history-bottom-space"></view>
                 </scroll-view>
             </view>
         </view>
@@ -120,7 +131,7 @@
             
             <!-- 消息列表为空时显示的提示 -->
             <view class="empty-hint" v-if="chatStore.currentMessages.length === 0">
-                <view class="hint-text" v-if="chatStore.chatHistory.length === 0">暂无会话先创建会话把</view>
+                <view class="hint-text" v-if="validChatHistory.length === 0">暂无会话先创建会话把</view>
                 <view class="hint-text" v-else>发送消息开始聊天</view>
             </view>
             
@@ -557,14 +568,15 @@ const sendMessage = async () => {
         status: 'complete'
     };
     
+    // 获取当前会话的最新消息副本
+    const currentMessages = chatStore.getChatMessages(chatId);
+    
     // 创建当前消息的副本，然后添加新消息
-    const updatedMessages = [...chatStore.currentMessages, userMsg];
+    const updatedMessages = [...currentMessages, userMsg];
     
-    // 更新chatStore中的消息
+    // 更新chatStore中的消息，确保使用chatId
+    console.log('发送用户消息，更新会话消息，会话ID:', chatId);
     chatStore.setChatMessages(chatId, updatedMessages);
-    
-    // 更新本地消息数组
-    chatStore.currentMessages = updatedMessages;
 
     // 清空输入框
     const userInput = inputMessage.value;
@@ -586,12 +598,15 @@ const sendMessage = async () => {
         status: 'loading'
     };
     
-    // 再次创建消息副本，添加AI消息
-    const messagesWithAiResponse = [...updatedMessages, aiMsg];
+    // 重新获取最新的消息数组，确保使用最新状态
+    const latestMessages = chatStore.getChatMessages(chatId);
     
-    // 更新chatStore和本地消息数组
+    // 再次创建消息副本，添加AI消息
+    const messagesWithAiResponse = [...latestMessages, aiMsg];
+    
+    // 更新chatStore，使用专门的chatId
+    console.log('添加AI占位消息，更新会话消息，会话ID:', chatId);
     chatStore.setChatMessages(chatId, messagesWithAiResponse);
-    chatStore.currentMessages = messagesWithAiResponse;
 
     // 记录AI消息的索引（最后一个）
     const aiMsgIndex = chatStore.currentMessages.length - 1;
@@ -624,14 +639,16 @@ const sendMessage = async () => {
                 // 完成回调
                 console.log('聊天完成');
                 try {
-                    if (chatStore.currentMessages[aiMsgIndex]) {
+                    // 获取聊天ID对应的最新消息
+                    const currentMsgs = chatStore.getChatMessages(chatId);
+                    if (currentMsgs && currentMsgs[aiMsgIndex]) {
                         // 创建消息副本，更新状态
-                        const currentMsgs = [...chatStore.currentMessages];
-                        currentMsgs[aiMsgIndex].status = 'complete';
+                        const updatedMsgs = [...currentMsgs];
+                        updatedMsgs[aiMsgIndex].status = 'complete';
                         
-                        // 更新chatStore和本地消息数组
-                        chatStore.setChatMessages(chatId, currentMsgs);
-                        chatStore.currentMessages = currentMsgs;
+                        // 更新chatStore，使用聊天ID
+                        console.log('聊天完成，更新消息状态，会话ID:', chatId);
+                        chatStore.setChatMessages(chatId, updatedMsgs);
                         
                         // 在消息状态更新后，确保滚动到底部 - 添加延迟滚动保障
                         nextTick(() => {
@@ -668,15 +685,17 @@ const sendMessage = async () => {
                 // 错误回调
                 console.error('聊天请求失败:', error);
                 try {
-                    if (chatStore.currentMessages && chatStore.currentMessages[aiMsgIndex]) {
+                                    // 获取聊天ID对应的最新消息
+                const currentMsgs = chatStore.getChatMessages(chatId);
+                if (currentMsgs && currentMsgs[aiMsgIndex]) {
                         // 创建消息副本，更新错误状态
-                        const currentMsgs = [...chatStore.currentMessages];
-                        currentMsgs[aiMsgIndex].content = '抱歉，请求失败';
-                        currentMsgs[aiMsgIndex].status = 'error';
-                        
-                        // 更新chatStore和本地消息数组
-                        chatStore.setChatMessages(chatId, currentMsgs);
-                        chatStore.currentMessages = currentMsgs;
+                    const updatedMsgs = [...currentMsgs];
+                    updatedMsgs[aiMsgIndex].content = '抱歉，请求失败';
+                    updatedMsgs[aiMsgIndex].status = 'error';
+                    
+                    // 更新chatStore，使用聊天ID
+                    console.log('聊天请求失败，更新错误状态，会话ID:', chatId);
+                    chatStore.setChatMessages(chatId, updatedMsgs);
                     }
                 } catch (errorHandlingError) {
                     console.error('错误处理失败:', errorHandlingError);
@@ -695,13 +714,15 @@ const sendMessage = async () => {
         
         try {
             // 更新AI消息为错误状态
-            if (chatStore.currentMessages && chatStore.currentMessages[aiMsgIndex]) {
-                const currentMsgs = [...chatStore.currentMessages];
-                currentMsgs[aiMsgIndex].content = '发送失败，请重试';
-                currentMsgs[aiMsgIndex].status = 'error';
+            const currentMsgs = chatStore.getChatMessages(chatId);
+            if (currentMsgs && currentMsgs[aiMsgIndex]) {
+                const updatedMsgs = [...currentMsgs];
+                updatedMsgs[aiMsgIndex].content = '发送失败，请重试';
+                updatedMsgs[aiMsgIndex].status = 'error';
                 
-                chatStore.setChatMessages(chatId, currentMsgs);
-                chatStore.currentMessages = currentMsgs;
+                // 更新chatStore，使用聊天ID
+                console.log('发送消息失败，更新错误状态，会话ID:', chatId);
+                chatStore.setChatMessages(chatId, updatedMsgs);
             }
         } catch (e) {
             console.error('更新错误消息失败:', e);
@@ -734,15 +755,12 @@ const switchChat = async (chatId) => {
             let cachedMessages = chatStore.getChatMessages(chatId);
             
             if (cachedMessages && cachedMessages.length > 0) {
-                // 创建一个新的数组引用，避免共享引用导致的混淆
-                cachedMessages = [...cachedMessages];
+                // 使用chatStore提供的方法更新currentMessages
+                console.log('切换会话，使用缓存消息，会话ID:', chatId);
+                chatStore.setCurrentMessages(chatId);
                 
-                // 使用chatStore提供的方法更新currentMessages，传入新的数组引用
-                chatStore.setChatMessages(chatId, cachedMessages);
-                
-                // 同步更新本地的messages数组，使用新的数组引用
+                // 同步更新本地的messages数组
                 messages.value = [...cachedMessages];
-                chatStore.currentMessages = cachedMessages;
                 
                 console.log('使用缓存的消息:', cachedMessages);
                 
@@ -1300,7 +1318,83 @@ const toggleSidebar = () => {
     if (isSidebarOpen.value) {
         closeSidebar();
     } else {
-        openSidebar();
+        openSidebarWithRefresh();
+    }
+};
+
+// 添加一个函数滚动历史列表到底部
+const scrollHistoryToBottom = () => {
+    // 立即尝试滚动一次
+    tryScrollToBottom();
+    
+    // 延迟多次尝试滚动，确保在不同时机都能滚动到底部
+    setTimeout(tryScrollToBottom, 300);
+    setTimeout(tryScrollToBottom, 600);
+    setTimeout(tryScrollToBottom, 1000);
+};
+
+// 尝试滚动到底部的具体实现
+const tryScrollToBottom = () => {
+    try {
+        // 方法1: 使用node API滚动，设置较小的值避免过度滚动
+        const historyListNode = uni.createSelectorQuery().in(getCurrentInstance());
+        historyListNode.select('.history-list').node(scrollNode => {
+            if (scrollNode && scrollNode.node) {
+                // 获取当前滚动位置
+                const currentScrollTop = scrollNode.node.scrollTop || 0;
+                const scrollHeight = scrollNode.node.scrollHeight || 0;
+                const clientHeight = scrollNode.node.clientHeight || 0;
+                
+                // 计算需要滚动的位置，稍微留出一点空间
+                const targetScrollTop = scrollHeight - clientHeight - 5;
+                
+                // 只有当目标位置大于当前位置时才滚动
+                if (targetScrollTop > currentScrollTop) {
+                    scrollNode.node.scrollTop = targetScrollTop;
+                }
+            }
+        }).exec();
+        
+        // 方法2: 确保最后一个元素可见
+        const lastItemQuery = uni.createSelectorQuery().in(getCurrentInstance());
+        lastItemQuery.selectAll('.history-item').boundingClientRect(items => {
+            if (items && items.length > 0) {
+                const lastItem = items[items.length - 1];
+                // 确保最后一项可见，但不需要滚动到视图底部
+                if (lastItem) {
+                    // iOS真机专用处理
+                    // #ifdef APP-PLUS
+                    try {
+                        const platform = uni.getSystemInfoSync().platform;
+                        if (platform && platform.toLowerCase() === 'ios') {
+                            // iOS设备上，使用更精确的滚动位置
+                            const query = uni.createSelectorQuery().in(getCurrentInstance());
+                            query.select('.history-list').boundingClientRect(list => {
+                                if (list && lastItem) {
+                                    // 计算最后一项底部到列表顶部的距离
+                                    const bottomOffset = lastItem.bottom - list.top;
+                                    // 如果最后一项不在可视区域内，调整滚动位置
+                                    if (bottomOffset > list.height) {
+                                        const scrollTop = bottomOffset - list.height + 20;
+                                        const scrollView = uni.createSelectorQuery().in(getCurrentInstance());
+                                        scrollView.select('.history-list').node(node => {
+                                            if (node && node.node) {
+                                                node.node.scrollTop = scrollTop;
+                                            }
+                                        }).exec();
+                                    }
+                                }
+                            }).exec();
+                        }
+                    } catch (e) {
+                        console.error('iOS专用滚动处理失败:', e);
+                    }
+                    // #endif
+                }
+            }
+        }).exec();
+    } catch (e) {
+        console.error('滚动历史列表到底部失败:', e);
     }
 };
 
@@ -1316,6 +1410,9 @@ const openSidebar = () => {
     setTimeout(() => {
         isSidebarOpen.value = true;
         sidebarDragPosition.value = 0; // 重置拖动位置
+        
+        // 滚动历史列表到底部
+        scrollHistoryToBottom();
     }, 10);
 };
 
@@ -1482,6 +1579,24 @@ const showNewChatDialogFromSidebar = (event) => {
     }, 300);
 };
 
+// 在打开侧边栏时刷新一下会话列表
+const openSidebarWithRefresh = async () => {
+    // 先打开侧边栏
+    openSidebar();
+    
+    // 刷新会话列表
+    try {
+        await refreshHistoryChat();
+    } catch (error) {
+        console.error('刷新会话列表失败:', error);
+    }
+    
+    // 确保滚动到底部
+    setTimeout(() => {
+        scrollHistoryToBottom();
+    }, 500);
+};
+
 // 添加一个专门用于聚焦输入框的函数
 const focusMessageInput = () => {
     console.log('尝试聚焦输入框...');
@@ -1591,15 +1706,12 @@ const getChatMessages = async () => {
                 // 检查是否有缓存的消息
                 const cachedMessages = chatStore.getChatMessages(targetChatId);
                 if (cachedMessages && cachedMessages.length > 0) {
-                    // 使用缓存中的消息，创建新的数组引用避免共享
-                    const messagesCopy = [...cachedMessages];
-                    
                     // 使用chatStore提供的方法更新currentMessages
+                        console.log('使用缓存消息，会话ID:', targetChatId);
                     chatStore.setCurrentMessages(targetChatId);
                     
-                    // 更新本地消息数组，使用新的数组引用
-                    messages.value = messagesCopy;
-                    chatStore.currentMessages = messagesCopy;
+                        // 更新本地消息数组
+                        messages.value = [...cachedMessages];
                     
                     // 滚动到最新消息
                     setTimeout(() => {
@@ -1628,15 +1740,12 @@ const getChatMessages = async () => {
                     // 检查是否有缓存的消息
                     const cachedMessages = chatStore.getChatMessages(targetChatId);
                     if (cachedMessages && cachedMessages.length > 0) {
-                        // 使用缓存中的消息，创建新的数组引用避免共享
-                        const messagesCopy = [...cachedMessages];
-                        
                         // 使用chatStore提供的方法更新currentMessages
+                        console.log('使用缓存消息，会话ID:', targetChatId);
                         chatStore.setCurrentMessages(targetChatId);
                         
-                        // 更新本地消息数组，使用新的数组引用
-                        messages.value = messagesCopy;
-                        chatStore.currentMessages = messagesCopy;
+                        // 更新本地消息数组
+                        messages.value = [...cachedMessages];
                         
                         // 滚动到最新消息
                         setTimeout(() => {
@@ -1684,13 +1793,15 @@ const refreshHistoryChat = async () => {
         console.log('获取聊天历史:', res);
         
         if (res && Array.isArray(res)) {
-            console.log('设置chatStore',res)
-            chatStore.chatHistory = res
-            
-            if (res.length > 0) {
+                // 过滤有效的会话
+                const validChats = res.filter(chat => chat && chat.id);
+                console.log('设置chatStore', validChats);
+                chatStore.chatHistory = validChats;
+                
+                if (validChats.length > 0) {
                 if (currentChatId) {
                     // 尝试在新列表中找到之前选中的聊天
-                    const newIndex = res.findIndex(chat => chat.id === currentChatId);
+                        const newIndex = validChats.findIndex(chat => chat.id === currentChatId);
                     if (newIndex !== -1) {
                         // 如果找到，使用该索引
                         console.log('保持之前选择的聊天索引:', newIndex);
@@ -1704,6 +1815,11 @@ const refreshHistoryChat = async () => {
                     // 如果之前没有选择聊天，使用默认索引0
                     console.log('没有之前选择的聊天，使用索引0');
                     chatStore.chatIndex = 0;
+                }
+                    
+                    // 如果侧边栏是打开的，滚动到底部
+                    if (isSidebarOpen.value) {
+                        scrollHistoryToBottom();
                 }
             }
         } else {
@@ -1746,18 +1862,22 @@ onMounted(async () => {
         // 监听新消息内容事件，实现流式响应的实时滚动
         uni.$on('chat:newContent', (data) => {
             // 确保是当前聊天的内容更新才触发滚动
-            const currentChatId = chatStore.chatHistory[chatStore.chatIndex]?.id;
+            const currentChatId = chatStore.getCurrentChatId();
             if (data && data.currentChatId === currentChatId) {
+                console.log('收到当前会话消息更新，触发滚动，会话ID:', currentChatId);
+                
                 // 直接滚动到底部
                 scrollToBottom();
                 
                 // 为了确保在所有设备上的兼容性，添加一个短延时滚动
-                setTimeout(() => {
-                    scrollToBottom();
+            setTimeout(() => {
+                scrollToBottom();
                 }, 50);
+            } else if (data) {
+                console.log('收到其他会话的消息更新，会话ID:', data.currentChatId, '当前会话ID:', currentChatId);
             }
         });
-        
+    
         // 在chatStore的currentMessages变化时也触发滚动
         watch(() => chatStore.currentMessages.length, (newLen, oldLen) => {
             if (newLen > oldLen) {
@@ -1765,12 +1885,12 @@ onMounted(async () => {
                     scrollToBottom();
                 });
             }
-        });
-        
+    });
+    
         // 首次进入页面，确保滚动到底部 - 使用多次尝试确保成功
         nextTick(() => {
             scrollToBottom();
-            
+    
             // 延迟再次尝试，以确保在所有情况下都能滚到底部
             setTimeout(() => {
                 autoScrollEnabled.value = true; // 强制启用自动滚动
@@ -1781,12 +1901,12 @@ onMounted(async () => {
                 autoScrollEnabled.value = true; // 强制启用自动滚动
                 scrollToBottom();
             }, 1000);
-        });
-        
+    });
+    
         // 专门为iOS设备添加处理，防止输入框自动聚焦
         if (isIOS()) {
             console.log('检测到iOS设备，应用特殊处理');
-            
+    
             // 预先隐藏键盘
             uni.hideKeyboard();
             
@@ -1798,7 +1918,7 @@ onMounted(async () => {
         uni.showToast({
             title: '加载失败，请重试',
             icon: 'none'
-        });
+    });
     }
 
     // 2秒后允许用户正常点击输入框，无需额外逻辑
@@ -2221,6 +2341,31 @@ const handleContainerTap = () => {
         clearTimeout(window.hideKeyboardTimer);
         window.hideKeyboardTimer = null;
     }
+};
+
+// 添加一个计算属性，过滤有效的聊天记录
+const validChatHistory = computed(() => {
+    return chatStore.chatHistory.filter(chat => 
+        chat && chat.id && typeof chat.id !== 'undefined'
+    );
+});
+
+// 处理历史消息触摸开始事件
+const handleHistoryTouchStart = (e) => {
+    // 阻止事件冒泡
+    e.stopPropagation();
+};
+
+// 处理历史消息触摸移动事件
+const handleHistoryTouchMove = (e) => {
+    // 阻止事件冒泡
+    e.stopPropagation();
+};
+
+// 处理历史消息触摸结束事件
+const handleHistoryTouchEnd = (e) => {
+    // 阻止事件冒泡
+    e.stopPropagation();
 };
 </script>
 
@@ -3034,6 +3179,7 @@ const handleContainerTap = () => {
     background-color: rgba(0, 0, 0, 0);
     z-index: 999;
     transition: background-color 0.5s ease;
+    touch-action: none; /* 防止iOS默认触摸行为 */
 }
 
 .sidebar-overlay.active {
@@ -3055,6 +3201,8 @@ const handleContainerTap = () => {
     display: flex;
     flex-direction: column;
     will-change: transform;
+    overflow: hidden; /* 防止内容溢出 */
+    touch-action: pan-y; /* 只允许垂直滑动 */
 }
 
 .sidebar.active {
@@ -3078,6 +3226,8 @@ const handleContainerTap = () => {
     border-bottom: 1px solid #f0f0f0;
     background-color: #fff;
     position: relative;
+    flex-shrink: 0; /* 防止头部被压缩 */
+    min-height: 80rpx; /* 确保头部有最小高度 */
 }
 
 .sidebar-title {
@@ -3120,6 +3270,31 @@ const handleContainerTap = () => {
 .history-list {
     flex: 1;
     overflow-y: auto;
+    padding-bottom: 0; /* 移除底部内边距 */
+    position: relative;
+    -webkit-overflow-scrolling: touch; /* 增强iOS滚动体验 */
+    height: 100%; /* 使用全高 */
+    overscroll-behavior: contain; /* 防止过度滚动引起页面回弹 */
+    scroll-behavior: smooth; /* 平滑滚动 */
+    z-index: 1001; /* 确保在最上层 */
+    touch-action: pan-y; /* 只允许垂直滑动 */
+}
+
+.history-item.last-item {
+    margin-bottom: 16rpx; /* 最后一项只需很小的底部边距 */
+}
+
+.history-bottom-space {
+    height: 10rpx; /* 极小的底部空白区域 */
+    width: 100%;
+}
+
+.empty-history {
+    padding: 30rpx 0;
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    margin-bottom: 16rpx; /* 最小的底部边距 */
 }
 
 .history-item {
@@ -3127,6 +3302,9 @@ const handleContainerTap = () => {
     border-bottom: 1px solid #f5f5f5;
     position: relative;
     background-color: #fff;
+    touch-action: pan-y; /* 只允许垂直滑动 */
+    -webkit-user-select: none; /* 禁止选择文本 */
+    -webkit-touch-callout: none; /* 禁止长按菜单 */
 }
 
 .history-item.active {
@@ -3178,6 +3356,7 @@ const handleContainerTap = () => {
     text-align: center;
     color: #999;
     font-size: 28rpx;
+    margin-bottom: 200rpx; /* 大幅增加底部边距 */
 }
 
 .role-picker-modal.closing {
@@ -3212,5 +3391,24 @@ const handleContainerTap = () => {
         transform: scale(1.2);
         opacity: 1;
     }
+}
+
+/* 添加滚动条样式 */
+.history-list::-webkit-scrollbar {
+    width: 4rpx;
+}
+.history-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2rpx;
+}
+
+// 添加新的样式
+.history-item.last-item {
+    margin-bottom: 150rpx; /* 为最后一项添加足够的底部边距 */
+}
+
+.history-bottom-space {
+    height: 200rpx; /* 底部空白区域 */
+    width: 100%;
 }
 </style>

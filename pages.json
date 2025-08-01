@@ -118,6 +118,22 @@
 				"navigationBarTitleText" : "aiSetting",
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path" : "pages/trade/trade",
+			"style" : 
+			{
+				"navigationBarTitleText" : "trade",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path" : "pages/logDetail/logDetail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "logDetail",
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {

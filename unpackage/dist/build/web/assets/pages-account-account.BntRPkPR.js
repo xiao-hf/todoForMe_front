@@ -1,0 +1,1 @@
+import{c as e,w as r,i as s,b as n,L as t}from"./index-DwnOT4K7.js";import{_ as a}from"./_plugin-vue_export-helper.BCo6x5W8.js";const o=a({},[["render",function(a,o){const l=s;return n(),e(l,null,{default:r((()=>[t("h1",null,"账户")])),_:1})}]]);export{o as default};

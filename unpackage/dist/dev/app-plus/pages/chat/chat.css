@@ -1293,6 +1293,8 @@ to {
   background-color: rgba(0, 0, 0, 0);
   z-index: 999;
   transition: background-color 0.5s ease;
+  touch-action: none;
+  /* 防止iOS默认触摸行为 */
 }
 .sidebar-overlay.active[data-v-0a633310] {
   background-color: rgba(0, 0, 0, 0.6);
@@ -1312,6 +1314,10 @@ to {
   display: flex;
   flex-direction: column;
   will-change: transform;
+  overflow: hidden;
+  /* 防止内容溢出 */
+  touch-action: pan-y;
+  /* 只允许垂直滑动 */
 }
 .sidebar.active[data-v-0a633310] {
   transform: translateX(0);
@@ -1332,6 +1338,10 @@ to {
   border-bottom: 1px solid #f0f0f0;
   background-color: #fff;
   position: relative;
+  flex-shrink: 0;
+  /* 防止头部被压缩 */
+  min-height: 2.5rem;
+  /* 确保头部有最小高度 */
 }
 .sidebar-title[data-v-0a633310] {
   font-size: 1rem;
@@ -1366,12 +1376,50 @@ to {
 .history-list[data-v-0a633310] {
   flex: 1;
   overflow-y: auto;
+  padding-bottom: 0;
+  /* 移除底部内边距 */
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  /* 增强iOS滚动体验 */
+  height: 100%;
+  /* 使用全高 */
+  overscroll-behavior: contain;
+  /* 防止过度滚动引起页面回弹 */
+  scroll-behavior: smooth;
+  /* 平滑滚动 */
+  z-index: 1001;
+  /* 确保在最上层 */
+  touch-action: pan-y;
+  /* 只允许垂直滑动 */
+}
+.history-item.last-item[data-v-0a633310] {
+  margin-bottom: 0.5rem;
+  /* 最后一项只需很小的底部边距 */
+}
+.history-bottom-space[data-v-0a633310] {
+  height: 0.3125rem;
+  /* 极小的底部空白区域 */
+  width: 100%;
+}
+.empty-history[data-v-0a633310] {
+  padding: 0.9375rem 0;
+  text-align: center;
+  color: #999;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  /* 最小的底部边距 */
 }
 .history-item[data-v-0a633310] {
   padding: 0.625rem 0.9375rem;
   border-bottom: 1px solid #f5f5f5;
   position: relative;
   background-color: #fff;
+  touch-action: pan-y;
+  /* 只允许垂直滑动 */
+  -webkit-user-select: none;
+  /* 禁止选择文本 */
+  -webkit-touch-callout: none;
+  /* 禁止长按菜单 */
 }
 .history-item.active[data-v-0a633310] {
   background-color: #f0f7ff;
@@ -1416,6 +1464,8 @@ to {
   text-align: center;
   color: #999;
   font-size: 0.875rem;
+  margin-bottom: 6.25rem;
+  /* 大幅增加底部边距 */
 }
 .role-picker-modal.closing[data-v-0a633310] {
   background-color: rgba(0, 0, 0, 0);
@@ -1446,4 +1496,21 @@ to {
     transform: scale(1.2);
     opacity: 1;
 }
+}
+/* 添加滚动条样式 */
+.history-list[data-v-0a633310]::-webkit-scrollbar {
+  width: 0.125rem;
+}
+.history-list[data-v-0a633310]::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.0625rem;
+}
+.history-item.last-item[data-v-0a633310] {
+  margin-bottom: 4.6875rem;
+  /* 为最后一项添加足够的底部边距 */
+}
+.history-bottom-space[data-v-0a633310] {
+  height: 6.25rem;
+  /* 底部空白区域 */
+  width: 100%;
 }

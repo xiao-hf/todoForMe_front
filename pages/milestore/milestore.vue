@@ -153,12 +153,8 @@
                                     <text class="description-text">{{ milestone.desc }}</text>
                                 </view>
                             </view>
-                            <view class="milestone-actions">
-                                <uni-icons type="compose" 
-                                    :size="24" 
-                                    color="#667eea"
-                                    @click="editMilestoneItem(milestone, $event)">
-                                </uni-icons>
+                            <!-- 已完成的里程碑不显示编辑按钮 -->
+                            <view class="milestone-actions" v-if="false">
                             </view>
                         </view>
                         <view class="delete-action" 
@@ -221,12 +217,8 @@
                                     <text class="description-text">{{ milestone.desc }}</text>
                                 </view>
                             </view>
-                            <view class="milestone-actions">
-                                <uni-icons type="compose" 
-                                    :size="24" 
-                                    color="#667eea"
-                                    @click="editMilestoneItem(milestone, $event)">
-                                </uni-icons>
+                            <!-- 已逾期的里程碑不显示编辑按钮 -->
+                            <view class="milestone-actions" v-if="false">
                             </view>
                         </view>
                         <view class="delete-action" 
@@ -544,8 +536,8 @@ const days = computed(() => {
     return dayArray
 })
 
-const showCompletedMilestones = ref(true) // 控制已完成里程碑的显示/隐藏
-const showOverdueMilestones = ref(true) // 控制已逾期里程碑的显示/隐藏
+const showCompletedMilestones = ref(false) // 控制已完成里程碑的显示/隐藏
+const showOverdueMilestones = ref(false) // 控制已逾期里程碑的显示/隐藏
 const expandedItems = ref({}) // 控制里程碑卡片的展开状态
 
 // 滑动删除相关状态
@@ -801,6 +793,33 @@ const toggleExpand = (milestoneId, event) => {
 
 // 切换里程碑完成状态
 const toggleMilestone = async (milestoneId) => {
+    // 找到对应的里程碑
+    const milestone = getMilestoneById(milestoneId)
+    if (!milestone) {
+        console.error('未找到要操作的里程碑:', milestoneId)
+        return
+    }
+    
+    // 如果是已完成的里程碑要设置为未完成，显示确认弹框
+    if (milestone.isComplete) {
+        uni.showModal({
+            title: '确认操作',
+            content: `确定设置"${milestone.title}"为未完成吗？`,
+            confirmColor: '#667eea',
+            success: async (res) => {
+                if (res.confirm) {
+                    await executeToggleMilestone(milestoneId)
+                }
+            }
+        })
+    } else {
+        // 未完成的里程碑直接设置为完成
+        await executeToggleMilestone(milestoneId)
+    }
+}
+
+// 执行里程碑状态切换
+const executeToggleMilestone = async (milestoneId) => {
     try {
         const res = await milestoneApi.completeMilestone(milestoneId)
         if (res.code === 200 || res.code === '200') {

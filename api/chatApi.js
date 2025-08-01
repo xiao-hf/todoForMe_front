@@ -205,19 +205,20 @@ const editChat = async (data) => {
 
 const onChunk = (chunk, currentChatId, messageIndex, chatStore) => {
   try {
-    // 获取当前会话的缓存消息
+    // 获取当前会话的缓存消息副本，不直接使用currentMessages
     const currentMessages = chatStore.getChatMessages(currentChatId)
     
     if (!currentMessages || !currentMessages[messageIndex]) {
-      console.error('未找到消息索引:', messageIndex)
+      console.error('未找到消息索引:', messageIndex, '聊天ID:', currentChatId)
       return
     }
 
+    // 创建一个新的数组副本，避免共享引用
     const updatedMessages = [...currentMessages]
     
     // 处理首次接收数据的状态转换
     if (updatedMessages[messageIndex].status === 'loading') {
-      console.log('消息状态由loading变为incomplete')
+      console.log('消息状态由loading变为incomplete，聊天ID:', currentChatId)
       updatedMessages[messageIndex].status = 'incomplete'
     }
     
@@ -240,7 +241,7 @@ const onChunk = (chunk, currentChatId, messageIndex, chatStore) => {
     
     if (chunk && isIOSDevice) {
       // 修复iOS设备上Markdown显示的问题
-      console.log('iOS设备处理响应块');
+      console.log('iOS设备处理响应块，聊天ID:', currentChatId);
       
       // 确保正确处理Markdown格式，特别是代码块
       if (chunk.includes('```') || updatedMessages[messageIndex].content.includes('```')) {
@@ -291,11 +292,12 @@ const onChunk = (chunk, currentChatId, messageIndex, chatStore) => {
 
     // 只有在确实有内容更新时才更新消息内容
     if (contentUpdated) {
-      // 更新消息内容
+      // 更新消息内容 - 使用聊天ID确保消息被正确存储
+      console.log('更新聊天消息，聊天ID:', currentChatId);
       chatStore.setChatMessages(currentChatId, updatedMessages);
       
       try {
-        // 使用自定义事件通知聊天界面滚动
+        // 使用自定义事件通知聊天界面滚动，并传递chatId确保正确处理
         uni.$emit('chat:newContent', {
           messageIndex,
           currentChatId
@@ -442,7 +444,7 @@ const askStream = async (promptData, needData, onComplete, onError) => {
                       // 发送累积的内容而不是单个块，确保Markdown结构完整
                       lastSentContent = accumulatedContent; // 记录最后发送的内容
                       onChunk(accumulatedContent, currentChatId, messageIndex, chatStore);
-                    }
+              }
                     
                     currentIndex++;
                     

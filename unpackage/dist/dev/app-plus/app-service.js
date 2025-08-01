@@ -695,7 +695,7 @@ if (uni.restoreGlobal) {
     const reg = /^[0-9]*$/g;
     return typeof val === "number" || reg.test(val) ? val + "px" : val;
   };
-  const _sfc_main$h = {
+  const _sfc_main$j = {
     name: "UniIcons",
     emits: ["click"],
     props: {
@@ -749,7 +749,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "text",
       {
@@ -764,8 +764,9 @@ if (uni.restoreGlobal) {
       /* CLASS, STYLE */
     );
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-d31e1c47"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__scopeId", "data-v-d31e1c47"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/uni_modules/uni-icons/components/uni-icons/uni-icons.vue"]]);
   const ON_SHOW = "onShow";
+  const ON_LOAD = "onLoad";
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
       uni.__log__(type, filename, ...args);
@@ -780,6 +781,7 @@ if (uni.restoreGlobal) {
     !vue.isInSSRComponentSetup && vue.injectHook(lifecycle, hook, target);
   };
   const onShow = /* @__PURE__ */ createHook(ON_SHOW);
+  const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
   const baseURL = "http://110.42.210.113:9999";
   const timeout = 3e4;
   const baseURL_ = baseURL;
@@ -2651,7 +2653,7 @@ This will fail in production if not fixed.`);
   const _imports_1 = "/static/3.png";
   const _imports_2 = "/static/sj.png";
   const _imports_3 = "/static/yz.png";
-  const _sfc_main$g = {
+  const _sfc_main$i = {
     __name: "index",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -2730,7 +2732,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "t-login" }, [
       vue.createCommentVNode(" 页面装饰图片 "),
@@ -2885,8 +2887,8 @@ This will fail in production if not fixed.`);
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/index/index.vue"]]);
-  const _sfc_main$f = {
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/index/index.vue"]]);
+  const _sfc_main$h = {
     name: "UniCard",
     emits: ["click"],
     props: {
@@ -2947,7 +2949,7 @@ This will fail in production if not fixed.`);
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -3048,7 +3050,7 @@ This will fail in production if not fixed.`);
       /* CLASS, STYLE */
     );
   }
-  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-ae4bee67"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
+  const __easycom_1 = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__scopeId", "data-v-ae4bee67"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/uni_modules/uni-card/components/uni-card/uni-card.vue"]]);
   const now = () => {
     return request.get("/util/now");
   };
@@ -3093,7 +3095,7 @@ This will fail in production if not fixed.`);
     queryLike,
     statistic
   };
-  const _sfc_main$e = {
+  const _sfc_main$g = {
     __name: "home",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -3114,7 +3116,7 @@ This will fail in production if not fixed.`);
         description: "",
         value: "1"
       });
-      const showCompletedTasks = vue.ref(true);
+      const showCompletedTasks = vue.ref(false);
       const currentTimestamp = vue.ref(Date.now());
       let nextDayTimer = null;
       const swipeStates = vue.ref({});
@@ -3235,7 +3237,7 @@ This will fail in production if not fixed.`);
             });
           }
         } catch (error) {
-          formatAppLog("error", "at pages/home/home.vue:587", "切换任务状态失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:592", "切换任务状态失败:", error);
           uni.showToast({
             title: "操作失败",
             icon: "none"
@@ -3254,7 +3256,7 @@ This will fail in production if not fixed.`);
             });
           }
         } catch (error) {
-          formatAppLog("error", "at pages/home/home.vue:608", "切换收藏状态失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:613", "切换收藏状态失败:", error);
           uni.showToast({
             title: "操作失败",
             icon: "none"
@@ -3322,7 +3324,7 @@ This will fail in production if not fixed.`);
         resetAllSwipeStates();
         const task = getTaskById(taskId);
         if (!task) {
-          formatAppLog("error", "at pages/home/home.vue:696", "未找到要删除的任务:", taskId);
+          formatAppLog("error", "at pages/home/home.vue:701", "未找到要删除的任务:", taskId);
           return;
         }
         uni.showModal({
@@ -3363,7 +3365,7 @@ This will fail in production if not fixed.`);
             title: "删除失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/home/home.vue:743", "删除任务失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:748", "删除任务失败:", error);
         }
       };
       const getTaskById = (taskId) => {
@@ -3413,6 +3415,14 @@ This will fail in production if not fixed.`);
         setTimeout(() => {
           uni.navigateTo({
             url: "/pages/template/template"
+          });
+        }, 300);
+      };
+      const goToTrade = () => {
+        closeMoreMenu();
+        setTimeout(() => {
+          uni.navigateTo({
+            url: "/pages/trade/trade"
           });
         }, 300);
       };
@@ -3539,7 +3549,7 @@ This will fail in production if not fixed.`);
             title: "添加失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/home/home.vue:977", "添加任务失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:992", "添加任务失败:", error);
         }
       };
       const updateTask2 = async () => {
@@ -3580,7 +3590,7 @@ This will fail in production if not fixed.`);
             title: "修改失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/home/home.vue:1024", "修改任务失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1039", "修改任务失败:", error);
         }
       };
       const validateNumber = (e) => {
@@ -3632,7 +3642,7 @@ This will fail in production if not fixed.`);
             currentTimestamp.value = res2.data;
           }
         } catch (error) {
-          formatAppLog("error", "at pages/home/home.vue:1088", "获取服务器时间失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1103", "获取服务器时间失败:", error);
           currentTimestamp.value = Date.now();
         }
       };
@@ -3645,10 +3655,10 @@ This will fail in production if not fixed.`);
         const msUntilTomorrow = tomorrow.getTime() - now2.getTime();
         nextDayTimer = setTimeout(async () => {
           await fetchCurrentTime();
-          formatAppLog("log", "at pages/home/home.vue:1110", "自动更新时间:", new Date(currentTimestamp.value));
+          formatAppLog("log", "at pages/home/home.vue:1125", "自动更新时间:", new Date(currentTimestamp.value));
           setupNextDayTimer();
         }, msUntilTomorrow);
-        formatAppLog("log", "at pages/home/home.vue:1116", `设置每日更新定时器，${Math.round(msUntilTomorrow / 1e3 / 60)} 分钟后触发`);
+        formatAppLog("log", "at pages/home/home.vue:1131", `设置每日更新定时器，${Math.round(msUntilTomorrow / 1e3 / 60)} 分钟后触发`);
       };
       const fetchTaskList = async () => {
         try {
@@ -3657,7 +3667,7 @@ This will fail in production if not fixed.`);
             taskList.value = res2.data.list;
           }
         } catch (error) {
-          formatAppLog("error", "at pages/home/home.vue:1127", "获取任务列表失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1142", "获取任务列表失败:", error);
           uni.showToast({
             title: "获取任务列表失败",
             icon: "none"
@@ -3755,7 +3765,7 @@ This will fail in production if not fixed.`);
             title: "修改失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/home/home.vue:1244", "修改用户信息失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1259", "修改用户信息失败:", error);
         }
       };
       const openCostModal = () => {
@@ -3808,7 +3818,7 @@ This will fail in production if not fixed.`);
             closeCostModal();
             await refreshMoney();
           } else {
-            formatAppLog("log", "at pages/home/home.vue:1310", "xxx", res2);
+            formatAppLog("log", "at pages/home/home.vue:1325", "xxx", res2);
             uni.showToast({
               title: res2.data.message || "消费失败",
               icon: "none"
@@ -3820,7 +3830,7 @@ This will fail in production if not fixed.`);
             title: res.data.message || "消费失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/home/home.vue:1322", "消费失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1337", "消费失败:", error);
         }
       };
       const handleRefresherPulling = (e) => {
@@ -3841,7 +3851,7 @@ This will fail in production if not fixed.`);
             duration: 1500
           });
         } catch (error) {
-          formatAppLog("error", "at pages/home/home.vue:1352", "刷新失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1367", "刷新失败:", error);
           uni.showToast({
             title: "刷新失败，请重试",
             icon: "none",
@@ -3870,7 +3880,7 @@ This will fail in production if not fixed.`);
               try {
                 await userApi.logout();
               } catch (error) {
-                formatAppLog("error", "at pages/home/home.vue:1388", "调用退出登录接口失败:", error);
+                formatAppLog("error", "at pages/home/home.vue:1403", "调用退出登录接口失败:", error);
               } finally {
                 userStore.logout();
                 uni.hideLoading();
@@ -3903,7 +3913,7 @@ This will fail in production if not fixed.`);
             fetchCurrentTime()
           ]);
         } catch (error) {
-          formatAppLog("error", "at pages/home/home.vue:1432", "页面刷新失败:", error);
+          formatAppLog("error", "at pages/home/home.vue:1447", "页面刷新失败:", error);
         }
       });
       vue.onUnmounted(() => {
@@ -3916,7 +3926,7 @@ This will fail in production if not fixed.`);
         return nextDayTimer;
       }, set nextDayTimer(v) {
         nextDayTimer = v;
-      }, swipeStates, touchStartX, touchStartY, currentSwipeTaskId, showMoreMenu, moreMenuClosing, showAIMenu, aiMenuClosing, showUserInfoModal, userInfoModalClosing, showCostModal, costModalClosing, costAmount, focusCostAmount, isRefreshing, refresherTriggered, addBtnTouchStartX, addBtnTouchStartY, addBtnSwipeState, userForm, tempBackgroundUrl, imageLoadError, refreshMoney, refreshUserInfo, currentBackgroundImage, currentDate, showBackgroundImage, formattedMoney, uncompletedTasks, completedTasks, openSettings, openMore, openAIMenu, closeAIMenu, goToChat, goToPersona, goToAISettings, toggleTask, toggleStar, toggleCompletedTasks, handleTouchStart, handleTouchMove, handleTouchEnd, resetSwipeState, resetAllSwipeStates, handleScroll, confirmDelete, executeDelete, getTaskById, closeMoreMenu, goToFavorites, goToStatistics, goToCharts, goToMilestone, goToTemplate, showAddTaskModal, editTaskItem, closeEditTaskModal, handleAddBtnTouchStart, handleAddBtnTouchMove, handleAddBtnTouchEnd, resetAddBtnSwipeState, closeAddTaskModal, addTask: addTask2, updateTask: updateTask2, validateNumber, increaseValue, decreaseValue, validateEditNumber, increaseEditValue, decreaseEditValue, fetchCurrentTime, setupNextDayTimer, fetchTaskList, handleImageError, handleImageLoad, chooseBackgroundImage, removeBackgroundImage, closeUserInfoModal, updateUserInfo, openCostModal, closeCostModal, validateCostAmount, executeCost, handleRefresherPulling, handleRefresherRefresh, handleRefresherRestore, handleLogout, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, onUnmounted: vue.onUnmounted, get onShow() {
+      }, swipeStates, touchStartX, touchStartY, currentSwipeTaskId, showMoreMenu, moreMenuClosing, showAIMenu, aiMenuClosing, showUserInfoModal, userInfoModalClosing, showCostModal, costModalClosing, costAmount, focusCostAmount, isRefreshing, refresherTriggered, addBtnTouchStartX, addBtnTouchStartY, addBtnSwipeState, userForm, tempBackgroundUrl, imageLoadError, refreshMoney, refreshUserInfo, currentBackgroundImage, currentDate, showBackgroundImage, formattedMoney, uncompletedTasks, completedTasks, openSettings, openMore, openAIMenu, closeAIMenu, goToChat, goToPersona, goToAISettings, toggleTask, toggleStar, toggleCompletedTasks, handleTouchStart, handleTouchMove, handleTouchEnd, resetSwipeState, resetAllSwipeStates, handleScroll, confirmDelete, executeDelete, getTaskById, closeMoreMenu, goToFavorites, goToStatistics, goToCharts, goToMilestone, goToTemplate, goToTrade, showAddTaskModal, editTaskItem, closeEditTaskModal, handleAddBtnTouchStart, handleAddBtnTouchMove, handleAddBtnTouchEnd, resetAddBtnSwipeState, closeAddTaskModal, addTask: addTask2, updateTask: updateTask2, validateNumber, increaseValue, decreaseValue, validateEditNumber, increaseEditValue, decreaseEditValue, fetchCurrentTime, setupNextDayTimer, fetchTaskList, handleImageError, handleImageLoad, chooseBackgroundImage, removeBackgroundImage, closeUserInfoModal, updateUserInfo, openCostModal, closeCostModal, validateCostAmount, executeCost, handleRefresherPulling, handleRefresherRefresh, handleRefresherRestore, handleLogout, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, onUnmounted: vue.onUnmounted, get onShow() {
         return onShow;
       }, get utilApi() {
         return utilApi;
@@ -3931,7 +3941,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "home-container" }, [
@@ -4592,6 +4602,17 @@ This will fail in production if not fixed.`);
             vue.createElementVNode("view", { class: "menu-items" }, [
               vue.createElementVNode("view", {
                 class: "menu-item",
+                onClick: $setup.goToTrade
+              }, [
+                vue.createVNode(_component_uni_icons, {
+                  type: "wallet",
+                  size: "20",
+                  color: "#333"
+                }),
+                vue.createElementVNode("text", { class: "menu-text" }, "交易")
+              ]),
+              vue.createElementVNode("view", {
+                class: "menu-item",
                 onClick: $setup.goToFavorites
               }, [
                 vue.createVNode(_component_uni_icons, {
@@ -4772,8 +4793,8 @@ This will fail in production if not fixed.`);
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-07e72d3c"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/home/home.vue"]]);
-  const _sfc_main$d = {
+  const PagesHomeHome = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__scopeId", "data-v-07e72d3c"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/home/home.vue"]]);
+  const _sfc_main$f = {
     __name: "register",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -4980,7 +5001,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "register-container" }, [
       vue.createElementVNode("view", { class: "register-card" }, [
@@ -5214,8 +5235,8 @@ This will fail in production if not fixed.`);
       ])
     ]);
   }
-  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-bac4a35d"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/register/register.vue"]]);
-  const _sfc_main$c = {
+  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__scopeId", "data-v-bac4a35d"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/register/register.vue"]]);
+  const _sfc_main$e = {
     __name: "changePassword",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -5468,7 +5489,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "change-password-container" }, [
       vue.createElementVNode("view", { class: "change-password-card" }, [
@@ -5708,8 +5729,8 @@ This will fail in production if not fixed.`);
       ])
     ]);
   }
-  const PagesChangePasswordChangePassword = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__scopeId", "data-v-5b3c36e6"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/changePassword/changePassword.vue"]]);
-  const _sfc_main$b = {
+  const PagesChangePasswordChangePassword = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__scopeId", "data-v-5b3c36e6"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/changePassword/changePassword.vue"]]);
+  const _sfc_main$d = {
     __name: "statistics",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -5861,7 +5882,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "statistics-container" }, [
@@ -6219,15 +6240,15 @@ This will fail in production if not fixed.`);
       ], 40, ["refresher-triggered"])
     ]);
   }
-  const PagesStatisticsStatistics = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-fc23ec97"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/statistics/statistics.vue"]]);
-  const _sfc_main$a = {};
-  function _sfc_render$9(_ctx, _cache) {
+  const PagesStatisticsStatistics = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__scopeId", "data-v-fc23ec97"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/statistics/statistics.vue"]]);
+  const _sfc_main$c = {};
+  function _sfc_render$b(_ctx, _cache) {
     return vue.openBlock(), vue.createElementBlock("view", null, [
       vue.createElementVNode("h1", null, "账户")
     ]);
   }
-  const PagesAccountAccount = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/account/account.vue"]]);
-  const _sfc_main$9 = {
+  const PagesAccountAccount = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/account/account.vue"]]);
+  const _sfc_main$b = {
     __name: "test",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -6249,7 +6270,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       vue.Fragment,
       null,
@@ -6295,7 +6316,7 @@ This will fail in production if not fixed.`);
       /* STABLE_FRAGMENT */
     );
   }
-  const PagesTestTest = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-727d09f0"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/test/test.vue"]]);
+  const PagesTestTest = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__scopeId", "data-v-727d09f0"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/test/test.vue"]]);
   const queryList$1 = () => {
     return request.get("/templateTask/queryList");
   };
@@ -6318,7 +6339,7 @@ This will fail in production if not fixed.`);
     updateTemplateTask,
     deleteTemplateTask
   };
-  const _sfc_main$8 = {
+  const _sfc_main$a = {
     __name: "template",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -6717,7 +6738,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "template-container" }, [
@@ -7101,8 +7122,8 @@ This will fail in production if not fixed.`);
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesTemplateTemplate = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-754db3c2"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/template/template.vue"]]);
-  const _sfc_main$7 = {
+  const PagesTemplateTemplate = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__scopeId", "data-v-754db3c2"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/template/template.vue"]]);
+  const _sfc_main$9 = {
     __name: "like",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -7354,7 +7375,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "like-container" }, [
@@ -7527,8 +7548,8 @@ This will fail in production if not fixed.`);
       ], 40, ["refresher-triggered"])
     ]);
   }
-  const PagesLikeLike = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-03e14ebf"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/like/like.vue"]]);
-  const _sfc_main$6 = {
+  const PagesLikeLike = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__scopeId", "data-v-03e14ebf"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/like/like.vue"]]);
+  const _sfc_main$8 = {
     __name: "charts",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -7558,7 +7579,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "charts-container" }, [
       vue.createCommentVNode(" 背景图片 "),
@@ -7598,7 +7619,7 @@ This will fail in production if not fixed.`);
       ])
     ]);
   }
-  const PagesChartsCharts = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-fe2da769"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/charts/charts.vue"]]);
+  const PagesChartsCharts = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__scopeId", "data-v-fe2da769"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/charts/charts.vue"]]);
   const queryList = (data) => {
     return request.post("/milestone/list", data);
   };
@@ -7627,7 +7648,7 @@ This will fail in production if not fixed.`);
   };
   const indicatorStyle = "height: 68rpx; border-top: 1rpx solid #e0e0e0; border-bottom: 1rpx solid #e0e0e0;";
   const maskStyle = "background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6)), linear-gradient(0deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6));";
-  const _sfc_main$5 = {
+  const _sfc_main$7 = {
     __name: "milestore",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -7699,8 +7720,8 @@ This will fail in production if not fixed.`);
         }
         return dayArray;
       });
-      const showCompletedMilestones = vue.ref(true);
-      const showOverdueMilestones = vue.ref(true);
+      const showCompletedMilestones = vue.ref(false);
+      const showOverdueMilestones = vue.ref(false);
       const expandedItems = vue.ref({});
       const swipeStates = vue.ref({});
       const touchStartX = vue.ref(0);
@@ -7861,6 +7882,27 @@ This will fail in production if not fixed.`);
         expandedItems.value[milestoneId] = !expandedItems.value[milestoneId];
       };
       const toggleMilestone = async (milestoneId) => {
+        const milestone = getMilestoneById(milestoneId);
+        if (!milestone) {
+          formatAppLog("error", "at pages/milestore/milestore.vue:799", "未找到要操作的里程碑:", milestoneId);
+          return;
+        }
+        if (milestone.isComplete) {
+          uni.showModal({
+            title: "确认操作",
+            content: `确定设置"${milestone.title}"为未完成吗？`,
+            confirmColor: "#667eea",
+            success: async (res2) => {
+              if (res2.confirm) {
+                await executeToggleMilestone(milestoneId);
+              }
+            }
+          });
+        } else {
+          await executeToggleMilestone(milestoneId);
+        }
+      };
+      const executeToggleMilestone = async (milestoneId) => {
         try {
           const res2 = await milestoneApi.completeMilestone(milestoneId);
           if (res2.code === 200 || res2.code === "200") {
@@ -7872,7 +7914,7 @@ This will fail in production if not fixed.`);
             });
           }
         } catch (error) {
-          formatAppLog("error", "at pages/milestore/milestore.vue:816", "切换里程碑状态失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:835", "切换里程碑状态失败:", error);
           uni.showToast({
             title: "操作失败",
             icon: "none"
@@ -7942,7 +7984,7 @@ This will fail in production if not fixed.`);
         resetAllSwipeStates();
         const milestone = getMilestoneById(milestoneId);
         if (!milestone) {
-          formatAppLog("error", "at pages/milestore/milestore.vue:907", "未找到要删除的里程碑:", milestoneId);
+          formatAppLog("error", "at pages/milestore/milestore.vue:926", "未找到要删除的里程碑:", milestoneId);
           return;
         }
         uni.showModal({
@@ -7983,7 +8025,7 @@ This will fail in production if not fixed.`);
             title: "删除失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/milestore/milestore.vue:953", "删除里程碑失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:972", "删除里程碑失败:", error);
         }
       };
       const getMilestoneById = (milestoneId) => {
@@ -8001,7 +8043,7 @@ This will fail in production if not fixed.`);
             };
           }
         } catch (error) {
-          formatAppLog("error", "at pages/milestore/milestore.vue:975", "获取服务器时间失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:994", "获取服务器时间失败:", error);
           const localDate = /* @__PURE__ */ new Date();
           currentDate.value = {
             year: localDate.getFullYear(),
@@ -8268,7 +8310,7 @@ This will fail in production if not fixed.`);
             title: "添加失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/milestore/milestore.vue:1335", "添加里程碑失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:1354", "添加里程碑失败:", error);
         }
       };
       const editMilestoneItem = (milestone, event) => {
@@ -8286,7 +8328,7 @@ This will fail in production if not fixed.`);
           desc: milestone.desc,
           deadline: milestone.deadline || ""
         };
-        formatAppLog("log", "at pages/milestore/milestore.vue:1359", "编辑里程碑日期:", milestone.deadline, formatDate(milestone.deadline));
+        formatAppLog("log", "at pages/milestore/milestore.vue:1378", "编辑里程碑日期:", milestone.deadline, formatDate(milestone.deadline));
         editDeadlineError.value = "";
         showEditModal.value = true;
         setTimeout(() => {
@@ -8376,7 +8418,7 @@ This will fail in production if not fixed.`);
             title: "修改失败",
             icon: "none"
           });
-          formatAppLog("error", "at pages/milestore/milestore.vue:1462", "修改里程碑失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:1481", "修改里程碑失败:", error);
         }
       };
       const handleRefresherPulling = (e) => {
@@ -8392,7 +8434,7 @@ This will fail in production if not fixed.`);
             duration: 1500
           });
         } catch (error) {
-          formatAppLog("error", "at pages/milestore/milestore.vue:1483", "刷新失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:1502", "刷新失败:", error);
           uni.showToast({
             title: "刷新失败，请重试",
             icon: "none",
@@ -8416,7 +8458,7 @@ This will fail in production if not fixed.`);
             milestoneList.value = res2.data;
           }
         } catch (error) {
-          formatAppLog("error", "at pages/milestore/milestore.vue:1511", "获取里程碑列表失败:", error);
+          formatAppLog("error", "at pages/milestore/milestore.vue:1530", "获取里程碑列表失败:", error);
           uni.showToast({
             title: "获取里程碑列表失败",
             icon: "none"
@@ -8429,7 +8471,7 @@ This will fail in production if not fixed.`);
       onShow(() => {
         fetchMilestoneList();
       });
-      const __returned__ = { userStore, milestoneList, newMilestone, showModal, modalClosing, focusTitle, showEditModal, editModalClosing, focusEditTitle, editMilestone, showDateModal, selectedDate, currentDateTarget, deadlineError, editDeadlineError, currentDate, todayDate, pickerValue, indicatorStyle, maskStyle, years, months, days, showCompletedMilestones, showOverdueMilestones, expandedItems, swipeStates, touchStartX, touchStartY, currentSwipeMilestoneId, isRefreshing, refresherTriggered, imageLoadError, currentBackgroundImage, uncompletedMilestones, completedMilestones, overdueMilestones, canSubmit, canEditSubmit, goBack, handleImageError, handleImageLoad, formatDate, getRemainingDays, getDaysOverdue, getRemainingDaysClass, toggleExpand, toggleMilestone, toggleCompletedMilestones, toggleOverdueMilestones, handleTouchStart, handleTouchMove, handleTouchEnd, resetSwipeState, resetAllSwipeStates, handleScroll, confirmDelete, executeDelete, getMilestoneById, getCurrentServerTime, initPickerValue, onPickerChange, updateSelectedDate, showDatePicker, showEditDatePicker, closeDateModal, validateDate, confirmDate, showAddMilestoneModal, closeAddMilestoneModal, validateNumber, increaseValue, decreaseValue, addMilestone: addMilestone2, editMilestoneItem, closeEditMilestoneModal, validateEditNumber, increaseEditValue, decreaseEditValue, updateMilestone: updateMilestone2, handleRefresherPulling, handleRefresherRefresh, handleRefresherRestore, fetchMilestoneList, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, get onShow() {
+      const __returned__ = { userStore, milestoneList, newMilestone, showModal, modalClosing, focusTitle, showEditModal, editModalClosing, focusEditTitle, editMilestone, showDateModal, selectedDate, currentDateTarget, deadlineError, editDeadlineError, currentDate, todayDate, pickerValue, indicatorStyle, maskStyle, years, months, days, showCompletedMilestones, showOverdueMilestones, expandedItems, swipeStates, touchStartX, touchStartY, currentSwipeMilestoneId, isRefreshing, refresherTriggered, imageLoadError, currentBackgroundImage, uncompletedMilestones, completedMilestones, overdueMilestones, canSubmit, canEditSubmit, goBack, handleImageError, handleImageLoad, formatDate, getRemainingDays, getDaysOverdue, getRemainingDaysClass, toggleExpand, toggleMilestone, executeToggleMilestone, toggleCompletedMilestones, toggleOverdueMilestones, handleTouchStart, handleTouchMove, handleTouchEnd, resetSwipeState, resetAllSwipeStates, handleScroll, confirmDelete, executeDelete, getMilestoneById, getCurrentServerTime, initPickerValue, onPickerChange, updateSelectedDate, showDatePicker, showEditDatePicker, closeDateModal, validateDate, confirmDate, showAddMilestoneModal, closeAddMilestoneModal, validateNumber, increaseValue, decreaseValue, addMilestone: addMilestone2, editMilestoneItem, closeEditMilestoneModal, validateEditNumber, increaseEditValue, decreaseEditValue, updateMilestone: updateMilestone2, handleRefresherPulling, handleRefresherRefresh, handleRefresherRestore, fetchMilestoneList, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, get onShow() {
         return onShow;
       }, get milestoneApi() {
         return milestoneApi;
@@ -8442,7 +8484,7 @@ This will fail in production if not fixed.`);
       return __returned__;
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "milestore-container" }, [
@@ -8793,14 +8835,8 @@ This will fail in production if not fixed.`);
                                 /* CLASS */
                               )) : vue.createCommentVNode("v-if", true)
                             ], 8, ["onClick"]),
-                            vue.createElementVNode("view", { class: "milestone-actions" }, [
-                              vue.createVNode(_component_uni_icons, {
-                                type: "compose",
-                                size: 24,
-                                color: "#667eea",
-                                onClick: ($event) => $setup.editMilestoneItem(milestone, $event)
-                              }, null, 8, ["onClick"])
-                            ])
+                            vue.createCommentVNode(" 已完成的里程碑不显示编辑按钮 "),
+                            vue.createCommentVNode("v-if", true)
                           ], 44, ["onTouchstart", "onTouchmove", "onTouchend"]),
                           ((_b = $setup.swipeStates[milestone.id]) == null ? void 0 : _b.showDelete) ? (vue.openBlock(), vue.createElementBlock("view", {
                             key: 0,
@@ -8960,14 +8996,8 @@ This will fail in production if not fixed.`);
                                 /* CLASS */
                               )) : vue.createCommentVNode("v-if", true)
                             ], 8, ["onClick"]),
-                            vue.createElementVNode("view", { class: "milestone-actions" }, [
-                              vue.createVNode(_component_uni_icons, {
-                                type: "compose",
-                                size: 24,
-                                color: "#667eea",
-                                onClick: ($event) => $setup.editMilestoneItem(milestone, $event)
-                              }, null, 8, ["onClick"])
-                            ])
+                            vue.createCommentVNode(" 已逾期的里程碑不显示编辑按钮 "),
+                            vue.createCommentVNode("v-if", true)
                           ], 44, ["onTouchstart", "onTouchmove", "onTouchend"]),
                           ((_b = $setup.swipeStates[milestone.id]) == null ? void 0 : _b.showDelete) ? (vue.openBlock(), vue.createElementBlock("view", {
                             key: 0,
@@ -9453,7 +9483,7 @@ This will fail in production if not fixed.`);
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesMilestoreMilestore = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-b0ad881e"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/milestore/milestore.vue"]]);
+  const PagesMilestoreMilestore = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__scopeId", "data-v-b0ad881e"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/milestore/milestore.vue"]]);
   const useChatStore = defineStore("chat", () => {
     const chatHistory2 = vue.ref([]);
     const chatIndex = vue.ref(0);
@@ -9461,21 +9491,45 @@ This will fail in production if not fixed.`);
     const currentMessages = vue.ref([]);
     const chatMap = vue.ref(/* @__PURE__ */ new Map());
     const setChatMessages = (chatId, messages) => {
-      chatMap.value.set(chatId, messages);
-      if (chatId === chatHistory2.value[chatIndex.value].id) {
-        currentMessages.value = messages;
+      const messagesCopy = JSON.parse(JSON.stringify(messages));
+      chatMap.value.set(chatId, messagesCopy);
+      if (chatId === getCurrentChatId()) {
+        currentMessages.value = JSON.parse(JSON.stringify(messagesCopy));
       }
     };
+    const getCurrentChatId = () => {
+      if (chatHistory2.value && chatHistory2.value.length > 0 && chatIndex.value >= 0 && chatIndex.value < chatHistory2.value.length) {
+        return chatHistory2.value[chatIndex.value].id;
+      }
+      return null;
+    };
     const setCurrentMessages = (chatId) => {
-      currentMessages.value = chatMap.value.get(chatId);
+      const messages = chatMap.value.get(chatId);
+      if (messages) {
+        currentMessages.value = JSON.parse(JSON.stringify(messages));
+      } else {
+        currentMessages.value = [];
+      }
     };
     const getChatMessages = (chatId) => {
-      return chatMap.value.get(chatId) || [];
+      const messages = chatMap.value.get(chatId);
+      return messages ? JSON.parse(JSON.stringify(messages)) : [];
     };
     const addChatMessages = (chatId, messages) => {
-      const haveMessages = chatMap.value.get(chatId);
-      chatMap.value.set(chatId, [haveMessages, ...messages]);
-      formatAppLog("log", "at stores/chat.js:29", chatMap.value.get(chatId));
+      const haveMessages = chatMap.value.get(chatId) || [];
+      const newMessages = [...haveMessages, ...messages];
+      chatMap.value.set(chatId, newMessages);
+      formatAppLog("log", "at stores/chat.js:59", "添加消息后:", chatMap.value.get(chatId));
+      if (chatId === getCurrentChatId()) {
+        currentMessages.value = [...newMessages];
+      }
+    };
+    const clearChatMessages = (chatId) => {
+      chatMap.value.delete(chatId);
+    };
+    const clearAllChatMessages = () => {
+      chatMap.value.clear();
+      currentMessages.value = [];
     };
     return {
       chatHistory: chatHistory2,
@@ -9486,7 +9540,10 @@ This will fail in production if not fixed.`);
       getChatMessages,
       addChatMessages,
       currentMessages,
-      setCurrentMessages
+      setCurrentMessages,
+      getCurrentChatId,
+      clearChatMessages,
+      clearAllChatMessages
     };
   });
   const chatHistory = async () => {
@@ -9575,12 +9632,12 @@ This will fail in production if not fixed.`);
     try {
       const currentMessages = chatStore2.getChatMessages(currentChatId2);
       if (!currentMessages || !currentMessages[messageIndex2]) {
-        formatAppLog("error", "at api/chatApi.js:212", "未找到消息索引:", messageIndex2);
+        formatAppLog("error", "at api/chatApi.js:212", "未找到消息索引:", messageIndex2, "聊天ID:", currentChatId2);
         return;
       }
       const updatedMessages = [...currentMessages];
       if (updatedMessages[messageIndex2].status === "loading") {
-        formatAppLog("log", "at api/chatApi.js:220", "消息状态由loading变为incomplete");
+        formatAppLog("log", "at api/chatApi.js:221", "消息状态由loading变为incomplete，聊天ID:", currentChatId2);
         updatedMessages[messageIndex2].status = "incomplete";
       }
       const isIOSDevice = (() => {
@@ -9588,28 +9645,28 @@ This will fail in production if not fixed.`);
           const systemInfo = uni.getSystemInfoSync();
           return systemInfo.platform && systemInfo.platform.toLowerCase() === "ios";
         } catch (e) {
-          formatAppLog("warn", "at api/chatApi.js:233", "检测iOS设备失败:", e);
+          formatAppLog("warn", "at api/chatApi.js:234", "检测iOS设备失败:", e);
           return false;
         }
       })();
       let contentUpdated = false;
       if (chunk && isIOSDevice) {
-        formatAppLog("log", "at api/chatApi.js:243", "iOS设备处理响应块");
+        formatAppLog("log", "at api/chatApi.js:244", "iOS设备处理响应块，聊天ID:", currentChatId2);
         if (chunk.includes("```") || updatedMessages[messageIndex2].content.includes("```")) {
-          formatAppLog("log", "at api/chatApi.js:247", "检测到可能是Markdown代码块，特殊处理");
+          formatAppLog("log", "at api/chatApi.js:248", "检测到可能是Markdown代码块，特殊处理");
           const existingContent = updatedMessages[messageIndex2].content;
           if (chunk === existingContent) {
-            formatAppLog("log", "at api/chatApi.js:254", "收到完全相同的内容，跳过更新");
+            formatAppLog("log", "at api/chatApi.js:255", "收到完全相同的内容，跳过更新");
             contentUpdated = false;
             return;
           }
           if (existingContent.length > chunk.length * 0.9 && existingContent.includes(chunk.substring(0, Math.floor(chunk.length * 0.9)))) {
-            formatAppLog("log", "at api/chatApi.js:261", "已有内容包含新内容的大部分，可能是重复内容，跳过更新");
+            formatAppLog("log", "at api/chatApi.js:262", "已有内容包含新内容的大部分，可能是重复内容，跳过更新");
             contentUpdated = false;
             return;
           }
           if (chunk.length > existingContent.length && chunk.includes(existingContent.substring(0, Math.floor(existingContent.length * 0.9)))) {
-            formatAppLog("log", "at api/chatApi.js:268", "新内容包含已有内容且更长，使用新内容替换");
+            formatAppLog("log", "at api/chatApi.js:269", "新内容包含已有内容且更长，使用新内容替换");
             updatedMessages[messageIndex2].content = chunk;
             contentUpdated = true;
           } else {
@@ -9629,6 +9686,7 @@ This will fail in production if not fixed.`);
         contentUpdated = true;
       }
       if (contentUpdated) {
+        formatAppLog("log", "at api/chatApi.js:296", "更新聊天消息，聊天ID:", currentChatId2);
         chatStore2.setChatMessages(currentChatId2, updatedMessages);
         try {
           uni.$emit("chat:newContent", {
@@ -9636,11 +9694,11 @@ This will fail in production if not fixed.`);
             currentChatId: currentChatId2
           });
         } catch (scrollError) {
-          formatAppLog("error", "at api/chatApi.js:304", "尝试触发滚动事件失败:", scrollError);
+          formatAppLog("error", "at api/chatApi.js:306", "尝试触发滚动事件失败:", scrollError);
         }
       }
     } catch (error) {
-      formatAppLog("error", "at api/chatApi.js:308", "处理数据块错误:", error);
+      formatAppLog("error", "at api/chatApi.js:310", "处理数据块错误:", error);
     }
   };
   const askStream = async (promptData, needData, onComplete, onError) => {
@@ -9654,15 +9712,15 @@ This will fail in production if not fixed.`);
         systemInfo = uni.getSystemInfoSync();
         return systemInfo.platform && systemInfo.platform.toLowerCase() === "ios";
       } catch (e) {
-        formatAppLog("error", "at api/chatApi.js:328", "检测iOS设备失败:", e);
+        formatAppLog("error", "at api/chatApi.js:330", "检测iOS设备失败:", e);
         return false;
       }
     };
     try {
-      formatAppLog("log", "at api/chatApi.js:334", "开始流式请求，设备类型:", isIOS() ? "iOS" : "其他");
-      formatAppLog("log", "at api/chatApi.js:335", "请求数据:", promptData);
+      formatAppLog("log", "at api/chatApi.js:336", "开始流式请求，设备类型:", isIOS() ? "iOS" : "其他");
+      formatAppLog("log", "at api/chatApi.js:337", "请求数据:", promptData);
       if (isIOS()) {
-        formatAppLog("log", "at api/chatApi.js:339", "检测到iOS设备，使用uni.request处理请求");
+        formatAppLog("log", "at api/chatApi.js:341", "检测到iOS设备，使用uni.request处理请求");
         return new Promise((resolve2, reject) => {
           let isCompleted = false;
           uni.request({
@@ -9683,20 +9741,20 @@ This will fail in production if not fixed.`);
               if (isCompleted)
                 return;
               isCompleted = true;
-              formatAppLog("log", "at api/chatApi.js:365", "uni.request完成，状态码:", response.statusCode);
+              formatAppLog("log", "at api/chatApi.js:367", "uni.request完成，状态码:", response.statusCode);
               if (response.statusCode >= 200 && response.statusCode < 300) {
-                formatAppLog("log", "at api/chatApi.js:368", "iOS请求成功完成");
+                formatAppLog("log", "at api/chatApi.js:370", "iOS请求成功完成");
                 if (response.data) {
-                  formatAppLog("log", "at api/chatApi.js:372", "iOS响应数据长度:", typeof response.data === "string" ? response.data.length : "non-string");
+                  formatAppLog("log", "at api/chatApi.js:374", "iOS响应数据长度:", typeof response.data === "string" ? response.data.length : "non-string");
                   const fullResponse = response.data;
                   let sentences = [];
                   if (fullResponse.includes("```")) {
-                    formatAppLog("log", "at api/chatApi.js:382", "检测到Markdown代码块，特殊处理分割");
+                    formatAppLog("log", "at api/chatApi.js:384", "检测到Markdown代码块，特殊处理分割");
                     const isComplexMarkdown = (fullResponse.match(/```/g) || []).length > 2 || // 超过一个代码块
                     fullResponse.includes("##") || // 包含二级及以上标题
                     ((_a2 = fullResponse.match(/\n\n/g)) == null ? void 0 : _a2.length) > 3;
                     if (isComplexMarkdown) {
-                      formatAppLog("log", "at api/chatApi.js:393", "检测到复杂Markdown文档，减少分割");
+                      formatAppLog("log", "at api/chatApi.js:395", "检测到复杂Markdown文档，减少分割");
                       sentences.push(fullResponse);
                     } else {
                       const parts = fullResponse.split(new RegExp("(?<=\\n\\n)")).filter((part) => part.trim());
@@ -9721,7 +9779,7 @@ This will fail in production if not fixed.`);
                       const newAccumulatedContent = accumulatedContent + chunk;
                       let shouldSend = true;
                       if (lastSentContent === newAccumulatedContent) {
-                        formatAppLog("log", "at api/chatApi.js:434", "跳过完全重复的内容");
+                        formatAppLog("log", "at api/chatApi.js:436", "跳过完全重复的内容");
                         shouldSend = false;
                       }
                       accumulatedContent = newAccumulatedContent;
@@ -9742,7 +9800,7 @@ This will fail in production if not fixed.`);
                   resolve2();
                 }
               } else {
-                formatAppLog("error", "at api/chatApi.js:465", "请求失败，状态码:", response.statusCode, "响应:", response.data);
+                formatAppLog("error", "at api/chatApi.js:467", "请求失败，状态码:", response.statusCode, "响应:", response.data);
                 const error = new Error(`HTTP错误: ${response.statusCode}`);
                 onError == null ? void 0 : onError(error);
                 reject(error);
@@ -9752,25 +9810,25 @@ This will fail in production if not fixed.`);
               if (isCompleted)
                 return;
               isCompleted = true;
-              formatAppLog("error", "at api/chatApi.js:475", "uni.request请求错误:", error);
+              formatAppLog("error", "at api/chatApi.js:477", "uni.request请求错误:", error);
               onError == null ? void 0 : onError(new Error("网络请求失败"));
               reject(new Error("网络请求失败"));
             },
             complete: () => {
-              formatAppLog("log", "at api/chatApi.js:480", "uni.request请求完成");
+              formatAppLog("log", "at api/chatApi.js:482", "uni.request请求完成");
             }
           });
           return {
             cancel: () => {
               if (!isCompleted) {
-                formatAppLog("log", "at api/chatApi.js:488", "取消iOS请求");
+                formatAppLog("log", "at api/chatApi.js:490", "取消iOS请求");
                 isCompleted = true;
               }
             }
           };
         });
       } else {
-        formatAppLog("log", "at api/chatApi.js:496", "非iOS设备，使用标准fetch流式处理");
+        formatAppLog("log", "at api/chatApi.js:498", "非iOS设备，使用标准fetch流式处理");
         let requestBody;
         let contentType = "application/json";
         try {
@@ -9794,7 +9852,7 @@ This will fail in production if not fixed.`);
             });
           }
         } catch (formDataError) {
-          formatAppLog("warn", "at api/chatApi.js:529", "FormData创建失败，使用JSON格式:", formDataError);
+          formatAppLog("warn", "at api/chatApi.js:531", "FormData创建失败，使用JSON格式:", formDataError);
           requestBody = JSON.stringify({
             prompt: promptData.prompt || promptData,
             chatId: promptData.chatId || ""
@@ -9812,10 +9870,10 @@ This will fail in production if not fixed.`);
           headers,
           body: requestBody
         });
-        formatAppLog("log", "at api/chatApi.js:554", "fetch响应状态:", response.status, response.ok);
+        formatAppLog("log", "at api/chatApi.js:556", "fetch响应状态:", response.status, response.ok);
         if (!response.ok) {
           const errorText = await response.text();
-          formatAppLog("error", "at api/chatApi.js:558", "fetch请求失败:", response.status, errorText);
+          formatAppLog("error", "at api/chatApi.js:560", "fetch请求失败:", response.status, errorText);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         reader = response.body.getReader();
@@ -9823,18 +9881,18 @@ This will fail in production if not fixed.`);
         while (true) {
           const { done, value } = await reader.read();
           if (done) {
-            formatAppLog("log", "at api/chatApi.js:569", "fetch流式读取完成");
+            formatAppLog("log", "at api/chatApi.js:571", "fetch流式读取完成");
             onComplete == null ? void 0 : onComplete();
             break;
           }
           const chunk = decoder.decode(value, { stream: true });
-          formatAppLog("log", "at api/chatApi.js:575", "fetch接收数据块:", chunk.length, "字符");
+          formatAppLog("log", "at api/chatApi.js:577", "fetch接收数据块:", chunk.length, "字符");
           onChunk(chunk, currentChatId2, messageIndex2, chatStore2);
         }
         return {
           cancel: () => {
             if (reader) {
-              formatAppLog("log", "at api/chatApi.js:582", "取消fetch流式读取");
+              formatAppLog("log", "at api/chatApi.js:584", "取消fetch流式读取");
               reader.cancel();
               reader = null;
             }
@@ -9842,7 +9900,7 @@ This will fail in production if not fixed.`);
         };
       }
     } catch (error) {
-      formatAppLog("error", "at api/chatApi.js:590", "流式请求错误:", error);
+      formatAppLog("error", "at api/chatApi.js:592", "流式请求错误:", error);
       if (error.name === "AbortError") {
         onError == null ? void 0 : onError(new Error("传输已停止"));
       } else {
@@ -9870,20 +9928,20 @@ This will fail in production if not fixed.`);
         systemInfo = uni.getSystemInfoSync();
         return systemInfo.platform && systemInfo.platform.toLowerCase() === "ios";
       } catch (e) {
-        formatAppLog("error", "at api/chatApi.js:626", "检测iOS设备失败:", e);
+        formatAppLog("error", "at api/chatApi.js:628", "检测iOS设备失败:", e);
         return false;
       }
     };
     const start = async () => {
       if (isActive) {
-        formatAppLog("warn", "at api/chatApi.js:633", "流式请求已在进行中");
+        formatAppLog("warn", "at api/chatApi.js:635", "流式请求已在进行中");
         return;
       }
       isActive = true;
       abortController = isIOS() ? null : new AbortController();
       onStart == null ? void 0 : onStart();
       try {
-        formatAppLog("log", "at api/chatApi.js:642", "开始高级流式请求，设备类型:", isIOS() ? "iOS" : "其他");
+        formatAppLog("log", "at api/chatApi.js:644", "开始高级流式请求，设备类型:", isIOS() ? "iOS" : "其他");
         let formData;
         let contentType = "application/json";
         try {
@@ -9900,21 +9958,21 @@ This will fail in production if not fixed.`);
             }
             contentType = "multipart/form-data";
           } else {
-            formatAppLog("warn", "at api/chatApi.js:665", "FormData不可用，使用JSON格式发送请求");
+            formatAppLog("warn", "at api/chatApi.js:667", "FormData不可用，使用JSON格式发送请求");
             formData = JSON.stringify({
               prompt: promptData.prompt || promptData,
               chatId: promptData.chatId || ""
             });
           }
         } catch (formDataError) {
-          formatAppLog("warn", "at api/chatApi.js:672", "FormData创建失败，使用JSON格式:", formDataError);
+          formatAppLog("warn", "at api/chatApi.js:674", "FormData创建失败，使用JSON格式:", formDataError);
           formData = JSON.stringify({
             prompt: promptData.prompt || promptData,
             chatId: promptData.chatId || ""
           });
         }
         if (isIOS()) {
-          formatAppLog("log", "at api/chatApi.js:681", "检测到iOS设备，使用uni.request处理请求");
+          formatAppLog("log", "at api/chatApi.js:683", "检测到iOS设备，使用uni.request处理请求");
           try {
             uni.request({
               url: `${baseURL_}/ai/askStream`,
@@ -9933,20 +9991,20 @@ This will fail in production if not fixed.`);
                 var _a2;
                 if (!isActive)
                   return;
-                formatAppLog("log", "at api/chatApi.js:703", "uni.request完成，状态码:", response.statusCode);
+                formatAppLog("log", "at api/chatApi.js:705", "uni.request完成，状态码:", response.statusCode);
                 if (response.statusCode >= 200 && response.statusCode < 300) {
-                  formatAppLog("log", "at api/chatApi.js:706", "iOS请求成功完成");
+                  formatAppLog("log", "at api/chatApi.js:708", "iOS请求成功完成");
                   if (response.data) {
-                    formatAppLog("log", "at api/chatApi.js:710", "iOS响应数据长度:", typeof response.data === "string" ? response.data.length : "non-string");
+                    formatAppLog("log", "at api/chatApi.js:712", "iOS响应数据长度:", typeof response.data === "string" ? response.data.length : "non-string");
                     const fullResponse = response.data;
                     let sentences = [];
                     if (fullResponse.includes("```")) {
-                      formatAppLog("log", "at api/chatApi.js:720", "检测到Markdown代码块，特殊处理分割");
+                      formatAppLog("log", "at api/chatApi.js:722", "检测到Markdown代码块，特殊处理分割");
                       const isComplexMarkdown = (fullResponse.match(/```/g) || []).length > 2 || // 超过一个代码块
                       fullResponse.includes("##") || // 包含二级及以上标题
                       ((_a2 = fullResponse.match(/\n\n/g)) == null ? void 0 : _a2.length) > 3;
                       if (isComplexMarkdown) {
-                        formatAppLog("log", "at api/chatApi.js:731", "检测到复杂Markdown文档，减少分割");
+                        formatAppLog("log", "at api/chatApi.js:733", "检测到复杂Markdown文档，减少分割");
                         sentences.push(fullResponse);
                       } else {
                         const parts = fullResponse.split(new RegExp("(?<=\\n\\n)")).filter((part) => part.trim());
@@ -9971,7 +10029,7 @@ This will fail in production if not fixed.`);
                         const newAccumulatedContent = accumulatedContent + chunk;
                         let shouldSend = true;
                         if (lastSentContent === newAccumulatedContent) {
-                          formatAppLog("log", "at api/chatApi.js:772", "跳过完全重复的内容");
+                          formatAppLog("log", "at api/chatApi.js:774", "跳过完全重复的内容");
                           shouldSend = false;
                         }
                         accumulatedContent = newAccumulatedContent;
@@ -9991,31 +10049,31 @@ This will fail in production if not fixed.`);
                     onComplete == null ? void 0 : onComplete();
                   }
                 } else {
-                  formatAppLog("error", "at api/chatApi.js:802", "请求失败，状态码:", response.statusCode, "响应:", response.data);
+                  formatAppLog("error", "at api/chatApi.js:804", "请求失败，状态码:", response.statusCode, "响应:", response.data);
                   onError == null ? void 0 : onError(new Error(`HTTP错误: ${response.statusCode}`));
                 }
               },
               fail: (error) => {
                 if (!isActive)
                   return;
-                formatAppLog("error", "at api/chatApi.js:809", "uni.request请求错误:", error);
+                formatAppLog("error", "at api/chatApi.js:811", "uni.request请求错误:", error);
                 onError == null ? void 0 : onError(new Error("网络请求失败"));
               },
               complete: () => {
-                formatAppLog("log", "at api/chatApi.js:813", "uni.request请求完成");
+                formatAppLog("log", "at api/chatApi.js:815", "uni.request请求完成");
                 isActive = false;
                 xhr = null;
               }
             });
-            formatAppLog("log", "at api/chatApi.js:819", "iOS uni.request已发送");
+            formatAppLog("log", "at api/chatApi.js:821", "iOS uni.request已发送");
           } catch (sendError) {
-            formatAppLog("error", "at api/chatApi.js:821", "发送uni.request请求失败:", sendError);
+            formatAppLog("error", "at api/chatApi.js:823", "发送uni.request请求失败:", sendError);
             onError == null ? void 0 : onError(sendError);
             isActive = false;
             xhr = null;
           }
         } else {
-          formatAppLog("log", "at api/chatApi.js:827", "非iOS设备，使用标准fetch流式处理");
+          formatAppLog("log", "at api/chatApi.js:829", "非iOS设备，使用标准fetch流式处理");
           const response = await fetch(`${baseURL_}/ai/askStream`, {
             method: "POST",
             headers: {
@@ -10025,10 +10083,10 @@ This will fail in production if not fixed.`);
             body: formData,
             signal: abortController.signal
           });
-          formatAppLog("log", "at api/chatApi.js:841", "fetch响应状态:", response.status, response.ok);
+          formatAppLog("log", "at api/chatApi.js:843", "fetch响应状态:", response.status, response.ok);
           if (!response.ok) {
             const errorText = await response.text();
-            formatAppLog("error", "at api/chatApi.js:845", "fetch请求失败:", response.status, errorText);
+            formatAppLog("error", "at api/chatApi.js:847", "fetch请求失败:", response.status, errorText);
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           reader = response.body.getReader();
@@ -10036,19 +10094,19 @@ This will fail in production if not fixed.`);
           while (isActive && !abortController.signal.aborted) {
             const { done, value } = await reader.read();
             if (done) {
-              formatAppLog("log", "at api/chatApi.js:856", "fetch高级流式读取完成");
+              formatAppLog("log", "at api/chatApi.js:858", "fetch高级流式读取完成");
               onComplete == null ? void 0 : onComplete();
               break;
             }
             const chunk = decoder.decode(value, { stream: true });
-            formatAppLog("log", "at api/chatApi.js:862", "fetch高级接收数据块:", chunk.length, "字符");
+            formatAppLog("log", "at api/chatApi.js:864", "fetch高级接收数据块:", chunk.length, "字符");
             onChunk2 == null ? void 0 : onChunk2(chunk);
           }
         }
       } catch (error) {
-        formatAppLog("error", "at api/chatApi.js:867", "流式传输错误:", error);
+        formatAppLog("error", "at api/chatApi.js:869", "流式传输错误:", error);
         if (error.name === "AbortError") {
-          formatAppLog("log", "at api/chatApi.js:870", "传输已停止");
+          formatAppLog("log", "at api/chatApi.js:872", "传输已停止");
         } else {
           onError == null ? void 0 : onError(error);
         }
@@ -10060,12 +10118,12 @@ This will fail in production if not fixed.`);
     };
     const cancel = () => {
       if (isIOS() && xhr) {
-        formatAppLog("log", "at api/chatApi.js:883", "取消iOS高级XHR请求");
+        formatAppLog("log", "at api/chatApi.js:885", "取消iOS高级XHR请求");
         xhr.abort();
         xhr = null;
       } else {
         if (abortController) {
-          formatAppLog("log", "at api/chatApi.js:888", "取消fetch高级流式读取");
+          formatAppLog("log", "at api/chatApi.js:890", "取消fetch高级流式读取");
           abortController.abort();
         }
         if (reader) {
@@ -10095,7 +10153,7 @@ This will fail in production if not fixed.`);
     return res2;
   };
   const deleteRole = async (roleId) => {
-    formatAppLog("log", "at api/chatApi.js:930", "删除角色API被调用，角色ID:", roleId);
+    formatAppLog("log", "at api/chatApi.js:932", "删除角色API被调用，角色ID:", roleId);
     const res2 = (await request.delete(`/ai/delRole/${roleId}`)).data;
     return res2;
   };
@@ -12265,7 +12323,7 @@ ${text}</tr>
   const sidebarWidth = 500;
   const minSwipeDistance = 150;
   const minSwipeSpeed = 2;
-  const _sfc_main$4 = {
+  const _sfc_main$6 = {
     __name: "chat",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -12273,7 +12331,7 @@ ${text}</tr>
       try {
         DOMPurify = require("dompurify");
       } catch (error) {
-        formatAppLog("warn", "at pages/chat/chat.vue:286", "DOMPurify不可用，使用简单的HTML清理函数");
+        formatAppLog("warn", "at pages/chat/chat.vue:297", "DOMPurify不可用，使用简单的HTML清理函数");
         DOMPurify = {
           sanitize: (html2) => {
             return html2.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "").replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, "").replace(/javascript:/gi, "").replace(/on\w+\s*=/gi, "").replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, "").replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, "");
@@ -12285,7 +12343,7 @@ ${text}</tr>
       const aiAvatar = vue.ref("/static/logo.png");
       const chatStore2 = useChatStore();
       vue.onErrorCaptured((err, instance, info) => {
-        formatAppLog("error", "at pages/chat/chat.vue:309", "捕获到组件错误:", err, info);
+        formatAppLog("error", "at pages/chat/chat.vue:320", "捕获到组件错误:", err, info);
         return true;
       });
       const currentRoleName = vue.ref("加载中...");
@@ -12317,20 +12375,20 @@ ${text}</tr>
       const imageLoadError = vue.ref(false);
       const handleImageError = () => {
         imageLoadError.value = true;
-        formatAppLog("error", "at pages/chat/chat.vue:360", "背景图片加载失败");
+        formatAppLog("error", "at pages/chat/chat.vue:371", "背景图片加载失败");
       };
       const handleImageLoad = () => {
         imageLoadError.value = false;
       };
       const handleRoleAvatarError = () => {
-        formatAppLog("error", "at pages/chat/chat.vue:370", "角色头像加载失败");
+        formatAppLog("error", "at pages/chat/chat.vue:381", "角色头像加载失败");
         currentRoleAvatar.value = "";
       };
       const handleRoleItemAvatarError = (index) => {
-        formatAppLog("error", "at pages/chat/chat.vue:376", `人设项头像加载失败，索引: ${index}`);
+        formatAppLog("error", "at pages/chat/chat.vue:387", `人设项头像加载失败，索引: ${index}`);
       };
       const handleSelectedAvatarError = () => {
-        formatAppLog("error", "at pages/chat/chat.vue:383", "选中人设头像加载失败");
+        formatAppLog("error", "at pages/chat/chat.vue:394", "选中人设头像加载失败");
         selectedRoleAvatar.value = "";
       };
       const getCurrentRoleInfo = () => {
@@ -12341,7 +12399,7 @@ ${text}</tr>
             return;
           }
           if (chatStore2.chatIndex < 0 || chatStore2.chatIndex >= chatStore2.chatHistory.length) {
-            formatAppLog("error", "at pages/chat/chat.vue:397", "无效的聊天索引:", chatStore2.chatIndex);
+            formatAppLog("error", "at pages/chat/chat.vue:408", "无效的聊天索引:", chatStore2.chatIndex);
             currentRoleName.value = "";
             currentRoleAvatar.value = "";
             return;
@@ -12355,7 +12413,7 @@ ${text}</tr>
           const roleId = currentChat.roleId;
           currentRoleId.value = roleId;
           if (!rolesList.value || !rolesList.value.length) {
-            formatAppLog("log", "at pages/chat/chat.vue:415", "角色列表为空，使用聊天名称");
+            formatAppLog("log", "at pages/chat/chat.vue:426", "角色列表为空，使用聊天名称");
             currentRoleName.value = currentChat.chatName || "未命名对话";
             currentRoleAvatar.value = "";
             return;
@@ -12364,14 +12422,14 @@ ${text}</tr>
           if (role) {
             currentRoleName.value = role.name || "未命名角色";
             currentRoleAvatar.value = role.avatar || "";
-            formatAppLog("log", "at pages/chat/chat.vue:425", "当前角色信息:", role.name, role.avatar);
+            formatAppLog("log", "at pages/chat/chat.vue:436", "当前角色信息:", role.name, role.avatar);
           } else {
             currentRoleName.value = currentChat.chatName || "未命名对话";
             currentRoleAvatar.value = "";
-            formatAppLog("log", "at pages/chat/chat.vue:430", "未找到角色信息,使用聊天名称:", currentRoleName.value);
+            formatAppLog("log", "at pages/chat/chat.vue:441", "未找到角色信息,使用聊天名称:", currentRoleName.value);
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:433", "获取角色信息失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:444", "获取角色信息失败:", error);
           currentRoleName.value = "助手";
           currentRoleAvatar.value = "";
         }
@@ -12383,12 +12441,12 @@ ${text}</tr>
       const loadChatMessages = async (chatId) => {
         try {
           if (!chatId) {
-            formatAppLog("error", "at pages/chat/chat.vue:451", "无效的聊天ID");
+            formatAppLog("error", "at pages/chat/chat.vue:462", "无效的聊天ID");
             return [];
           }
           const res2 = await chatApi.chatMessages(chatId);
           if (res2) {
-            formatAppLog("log", "at pages/chat/chat.vue:458", "收到的消息:", res2);
+            formatAppLog("log", "at pages/chat/chat.vue:469", "收到的消息:", res2);
             let formattedMessages = res2.map((item) => ({
               content: item.text,
               isUser: item.messageType === "USER",
@@ -12415,11 +12473,11 @@ ${text}</tr>
                   uniqueMessages.push(msg);
                   seenContents.add(msg.content);
                 } else {
-                  formatAppLog("log", "at pages/chat/chat.vue:496", "跳过重复或类似消息:", msg.content.substring(0, 50) + "...");
+                  formatAppLog("log", "at pages/chat/chat.vue:507", "跳过重复或类似消息:", msg.content.substring(0, 50) + "...");
                 }
               }
             });
-            formatAppLog("log", "at pages/chat/chat.vue:501", "去重后的消息:", uniqueMessages.length, "(原始:", formattedMessages.length, ")");
+            formatAppLog("log", "at pages/chat/chat.vue:512", "去重后的消息:", uniqueMessages.length, "(原始:", formattedMessages.length, ")");
             const messagesCopy = [...uniqueMessages];
             chatStore2.setChatMessages(chatId, messagesCopy);
             messages.value = [...messagesCopy];
@@ -12428,7 +12486,7 @@ ${text}</tr>
           }
           return [];
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:519", "获取聊天消息失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:530", "获取聊天消息失败:", error);
           uni.showToast({
             title: "获取聊天记录失败",
             icon: "none"
@@ -12438,11 +12496,11 @@ ${text}</tr>
       };
       const sendMessage = async () => {
         if (!inputMessage.value.trim() || isWaitingResponse.value) {
-          formatAppLog("log", "at pages/chat/chat.vue:532", "消息为空或正在等待响应，不发送");
+          formatAppLog("log", "at pages/chat/chat.vue:543", "消息为空或正在等待响应，不发送");
           return;
         }
-        formatAppLog("log", "at pages/chat/chat.vue:535", "准备发送消息:", inputMessage.value);
-        formatAppLog("log", "at pages/chat/chat.vue:536", "聊天历史:", chatStore2.chatHistory);
+        formatAppLog("log", "at pages/chat/chat.vue:546", "准备发送消息:", inputMessage.value);
+        formatAppLog("log", "at pages/chat/chat.vue:547", "聊天历史:", chatStore2.chatHistory);
         if (!chatStore2.chatHistory.length || chatStore2.chatIndex < 0 || chatStore2.chatIndex >= chatStore2.chatHistory.length) {
           uni.showToast({
             title: "请先创建会话",
@@ -12458,9 +12516,10 @@ ${text}</tr>
           time: formatTime(/* @__PURE__ */ new Date()),
           status: "complete"
         };
-        const updatedMessages = [...chatStore2.currentMessages, userMsg];
+        const currentMessages = chatStore2.getChatMessages(chatId);
+        const updatedMessages = [...currentMessages, userMsg];
+        formatAppLog("log", "at pages/chat/chat.vue:578", "发送用户消息，更新会话消息，会话ID:", chatId);
         chatStore2.setChatMessages(chatId, updatedMessages);
-        chatStore2.currentMessages = updatedMessages;
         const userInput = inputMessage.value;
         inputMessage.value = "";
         scrollToBottom();
@@ -12473,9 +12532,10 @@ ${text}</tr>
           time: formatTime(/* @__PURE__ */ new Date()),
           status: "loading"
         };
-        const messagesWithAiResponse = [...updatedMessages, aiMsg];
+        const latestMessages = chatStore2.getChatMessages(chatId);
+        const messagesWithAiResponse = [...latestMessages, aiMsg];
+        formatAppLog("log", "at pages/chat/chat.vue:608", "添加AI占位消息，更新会话消息，会话ID:", chatId);
         chatStore2.setChatMessages(chatId, messagesWithAiResponse);
-        chatStore2.currentMessages = messagesWithAiResponse;
         const aiMsgIndex = chatStore2.currentMessages.length - 1;
         scrollToBottom();
         setTimeout(() => {
@@ -12494,13 +12554,14 @@ ${text}</tr>
             promptData,
             needData,
             () => {
-              formatAppLog("log", "at pages/chat/chat.vue:625", "聊天完成");
+              formatAppLog("log", "at pages/chat/chat.vue:640", "聊天完成");
               try {
-                if (chatStore2.currentMessages[aiMsgIndex]) {
-                  const currentMsgs = [...chatStore2.currentMessages];
-                  currentMsgs[aiMsgIndex].status = "complete";
-                  chatStore2.setChatMessages(chatId, currentMsgs);
-                  chatStore2.currentMessages = currentMsgs;
+                const currentMsgs = chatStore2.getChatMessages(chatId);
+                if (currentMsgs && currentMsgs[aiMsgIndex]) {
+                  const updatedMsgs = [...currentMsgs];
+                  updatedMsgs[aiMsgIndex].status = "complete";
+                  formatAppLog("log", "at pages/chat/chat.vue:650", "聊天完成，更新消息状态，会话ID:", chatId);
+                  chatStore2.setChatMessages(chatId, updatedMsgs);
                   vue.nextTick(() => {
                     scrollToBottom();
                     setTimeout(() => {
@@ -12513,52 +12574,54 @@ ${text}</tr>
                 }
                 const currentChat = chatStore2.chatHistory[chatStore2.chatIndex];
                 if (currentChat && (!currentChat.chatName || currentChat.chatName.trim() === "")) {
-                  formatAppLog("log", "at pages/chat/chat.vue:653", "当前会话名称为空，刷新聊天历史");
+                  formatAppLog("log", "at pages/chat/chat.vue:670", "当前会话名称为空，刷新聊天历史");
                   refreshHistoryChat().then(() => {
-                    formatAppLog("log", "at pages/chat/chat.vue:655", "聊天历史已刷新");
+                    formatAppLog("log", "at pages/chat/chat.vue:672", "聊天历史已刷新");
                   }).catch((err) => {
-                    formatAppLog("error", "at pages/chat/chat.vue:657", "刷新聊天历史失败:", err);
+                    formatAppLog("error", "at pages/chat/chat.vue:674", "刷新聊天历史失败:", err);
                   });
                 }
               } catch (completionError) {
-                formatAppLog("error", "at pages/chat/chat.vue:661", "完成回调处理失败:", completionError);
+                formatAppLog("error", "at pages/chat/chat.vue:678", "完成回调处理失败:", completionError);
               } finally {
                 isWaitingResponse.value = false;
               }
             },
             (error) => {
-              formatAppLog("error", "at pages/chat/chat.vue:669", "聊天请求失败:", error);
+              formatAppLog("error", "at pages/chat/chat.vue:686", "聊天请求失败:", error);
               try {
-                if (chatStore2.currentMessages && chatStore2.currentMessages[aiMsgIndex]) {
-                  const currentMsgs = [...chatStore2.currentMessages];
-                  currentMsgs[aiMsgIndex].content = "抱歉，请求失败";
-                  currentMsgs[aiMsgIndex].status = "error";
-                  chatStore2.setChatMessages(chatId, currentMsgs);
-                  chatStore2.currentMessages = currentMsgs;
+                const currentMsgs = chatStore2.getChatMessages(chatId);
+                if (currentMsgs && currentMsgs[aiMsgIndex]) {
+                  const updatedMsgs = [...currentMsgs];
+                  updatedMsgs[aiMsgIndex].content = "抱歉，请求失败";
+                  updatedMsgs[aiMsgIndex].status = "error";
+                  formatAppLog("log", "at pages/chat/chat.vue:697", "聊天请求失败，更新错误状态，会话ID:", chatId);
+                  chatStore2.setChatMessages(chatId, updatedMsgs);
                 }
               } catch (errorHandlingError) {
-                formatAppLog("error", "at pages/chat/chat.vue:682", "错误处理失败:", errorHandlingError);
+                formatAppLog("error", "at pages/chat/chat.vue:701", "错误处理失败:", errorHandlingError);
               } finally {
                 isWaitingResponse.value = false;
               }
             }
           );
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:690", "发送消息失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:709", "发送消息失败:", error);
           uni.showToast({
             title: "发送失败",
             icon: "none"
           });
           try {
-            if (chatStore2.currentMessages && chatStore2.currentMessages[aiMsgIndex]) {
-              const currentMsgs = [...chatStore2.currentMessages];
-              currentMsgs[aiMsgIndex].content = "发送失败，请重试";
-              currentMsgs[aiMsgIndex].status = "error";
-              chatStore2.setChatMessages(chatId, currentMsgs);
-              chatStore2.currentMessages = currentMsgs;
+            const currentMsgs = chatStore2.getChatMessages(chatId);
+            if (currentMsgs && currentMsgs[aiMsgIndex]) {
+              const updatedMsgs = [...currentMsgs];
+              updatedMsgs[aiMsgIndex].content = "发送失败，请重试";
+              updatedMsgs[aiMsgIndex].status = "error";
+              formatAppLog("log", "at pages/chat/chat.vue:724", "发送消息失败，更新错误状态，会话ID:", chatId);
+              chatStore2.setChatMessages(chatId, updatedMsgs);
             }
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:707", "更新错误消息失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:728", "更新错误消息失败:", e);
           }
           isWaitingResponse.value = false;
         }
@@ -12573,11 +12636,10 @@ ${text}</tr>
             isWaitingResponse.value = false;
             let cachedMessages = chatStore2.getChatMessages(chatId);
             if (cachedMessages && cachedMessages.length > 0) {
-              cachedMessages = [...cachedMessages];
-              chatStore2.setChatMessages(chatId, cachedMessages);
+              formatAppLog("log", "at pages/chat/chat.vue:759", "切换会话，使用缓存消息，会话ID:", chatId);
+              chatStore2.setCurrentMessages(chatId);
               messages.value = [...cachedMessages];
-              chatStore2.currentMessages = cachedMessages;
-              formatAppLog("log", "at pages/chat/chat.vue:747", "使用缓存的消息:", cachedMessages);
+              formatAppLog("log", "at pages/chat/chat.vue:765", "使用缓存的消息:", cachedMessages);
               scrollToBottom();
             } else {
               await loadChatMessages(chatId);
@@ -12587,14 +12649,14 @@ ${text}</tr>
               if (typeof history !== "undefined" && history && typeof history.replaceState === "function") {
                 history.replaceState(null, "", url);
               } else {
-                formatAppLog("log", "at pages/chat/chat.vue:764", "当前环境不支持history.replaceState，跳过URL更新");
+                formatAppLog("log", "at pages/chat/chat.vue:782", "当前环境不支持history.replaceState，跳过URL更新");
               }
             } catch (urlError) {
-              formatAppLog("error", "at pages/chat/chat.vue:767", "URL更新失败，但不影响功能:", urlError);
+              formatAppLog("error", "at pages/chat/chat.vue:785", "URL更新失败，但不影响功能:", urlError);
             }
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:771", "切换会话失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:789", "切换会话失败:", error);
           uni.showToast({
             title: "切换会话失败",
             icon: "none"
@@ -12605,7 +12667,7 @@ ${text}</tr>
       const scrollToBottom = () => {
         try {
           if (!autoScrollEnabled.value && isUserScrolling.value) {
-            formatAppLog("log", "at pages/chat/chat.vue:786", "用户正在滚动，暂停自动滚动");
+            formatAppLog("log", "at pages/chat/chat.vue:804", "用户正在滚动，暂停自动滚动");
             return;
           }
           vue.nextTick(() => {
@@ -12644,7 +12706,7 @@ ${text}</tr>
             }
           });
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:839", "滚动到底部函数执行失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:857", "滚动到底部函数执行失败:", error);
         }
       };
       const formatTime = (date) => {
@@ -12696,13 +12758,13 @@ ${text}</tr>
       };
       const getRoles2 = async () => {
         try {
-          formatAppLog("log", "at pages/chat/chat.vue:911", "开始获取人设列表");
+          formatAppLog("log", "at pages/chat/chat.vue:929", "开始获取人设列表");
           const res2 = await chatApi.getRoles();
-          formatAppLog("log", "at pages/chat/chat.vue:913", "人设API返回结果:", res2);
+          formatAppLog("log", "at pages/chat/chat.vue:931", "人设API返回结果:", res2);
           if (res2) {
-            formatAppLog("log", "at pages/chat/chat.vue:917", "API返回的人设数据详情:");
+            formatAppLog("log", "at pages/chat/chat.vue:935", "API返回的人设数据详情:");
             res2.forEach((role, index) => {
-              formatAppLog("log", "at pages/chat/chat.vue:919", `人设${index + 1}:`, JSON.stringify(role));
+              formatAppLog("log", "at pages/chat/chat.vue:937", `人设${index + 1}:`, JSON.stringify(role));
             });
             const testData = [...res2];
             if (testData.length === 0) {
@@ -12713,9 +12775,9 @@ ${text}</tr>
               });
             }
             rolesList.value = testData;
-            formatAppLog("log", "at pages/chat/chat.vue:934", "处理后的人设列表:", rolesList.value);
+            formatAppLog("log", "at pages/chat/chat.vue:952", "处理后的人设列表:", rolesList.value);
           } else {
-            formatAppLog("error", "at pages/chat/chat.vue:936", "人设数据格式异常:", res2);
+            formatAppLog("error", "at pages/chat/chat.vue:954", "人设数据格式异常:", res2);
             rolesList.value = [{
               id: 1,
               name: "自律管家",
@@ -12723,7 +12785,7 @@ ${text}</tr>
             }];
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:945", "获取人设列表失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:963", "获取人设列表失败:", error);
           rolesList.value = [{
             id: 1,
             name: "自律管家",
@@ -12736,7 +12798,7 @@ ${text}</tr>
         }
       };
       const getRoleNameById = (roleId) => {
-        formatAppLog("log", "at pages/chat/chat.vue:961", "查找roleId:", roleId, "当前角色列表:", rolesList.value);
+        formatAppLog("log", "at pages/chat/chat.vue:979", "查找roleId:", roleId, "当前角色列表:", rolesList.value);
         const role = rolesList.value.find((role2) => role2.id === roleId);
         if (role) {
           selectedRoleName.value = role.name;
@@ -12757,13 +12819,13 @@ ${text}</tr>
         }, 300);
       };
       const selectRole = (role, index) => {
-        formatAppLog("log", "at pages/chat/chat.vue:988", "选择人设:", role);
+        formatAppLog("log", "at pages/chat/chat.vue:1006", "选择人设:", role);
         if (role) {
           newChat.value.roleId = role.id;
           selectedRoleName.value = role.name;
           selectedRoleId.value = role.id;
           selectedRoleAvatar.value = role.avatar || "";
-          formatAppLog("log", "at pages/chat/chat.vue:994", "已选择人设:", role.name, "(ID:", role.id, ")");
+          formatAppLog("log", "at pages/chat/chat.vue:1012", "已选择人设:", role.name, "(ID:", role.id, ")");
           hideRolePicker();
         }
       };
@@ -12818,7 +12880,7 @@ ${text}</tr>
       const deleteChat2 = async (chatId) => {
         try {
           const res2 = await chatApi.deleteChat(chatId);
-          formatAppLog("log", "at pages/chat/chat.vue:1065", res2);
+          formatAppLog("log", "at pages/chat/chat.vue:1083", res2);
           if (res2) {
             uni.showToast({
               title: "删除成功",
@@ -12827,22 +12889,22 @@ ${text}</tr>
             });
             const isCurrentChat = chatStore2.chatHistory.length > 0 && chatStore2.chatIndex >= 0 && chatStore2.chatHistory[chatStore2.chatIndex].id === chatId;
             if (chatStore2.chatMap && chatStore2.chatMap.has(chatId)) {
-              formatAppLog("log", "at pages/chat/chat.vue:1080", `从chatMap中删除会话缓存: ${chatId}`);
+              formatAppLog("log", "at pages/chat/chat.vue:1098", `从chatMap中删除会话缓存: ${chatId}`);
               chatStore2.chatMap.delete(chatId);
             }
             const chatIndex = chatStore2.chatHistory.findIndex((chat) => chat.id === chatId);
             if (chatIndex !== -1) {
-              formatAppLog("log", "at pages/chat/chat.vue:1088", `从chatHistory中删除会话: ${chatId}, 索引: ${chatIndex}`);
+              formatAppLog("log", "at pages/chat/chat.vue:1106", `从chatHistory中删除会话: ${chatId}, 索引: ${chatIndex}`);
               chatStore2.chatHistory.splice(chatIndex, 1);
             }
             await refreshHistoryChat();
             if (isCurrentChat) {
-              formatAppLog("log", "at pages/chat/chat.vue:1097", "删除的是当前会话");
+              formatAppLog("log", "at pages/chat/chat.vue:1115", "删除的是当前会话");
               if (chatStore2.chatHistory.length > 0) {
                 chatStore2.chatIndex = 0;
                 const firstChatId = chatStore2.chatHistory[0].id;
                 const messages2 = await loadChatMessages(firstChatId);
-                formatAppLog("log", "at pages/chat/chat.vue:1109", "加载第一个会话的消息:", messages2);
+                formatAppLog("log", "at pages/chat/chat.vue:1127", "加载第一个会话的消息:", messages2);
                 getCurrentRoleInfo();
               } else {
                 chatStore2.currentMessages = [];
@@ -12864,7 +12926,7 @@ ${text}</tr>
             });
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:1138", "删除会话失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:1156", "删除会话失败:", error);
           uni.showToast({
             title: "删除失败",
             icon: "none",
@@ -12912,13 +12974,13 @@ ${text}</tr>
           let res2;
           if (newChat.value.id) {
             chatData.id = newChat.value.id;
-            formatAppLog("log", "at pages/chat/chat.vue:1199", "更新会话数据:", chatData);
+            formatAppLog("log", "at pages/chat/chat.vue:1217", "更新会话数据:", chatData);
             res2 = await chatApi.editChat(chatData);
-            formatAppLog("log", "at pages/chat/chat.vue:1201", "更新会话响应:", res2);
+            formatAppLog("log", "at pages/chat/chat.vue:1219", "更新会话响应:", res2);
           } else {
-            formatAppLog("log", "at pages/chat/chat.vue:1204", "创建会话数据:", chatData);
+            formatAppLog("log", "at pages/chat/chat.vue:1222", "创建会话数据:", chatData);
             res2 = await chatApi.createChat(chatData);
-            formatAppLog("log", "at pages/chat/chat.vue:1206", "创建会话响应:", res2);
+            formatAppLog("log", "at pages/chat/chat.vue:1224", "创建会话响应:", res2);
           }
           if (res2) {
             closeNewChatDialog();
@@ -12938,18 +13000,18 @@ ${text}</tr>
               const newChatIndex = chatStore2.chatHistory.findIndex((chat) => chat.id === chatId);
               if (newChatIndex !== -1) {
                 await switchChat(chatId);
-                formatAppLog("log", "at pages/chat/chat.vue:1238", "已切换到新创建的会话:", chatId);
+                formatAppLog("log", "at pages/chat/chat.vue:1256", "已切换到新创建的会话:", chatId);
               } else {
-                formatAppLog("error", "at pages/chat/chat.vue:1240", "未找到新创建的会话:", chatId);
+                formatAppLog("error", "at pages/chat/chat.vue:1258", "未找到新创建的会话:", chatId);
                 if (chatStore2.chatHistory.length > 0) {
                   const firstChatId = chatStore2.chatHistory[0].id;
                   await switchChat(firstChatId);
-                  formatAppLog("log", "at pages/chat/chat.vue:1245", "切换到第一个会话:", firstChatId);
+                  formatAppLog("log", "at pages/chat/chat.vue:1263", "切换到第一个会话:", firstChatId);
                 }
               }
             } else {
               await switchChat(chatId);
-              formatAppLog("log", "at pages/chat/chat.vue:1251", "已切换到编辑后的会话:", chatId);
+              formatAppLog("log", "at pages/chat/chat.vue:1269", "已切换到编辑后的会话:", chatId);
             }
           } else {
             uni.showToast({
@@ -12958,7 +13020,7 @@ ${text}</tr>
             });
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:1260", newChat.value.id ? "更新会话失败:" : "创建会话失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:1278", newChat.value.id ? "更新会话失败:" : "创建会话失败:", error);
           uni.showToast({
             title: newChat.value.id ? "更新会话失败" : "创建会话失败",
             icon: "none"
@@ -12977,11 +13039,11 @@ ${text}</tr>
               return html2.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "").replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, "").replace(/javascript:/gi, "").replace(/on\w+\s*=/gi, "").replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, "").replace(/<embed\b[^<]*(?:(?!<\/embed>)<[^<]*)*<\/embed>/gi, "");
             }
           } catch (purifyError) {
-            formatAppLog("warn", "at pages/chat/chat.vue:1289", "DOMPurify清理失败，使用原始HTML:", purifyError);
+            formatAppLog("warn", "at pages/chat/chat.vue:1307", "DOMPurify清理失败，使用原始HTML:", purifyError);
             return html2;
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:1293", "Markdown渲染失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:1311", "Markdown渲染失败:", error);
           return content;
         }
       };
@@ -12989,7 +13051,61 @@ ${text}</tr>
         if (isSidebarOpen.value) {
           closeSidebar();
         } else {
-          openSidebar();
+          openSidebarWithRefresh();
+        }
+      };
+      const scrollHistoryToBottom = () => {
+        tryScrollToBottom();
+        setTimeout(tryScrollToBottom, 300);
+        setTimeout(tryScrollToBottom, 600);
+        setTimeout(tryScrollToBottom, 1e3);
+      };
+      const tryScrollToBottom = () => {
+        try {
+          const historyListNode = uni.createSelectorQuery().in(vue.getCurrentInstance());
+          historyListNode.select(".history-list").node((scrollNode) => {
+            if (scrollNode && scrollNode.node) {
+              const currentScrollTop = scrollNode.node.scrollTop || 0;
+              const scrollHeight = scrollNode.node.scrollHeight || 0;
+              const clientHeight = scrollNode.node.clientHeight || 0;
+              const targetScrollTop = scrollHeight - clientHeight - 5;
+              if (targetScrollTop > currentScrollTop) {
+                scrollNode.node.scrollTop = targetScrollTop;
+              }
+            }
+          }).exec();
+          const lastItemQuery = uni.createSelectorQuery().in(vue.getCurrentInstance());
+          lastItemQuery.selectAll(".history-item").boundingClientRect((items) => {
+            if (items && items.length > 0) {
+              const lastItem = items[items.length - 1];
+              if (lastItem) {
+                try {
+                  const platform = uni.getSystemInfoSync().platform;
+                  if (platform && platform.toLowerCase() === "ios") {
+                    const query = uni.createSelectorQuery().in(vue.getCurrentInstance());
+                    query.select(".history-list").boundingClientRect((list2) => {
+                      if (list2 && lastItem) {
+                        const bottomOffset = lastItem.bottom - list2.top;
+                        if (bottomOffset > list2.height) {
+                          const scrollTop = bottomOffset - list2.height + 20;
+                          const scrollView = uni.createSelectorQuery().in(vue.getCurrentInstance());
+                          scrollView.select(".history-list").node((node) => {
+                            if (node && node.node) {
+                              node.node.scrollTop = scrollTop;
+                            }
+                          }).exec();
+                        }
+                      }
+                    }).exec();
+                  }
+                } catch (e) {
+                  formatAppLog("error", "at pages/chat/chat.vue:1390", "iOS专用滚动处理失败:", e);
+                }
+              }
+            }
+          }).exec();
+        } catch (e) {
+          formatAppLog("error", "at pages/chat/chat.vue:1397", "滚动历史列表到底部失败:", e);
         }
       };
       const openSidebar = () => {
@@ -12999,6 +13115,7 @@ ${text}</tr>
         setTimeout(() => {
           isSidebarOpen.value = true;
           sidebarDragPosition.value = 0;
+          scrollHistoryToBottom();
         }, 10);
       };
       const closeSidebar = () => {
@@ -13034,7 +13151,7 @@ ${text}</tr>
         touchCurrentX.value = event.touches[0].clientX;
         touchStartTime.value = Date.now();
         if (touchStartX.value < 50) {
-          formatAppLog("log", "at pages/chat/chat.vue:1372", "左侧边缘触摸开始");
+          formatAppLog("log", "at pages/chat/chat.vue:1469", "左侧边缘触摸开始");
         }
       };
       const handleTouchMove = (event) => {
@@ -13064,10 +13181,10 @@ ${text}</tr>
           return;
         if (isDraggingSidebar.value) {
           if (sidebarDragPosition.value > 50) {
-            formatAppLog("log", "at pages/chat/chat.vue:1425", "拖动超过50%，完全打开侧边栏");
+            formatAppLog("log", "at pages/chat/chat.vue:1522", "拖动超过50%，完全打开侧边栏");
             openSidebar();
           } else {
-            formatAppLog("log", "at pages/chat/chat.vue:1429", "拖动未超过50%，关闭侧边栏");
+            formatAppLog("log", "at pages/chat/chat.vue:1526", "拖动未超过50%，关闭侧边栏");
             closeSidebar();
           }
           isDraggingSidebar.value = false;
@@ -13102,50 +13219,61 @@ ${text}</tr>
           showNewChatDialog();
         }, 300);
       };
+      const openSidebarWithRefresh = async () => {
+        openSidebar();
+        try {
+          await refreshHistoryChat();
+        } catch (error) {
+          formatAppLog("error", "at pages/chat/chat.vue:1591", "刷新会话列表失败:", error);
+        }
+        setTimeout(() => {
+          scrollHistoryToBottom();
+        }, 500);
+      };
       const focusMessageInput = () => {
-        formatAppLog("log", "at pages/chat/chat.vue:1487", "尝试聚焦输入框...");
+        formatAppLog("log", "at pages/chat/chat.vue:1602", "尝试聚焦输入框...");
         setTimeout(() => {
           try {
             const inputElement = document.querySelector(".message-input");
             if (inputElement) {
               inputElement.focus();
-              formatAppLog("log", "at pages/chat/chat.vue:1496", "DOM直接聚焦尝试完成");
+              formatAppLog("log", "at pages/chat/chat.vue:1611", "DOM直接聚焦尝试完成");
             }
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:1499", "DOM聚焦失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:1614", "DOM聚焦失败:", e);
           }
           try {
             if (messageInput.value) {
               messageInput.value.focus && messageInput.value.focus();
-              formatAppLog("log", "at pages/chat/chat.vue:1506", "Ref聚焦尝试完成");
+              formatAppLog("log", "at pages/chat/chat.vue:1621", "Ref聚焦尝试完成");
             }
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:1509", "Ref聚焦失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:1624", "Ref聚焦失败:", e);
           }
           try {
             uni.createSelectorQuery().select(".message-input").node((res2) => {
               if (res2 && res2.node) {
                 res2.node.focus();
-                formatAppLog("log", "at pages/chat/chat.vue:1519", "Node API聚焦尝试完成");
+                formatAppLog("log", "at pages/chat/chat.vue:1634", "Node API聚焦尝试完成");
               }
             }).exec();
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:1523", "Node API聚焦失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:1638", "Node API聚焦失败:", e);
           }
           setTimeout(() => {
             try {
               uni.hideKeyboard();
               setTimeout(() => {
                 uni.showKeyboard();
-                formatAppLog("log", "at pages/chat/chat.vue:1532", "原生键盘方法尝试完成");
+                formatAppLog("log", "at pages/chat/chat.vue:1647", "原生键盘方法尝试完成");
               }, 300);
             } catch (e) {
-              formatAppLog("error", "at pages/chat/chat.vue:1535", "原生键盘方法失败:", e);
+              formatAppLog("error", "at pages/chat/chat.vue:1650", "原生键盘方法失败:", e);
             }
           }, 500);
         }, 800);
         setTimeout(() => {
-          formatAppLog("log", "at pages/chat/chat.vue:1542", "再次尝试聚焦...");
+          formatAppLog("log", "at pages/chat/chat.vue:1657", "再次尝试聚焦...");
           try {
             const query = uni.createSelectorQuery().in(vue.getCurrentInstance());
             query.select(".message-input").boundingClientRect((res2) => {
@@ -13156,15 +13284,15 @@ ${text}</tr>
                       messageInput.value.focus && messageInput.value.focus();
                     }
                     uni.showKeyboard();
-                    formatAppLog("log", "at pages/chat/chat.vue:1554", "延迟聚焦尝试完成");
+                    formatAppLog("log", "at pages/chat/chat.vue:1669", "延迟聚焦尝试完成");
                   } catch (e) {
-                    formatAppLog("error", "at pages/chat/chat.vue:1556", "延迟聚焦失败:", e);
+                    formatAppLog("error", "at pages/chat/chat.vue:1671", "延迟聚焦失败:", e);
                   }
                 }, 300);
               }
             }).exec();
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:1562", "查询输入框失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:1677", "查询输入框失败:", e);
           }
         }, 1500);
       };
@@ -13177,19 +13305,18 @@ ${text}</tr>
               targetChatId = query.chatId;
             }
           } catch (queryError) {
-            formatAppLog("error", "at pages/chat/chat.vue:1580", "获取URL参数失败:", queryError);
+            formatAppLog("error", "at pages/chat/chat.vue:1695", "获取URL参数失败:", queryError);
           }
           if (targetChatId) {
             const chatIndex = chatStore2.chatHistory.findIndex((chat) => chat.id === targetChatId);
             if (chatIndex !== -1) {
-              formatAppLog("log", "at pages/chat/chat.vue:1588", "根据URL参数设置聊天索引:", chatIndex);
+              formatAppLog("log", "at pages/chat/chat.vue:1703", "根据URL参数设置聊天索引:", chatIndex);
               chatStore2.chatIndex = chatIndex;
               const cachedMessages = chatStore2.getChatMessages(targetChatId);
               if (cachedMessages && cachedMessages.length > 0) {
-                const messagesCopy = [...cachedMessages];
+                formatAppLog("log", "at pages/chat/chat.vue:1710", "使用缓存消息，会话ID:", targetChatId);
                 chatStore2.setCurrentMessages(targetChatId);
-                messages.value = messagesCopy;
-                chatStore2.currentMessages = messagesCopy;
+                messages.value = [...cachedMessages];
                 setTimeout(() => {
                   autoScrollEnabled.value = true;
                   scrollToBottom();
@@ -13198,11 +13325,11 @@ ${text}</tr>
               }
               await loadChatMessages(targetChatId);
             } else {
-              formatAppLog("error", "at pages/chat/chat.vue:1615", "在聊天历史中找不到指定的chatId:", targetChatId);
+              formatAppLog("error", "at pages/chat/chat.vue:1727", "在聊天历史中找不到指定的chatId:", targetChatId);
             }
           } else {
             if (chatStore2.chatHistory.length > 0) {
-              formatAppLog("log", "at pages/chat/chat.vue:1620", "使用当前选中的聊天索引:", chatStore2.chatIndex);
+              formatAppLog("log", "at pages/chat/chat.vue:1732", "使用当前选中的聊天索引:", chatStore2.chatIndex);
               if (chatStore2.chatIndex < 0 || chatStore2.chatIndex >= chatStore2.chatHistory.length) {
                 chatStore2.chatIndex = 0;
               }
@@ -13211,10 +13338,9 @@ ${text}</tr>
                 targetChatId = currentChat.id;
                 const cachedMessages = chatStore2.getChatMessages(targetChatId);
                 if (cachedMessages && cachedMessages.length > 0) {
-                  const messagesCopy = [...cachedMessages];
+                  formatAppLog("log", "at pages/chat/chat.vue:1744", "使用缓存消息，会话ID:", targetChatId);
                   chatStore2.setCurrentMessages(targetChatId);
-                  messages.value = messagesCopy;
-                  chatStore2.currentMessages = messagesCopy;
+                  messages.value = [...cachedMessages];
                   setTimeout(() => {
                     autoScrollEnabled.value = true;
                     scrollToBottom();
@@ -13223,10 +13349,10 @@ ${text}</tr>
                 }
                 await loadChatMessages(targetChatId);
               } else {
-                formatAppLog("error", "at pages/chat/chat.vue:1652", "当前聊天索引无效或聊天数据异常");
+                formatAppLog("error", "at pages/chat/chat.vue:1761", "当前聊天索引无效或聊天数据异常");
               }
             } else {
-              formatAppLog("log", "at pages/chat/chat.vue:1655", "没有可用的聊天会话");
+              formatAppLog("log", "at pages/chat/chat.vue:1764", "没有可用的聊天会话");
             }
           }
           setTimeout(() => {
@@ -13234,7 +13360,7 @@ ${text}</tr>
             scrollToBottom();
           }, 500);
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:1665", "获取聊天消息失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:1774", "获取聊天消息失败:", error);
           uni.showToast({
             title: "获取聊天记录失败",
             icon: "none"
@@ -13243,59 +13369,65 @@ ${text}</tr>
       };
       const refreshHistoryChat = async () => {
         try {
-          formatAppLog("log", "at pages/chat/chat.vue:1676", "刷新聊天历史");
+          formatAppLog("log", "at pages/chat/chat.vue:1785", "刷新聊天历史");
           const currentChatId2 = chatStore2.chatHistory.length > 0 && chatStore2.chatIndex >= 0 ? chatStore2.chatHistory[chatStore2.chatIndex].id : null;
-          formatAppLog("log", "at pages/chat/chat.vue:1681", "当前选中的聊天ID:", currentChatId2);
+          formatAppLog("log", "at pages/chat/chat.vue:1790", "当前选中的聊天ID:", currentChatId2);
           const res2 = await chatApi.chatHistory();
-          formatAppLog("log", "at pages/chat/chat.vue:1684", "获取聊天历史:", res2);
+          formatAppLog("log", "at pages/chat/chat.vue:1793", "获取聊天历史:", res2);
           if (res2 && Array.isArray(res2)) {
-            formatAppLog("log", "at pages/chat/chat.vue:1687", "设置chatStore", res2);
-            chatStore2.chatHistory = res2;
-            if (res2.length > 0) {
+            const validChats = res2.filter((chat) => chat && chat.id);
+            formatAppLog("log", "at pages/chat/chat.vue:1798", "设置chatStore", validChats);
+            chatStore2.chatHistory = validChats;
+            if (validChats.length > 0) {
               if (currentChatId2) {
-                const newIndex = res2.findIndex((chat) => chat.id === currentChatId2);
+                const newIndex = validChats.findIndex((chat) => chat.id === currentChatId2);
                 if (newIndex !== -1) {
-                  formatAppLog("log", "at pages/chat/chat.vue:1696", "保持之前选择的聊天索引:", newIndex);
+                  formatAppLog("log", "at pages/chat/chat.vue:1807", "保持之前选择的聊天索引:", newIndex);
                   chatStore2.chatIndex = newIndex;
                 } else {
-                  formatAppLog("log", "at pages/chat/chat.vue:1700", "未找到之前的聊天，使用索引0");
+                  formatAppLog("log", "at pages/chat/chat.vue:1811", "未找到之前的聊天，使用索引0");
                   chatStore2.chatIndex = 0;
                 }
               } else {
-                formatAppLog("log", "at pages/chat/chat.vue:1705", "没有之前选择的聊天，使用索引0");
+                formatAppLog("log", "at pages/chat/chat.vue:1816", "没有之前选择的聊天，使用索引0");
                 chatStore2.chatIndex = 0;
+              }
+              if (isSidebarOpen.value) {
+                scrollHistoryToBottom();
               }
             }
           } else {
-            formatAppLog("error", "at pages/chat/chat.vue:1710", "获取聊天历史数据格式异常:", res2);
+            formatAppLog("error", "at pages/chat/chat.vue:1826", "获取聊天历史数据格式异常:", res2);
             chatStore2.chatHistory = [];
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:1715", "刷新聊天历史失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:1831", "刷新聊天历史失败:", error);
           chatStore2.chatHistory = [];
         }
       };
       vue.onMounted(async () => {
-        formatAppLog("log", "at pages/chat/chat.vue:1723", "页面加载，开始初始化...");
+        formatAppLog("log", "at pages/chat/chat.vue:1839", "页面加载，开始初始化...");
         isFirstVisit.value = true;
         isUserTap.value = false;
         try {
           await getRoles2();
-          formatAppLog("log", "at pages/chat/chat.vue:1732", "人设列表已加载");
+          formatAppLog("log", "at pages/chat/chat.vue:1848", "人设列表已加载");
           await refreshHistoryChat();
-          formatAppLog("log", "at pages/chat/chat.vue:1736", "聊天历史已刷新");
+          formatAppLog("log", "at pages/chat/chat.vue:1852", "聊天历史已刷新");
           await getChatMessages();
-          formatAppLog("log", "at pages/chat/chat.vue:1740", "聊天消息已加载");
+          formatAppLog("log", "at pages/chat/chat.vue:1856", "聊天消息已加载");
           getCurrentRoleInfo();
-          formatAppLog("log", "at pages/chat/chat.vue:1744", "当前角色信息已更新");
+          formatAppLog("log", "at pages/chat/chat.vue:1860", "当前角色信息已更新");
           uni.$on("chat:newContent", (data) => {
-            var _a2;
-            const currentChatId2 = (_a2 = chatStore2.chatHistory[chatStore2.chatIndex]) == null ? void 0 : _a2.id;
+            const currentChatId2 = chatStore2.getCurrentChatId();
             if (data && data.currentChatId === currentChatId2) {
+              formatAppLog("log", "at pages/chat/chat.vue:1867", "收到当前会话消息更新，触发滚动，会话ID:", currentChatId2);
               scrollToBottom();
               setTimeout(() => {
                 scrollToBottom();
               }, 50);
+            } else if (data) {
+              formatAppLog("log", "at pages/chat/chat.vue:1877", "收到其他会话的消息更新，会话ID:", data.currentChatId, "当前会话ID:", currentChatId2);
             }
           });
           vue.watch(() => chatStore2.currentMessages.length, (newLen, oldLen) => {
@@ -13317,19 +13449,19 @@ ${text}</tr>
             }, 1e3);
           });
           if (isIOS()) {
-            formatAppLog("log", "at pages/chat/chat.vue:1788", "检测到iOS设备，应用特殊处理");
+            formatAppLog("log", "at pages/chat/chat.vue:1908", "检测到iOS设备，应用特殊处理");
             uni.hideKeyboard();
             setupIOSKeyboardHandling();
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:1797", "初始化过程中出错:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:1917", "初始化过程中出错:", error);
           uni.showToast({
             title: "加载失败，请重试",
             icon: "none"
           });
         }
         setTimeout(() => {
-          formatAppLog("log", "at pages/chat/chat.vue:1806", "页面初始化完成，重置首次访问标记");
+          formatAppLog("log", "at pages/chat/chat.vue:1926", "页面初始化完成，重置首次访问标记");
           isFirstVisit.value = false;
         }, 2e3);
       });
@@ -13339,11 +13471,11 @@ ${text}</tr>
         return platform.toLowerCase() === "ios";
       };
       vue.onUnmounted(() => {
-        formatAppLog("log", "at pages/chat/chat.vue:1831", "聊天页面卸载");
+        formatAppLog("log", "at pages/chat/chat.vue:1951", "聊天页面卸载");
         uni.$off("chat:newContent");
       });
       const handleConfirmSend = () => {
-        formatAppLog("log", "at pages/chat/chat.vue:1838", "确认发送消息");
+        formatAppLog("log", "at pages/chat/chat.vue:1958", "确认发送消息");
         if (chatStore2.chatHistory.length > 0 && !isWaitingResponse.value && inputMessage.value.trim().length > 0) {
           uni.hideKeyboard();
           setTimeout(() => {
@@ -13352,7 +13484,7 @@ ${text}</tr>
         }
       };
       const handleSendClick = () => {
-        formatAppLog("log", "at pages/chat/chat.vue:1851", "点击发送按钮");
+        formatAppLog("log", "at pages/chat/chat.vue:1971", "点击发送按钮");
         if (inputMessage.value.trim().length > 0 && chatStore2.chatHistory.length > 0 && !isWaitingResponse.value) {
           uni.hideKeyboard();
           setTimeout(() => {
@@ -13388,7 +13520,7 @@ ${text}</tr>
         if (deltaY < -10) {
           isUserScrolling.value = true;
           autoScrollEnabled.value = false;
-          formatAppLog("log", "at pages/chat/chat.vue:1901", "用户正在向上滑动查看历史消息");
+          formatAppLog("log", "at pages/chat/chat.vue:2021", "用户正在向上滑动查看历史消息");
         }
       };
       const handleListTouchEnd = () => {
@@ -13429,16 +13561,16 @@ ${text}</tr>
             });
             scrollToBottom();
           }, 150);
-          formatAppLog("log", "at pages/chat/chat.vue:1971", "已调整输入框位置到键盘上方，键盘高度:", height);
+          formatAppLog("log", "at pages/chat/chat.vue:2091", "已调整输入框位置到键盘上方，键盘高度:", height);
         } catch (e) {
-          formatAppLog("error", "at pages/chat/chat.vue:1973", "调整输入框位置失败:", e);
+          formatAppLog("error", "at pages/chat/chat.vue:2093", "调整输入框位置失败:", e);
         }
       };
       const resetKeyboardAdjustment = () => {
         messageListStyle.value.bottom = "60rpx";
         inputContainerStyle.value.bottom = "0";
         keyboardHeight.value = 0;
-        formatAppLog("log", "at pages/chat/chat.vue:1986", "键盘收起，重置输入框位置");
+        formatAppLog("log", "at pages/chat/chat.vue:2106", "键盘收起，重置输入框位置");
         setTimeout(() => {
           scrollToBottom();
         }, 300);
@@ -13452,19 +13584,19 @@ ${text}</tr>
       });
       const handleInputFocus = (e) => {
         if (isUserTap.value) {
-          formatAppLog("log", "at pages/chat/chat.vue:2007", "用户主动点击后的聚焦，允许");
+          formatAppLog("log", "at pages/chat/chat.vue:2127", "用户主动点击后的聚焦，允许");
           return;
         }
         if (isIOS() && isFirstVisit.value) {
-          formatAppLog("log", "at pages/chat/chat.vue:2013", "iOS设备首次自动聚焦，阻止");
+          formatAppLog("log", "at pages/chat/chat.vue:2133", "iOS设备首次自动聚焦，阻止");
           e && e.preventDefault && e.preventDefault();
           uni.hideKeyboard();
           window.hideKeyboardTimer = setTimeout(() => {
             uni.hideKeyboard();
-            formatAppLog("log", "at pages/chat/chat.vue:2021", "再次隐藏键盘");
+            formatAppLog("log", "at pages/chat/chat.vue:2141", "再次隐藏键盘");
           }, 100);
         } else if (isIOS()) {
-          formatAppLog("log", "at pages/chat/chat.vue:2025", "iOS设备允许聚焦");
+          formatAppLog("log", "at pages/chat/chat.vue:2145", "iOS设备允许聚焦");
           isFirstVisit.value = false;
         }
       };
@@ -13476,7 +13608,7 @@ ${text}</tr>
         try {
           if (plus && plus.key) {
             plus.key.addEventListener("showSoftKeybord", function(e) {
-              formatAppLog("log", "at pages/chat/chat.vue:2049", "iOS键盘显示事件，高度:", e.height);
+              formatAppLog("log", "at pages/chat/chat.vue:2169", "iOS键盘显示事件，高度:", e.height);
               const height = e.height || 0;
               keyboardHeight.value = height;
               isKeyboardVisible.value = true;
@@ -13486,7 +13618,7 @@ ${text}</tr>
               }, 300);
             });
             plus.key.addEventListener("hideSoftKeybord", function() {
-              formatAppLog("log", "at pages/chat/chat.vue:2067", "iOS键盘隐藏事件");
+              formatAppLog("log", "at pages/chat/chat.vue:2187", "iOS键盘隐藏事件");
               keyboardHeight.value = 0;
               isKeyboardVisible.value = false;
               inputContainerStyle.value.bottom = "0px";
@@ -13496,11 +13628,11 @@ ${text}</tr>
               }, 300);
             });
           } else {
-            formatAppLog("log", "at pages/chat/chat.vue:2081", "plus.key API不可用，使用uni.onKeyboardHeightChange");
+            formatAppLog("log", "at pages/chat/chat.vue:2201", "plus.key API不可用，使用uni.onKeyboardHeightChange");
             useUniKeyboardAPI();
           }
         } catch (error) {
-          formatAppLog("error", "at pages/chat/chat.vue:2085", "设置iOS键盘处理失败:", error);
+          formatAppLog("error", "at pages/chat/chat.vue:2205", "设置iOS键盘处理失败:", error);
           useUniKeyboardAPI();
         }
       };
@@ -13511,11 +13643,11 @@ ${text}</tr>
         const screenWidth = systemInfo.windowWidth;
         const keyboardHeightRpx = keyboardHeight2 * 750 / screenWidth;
         messageListStyle.value.bottom = `${keyboardHeightRpx + 120}rpx`;
-        formatAppLog("log", "at pages/chat/chat.vue:2113", "iOS设置输入框位置完成");
+        formatAppLog("log", "at pages/chat/chat.vue:2233", "iOS设置输入框位置完成");
       };
       const useUniKeyboardAPI = () => {
         uni.onKeyboardHeightChange((res2) => {
-          formatAppLog("log", "at pages/chat/chat.vue:2119", "键盘高度变化(uni API):", res2.height);
+          formatAppLog("log", "at pages/chat/chat.vue:2239", "键盘高度变化(uni API):", res2.height);
           const height = res2.height;
           if (height > 0) {
             keyboardHeight.value = height;
@@ -13536,7 +13668,7 @@ ${text}</tr>
         });
       };
       const handleInputBlur = () => {
-        formatAppLog("log", "at pages/chat/chat.vue:2151", "输入框失焦");
+        formatAppLog("log", "at pages/chat/chat.vue:2271", "输入框失焦");
         if (isIOS()) {
           setTimeout(() => {
             inputContainerStyle.value.bottom = `env(safe-area-inset-bottom)`;
@@ -13545,7 +13677,7 @@ ${text}</tr>
         }
       };
       const handleInputTap = () => {
-        formatAppLog("log", "at pages/chat/chat.vue:2164", "用户主动点击输入框");
+        formatAppLog("log", "at pages/chat/chat.vue:2284", "用户主动点击输入框");
         isUserTap.value = true;
         isFirstVisit.value = false;
         setTimeout(() => {
@@ -13553,12 +13685,12 @@ ${text}</tr>
             const query = uni.createSelectorQuery().in(vue.getCurrentInstance());
             query.select(".message-input").node((res2) => {
               if (res2 && res2.node && res2.node.focus) {
-                formatAppLog("log", "at pages/chat/chat.vue:2178", "强制聚焦输入框");
+                formatAppLog("log", "at pages/chat/chat.vue:2298", "强制聚焦输入框");
                 res2.node.focus();
               }
             }).exec();
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:2183", "聚焦输入框失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:2303", "聚焦输入框失败:", e);
           }
         }, 50);
         if (window.hideKeyboardTimer) {
@@ -13567,7 +13699,7 @@ ${text}</tr>
         }
       };
       const handleContainerTap = () => {
-        formatAppLog("log", "at pages/chat/chat.vue:2196", "用户点击输入框容器");
+        formatAppLog("log", "at pages/chat/chat.vue:2316", "用户点击输入框容器");
         isUserTap.value = true;
         isFirstVisit.value = false;
         setTimeout(() => {
@@ -13575,12 +13707,12 @@ ${text}</tr>
             const query = uni.createSelectorQuery().in(vue.getCurrentInstance());
             query.select(".message-input").node((res2) => {
               if (res2 && res2.node && res2.node.focus) {
-                formatAppLog("log", "at pages/chat/chat.vue:2210", "强制聚焦输入框");
+                formatAppLog("log", "at pages/chat/chat.vue:2330", "强制聚焦输入框");
                 res2.node.focus();
               }
             }).exec();
           } catch (e) {
-            formatAppLog("error", "at pages/chat/chat.vue:2215", "聚焦输入框失败:", e);
+            formatAppLog("error", "at pages/chat/chat.vue:2335", "聚焦输入框失败:", e);
           }
         }, 50);
         if (window.hideKeyboardTimer) {
@@ -13588,11 +13720,25 @@ ${text}</tr>
           window.hideKeyboardTimer = null;
         }
       };
+      const validChatHistory = vue.computed(() => {
+        return chatStore2.chatHistory.filter(
+          (chat) => chat && chat.id && typeof chat.id !== "undefined"
+        );
+      });
+      const handleHistoryTouchStart = (e) => {
+        e.stopPropagation();
+      };
+      const handleHistoryTouchMove = (e) => {
+        e.stopPropagation();
+      };
+      const handleHistoryTouchEnd = (e) => {
+        e.stopPropagation();
+      };
       const __returned__ = { get DOMPurify() {
         return DOMPurify;
       }, set DOMPurify(v) {
         DOMPurify = v;
-      }, userStore, userAvatar, aiAvatar, chatStore: chatStore2, currentRoleName, currentRoleAvatar, currentRoleId, isSidebarOpen, sidebarClosing, sidebarVisible, showNewChatModal, modalClosing, modalActive, showRolePickerModal, rolePickerClosing, isEditMode, rolesList, newChat, selectedRoleName, selectedRoleId, selectedRoleAvatar, currentBackgroundImage, imageLoadError, handleImageError, handleImageLoad, handleRoleAvatarError, handleRoleItemAvatarError, handleSelectedAvatarError, getCurrentRoleInfo, messages, inputMessage, scrollIntoView, isWaitingResponse, loadChatMessages, sendMessage, switchChat, scrollToBottom, formatTime, goBack, copyMessage, showNewChatDialog, closeNewChatDialog, getRoles: getRoles2, getRoleNameById, showRolePicker, hideRolePicker, selectRole, handleTopKChange, handleSimilarityChange, editChat: editChat2, confirmDeleteChat, deleteChat: deleteChat2, createNewChat, renderMarkdown, toggleSidebar, openSidebar, closeSidebar, formatDate, touchStartX, touchStartY, touchEndX, touchCurrentX, sidebarWidth, sidebarDragPosition, isDraggingSidebar, minSwipeDistance, minSwipeSpeed, touchStartTime, handleTouchStart, handleTouchMove, handleTouchEnd, goBackToHome, showNewChatDialogFromSidebar, focusMessageInput, getChatMessages, refreshHistoryChat, messageInput, isIOS, handleConfirmSend, handleSendClick, manualScrollTop, isUserScrolling, lastScrollTop, autoScrollEnabled, touchStartYPos, handleListTouchStart, handleListTouchMove, handleListTouchEnd, handleScroll, adjustInputForKeyboard, resetKeyboardAdjustment, messageListStyle, inputContainerStyle, handleInputFocus, isFirstVisit, isUserTap, keyboardHeight, isKeyboardVisible, setupIOSKeyboardHandling, setInputPosition, useUniKeyboardAPI, handleInputBlur, handleInputTap, handleContainerTap, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, nextTick: vue.nextTick, getCurrentInstance: vue.getCurrentInstance, onErrorCaptured: vue.onErrorCaptured, onUnmounted: vue.onUnmounted, watch: vue.watch, get useUserStore() {
+      }, userStore, userAvatar, aiAvatar, chatStore: chatStore2, currentRoleName, currentRoleAvatar, currentRoleId, isSidebarOpen, sidebarClosing, sidebarVisible, showNewChatModal, modalClosing, modalActive, showRolePickerModal, rolePickerClosing, isEditMode, rolesList, newChat, selectedRoleName, selectedRoleId, selectedRoleAvatar, currentBackgroundImage, imageLoadError, handleImageError, handleImageLoad, handleRoleAvatarError, handleRoleItemAvatarError, handleSelectedAvatarError, getCurrentRoleInfo, messages, inputMessage, scrollIntoView, isWaitingResponse, loadChatMessages, sendMessage, switchChat, scrollToBottom, formatTime, goBack, copyMessage, showNewChatDialog, closeNewChatDialog, getRoles: getRoles2, getRoleNameById, showRolePicker, hideRolePicker, selectRole, handleTopKChange, handleSimilarityChange, editChat: editChat2, confirmDeleteChat, deleteChat: deleteChat2, createNewChat, renderMarkdown, toggleSidebar, scrollHistoryToBottom, tryScrollToBottom, openSidebar, closeSidebar, formatDate, touchStartX, touchStartY, touchEndX, touchCurrentX, sidebarWidth, sidebarDragPosition, isDraggingSidebar, minSwipeDistance, minSwipeSpeed, touchStartTime, handleTouchStart, handleTouchMove, handleTouchEnd, goBackToHome, showNewChatDialogFromSidebar, openSidebarWithRefresh, focusMessageInput, getChatMessages, refreshHistoryChat, messageInput, isIOS, handleConfirmSend, handleSendClick, manualScrollTop, isUserScrolling, lastScrollTop, autoScrollEnabled, touchStartYPos, handleListTouchStart, handleListTouchMove, handleListTouchEnd, handleScroll, adjustInputForKeyboard, resetKeyboardAdjustment, messageListStyle, inputContainerStyle, handleInputFocus, isFirstVisit, isUserTap, keyboardHeight, isKeyboardVisible, setupIOSKeyboardHandling, setInputPosition, useUniKeyboardAPI, handleInputBlur, handleInputTap, handleContainerTap, validChatHistory, handleHistoryTouchStart, handleHistoryTouchMove, handleHistoryTouchEnd, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, nextTick: vue.nextTick, getCurrentInstance: vue.getCurrentInstance, onErrorCaptured: vue.onErrorCaptured, onUnmounted: vue.onUnmounted, watch: vue.watch, get useUserStore() {
         return useUserStore;
       }, get useChatStore() {
         return useChatStore;
@@ -13605,7 +13751,7 @@ ${text}</tr>
       return __returned__;
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock(
       "view",
@@ -13691,7 +13837,13 @@ ${text}</tr>
           {
             key: 0,
             class: vue.normalizeClass(["sidebar-overlay", { "active": $setup.isSidebarOpen }]),
-            onClick: $setup.closeSidebar
+            onClick: $setup.closeSidebar,
+            onTouchstart: _cache[5] || (_cache[5] = vue.withModifiers(() => {
+            }, ["stop"])),
+            onTouchmove: _cache[6] || (_cache[6] = vue.withModifiers(() => {
+            }, ["stop"])),
+            onTouchend: _cache[7] || (_cache[7] = vue.withModifiers(() => {
+            }, ["stop"]))
           },
           [
             vue.createElementVNode(
@@ -13700,6 +13852,12 @@ ${text}</tr>
                 class: vue.normalizeClass(["sidebar", { active: $setup.isSidebarOpen, closing: $setup.sidebarClosing }]),
                 style: vue.normalizeStyle({ transform: $setup.isDraggingSidebar ? `translateX(${$setup.sidebarDragPosition - 100}%)` : "" }),
                 onClick: _cache[1] || (_cache[1] = vue.withModifiers(() => {
+                }, ["stop"])),
+                onTouchstart: _cache[2] || (_cache[2] = vue.withModifiers(() => {
+                }, ["stop"])),
+                onTouchmove: _cache[3] || (_cache[3] = vue.withModifiers(() => {
+                }, ["stop"])),
+                onTouchend: _cache[4] || (_cache[4] = vue.withModifiers(() => {
                 }, ["stop"]))
               },
               [
@@ -13719,91 +13877,105 @@ ${text}</tr>
                     ])
                   ])
                 ]),
-                vue.createElementVNode("scroll-view", {
-                  class: "history-list",
-                  "scroll-y": ""
-                }, [
-                  (vue.openBlock(true), vue.createElementBlock(
-                    vue.Fragment,
-                    null,
-                    vue.renderList($setup.chatStore.chatHistory, (chat, index) => {
-                      return vue.openBlock(), vue.createElementBlock("view", {
-                        key: chat.id,
-                        class: vue.normalizeClass(["history-item", { active: $setup.chatStore.chatIndex === index }]),
-                        onClick: ($event) => $setup.switchChat(chat.id)
-                      }, [
-                        vue.createElementVNode(
-                          "text",
-                          { class: "history-title" },
-                          vue.toDisplayString(chat.chatName || "undefined"),
-                          1
-                          /* TEXT */
-                        ),
-                        vue.createElementVNode("view", { class: "history-meta" }, [
+                vue.createElementVNode(
+                  "scroll-view",
+                  {
+                    class: "history-list",
+                    "scroll-y": "",
+                    onTouchstart: vue.withModifiers($setup.handleHistoryTouchStart, ["stop"]),
+                    onTouchmove: vue.withModifiers($setup.handleHistoryTouchMove, ["stop"]),
+                    onTouchend: vue.withModifiers($setup.handleHistoryTouchEnd, ["stop"])
+                  },
+                  [
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($setup.validChatHistory, (chat, index) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          key: chat.id,
+                          class: vue.normalizeClass(["history-item", {
+                            active: $setup.chatStore.chatIndex === index,
+                            "last-item": index === $setup.validChatHistory.length - 1
+                          }]),
+                          onClick: vue.withModifiers(($event) => $setup.switchChat(chat.id), ["stop"])
+                        }, [
                           vue.createElementVNode(
                             "text",
-                            { class: "history-time" },
-                            vue.toDisplayString($setup.formatDate(chat.createdAt)),
+                            { class: "history-title" },
+                            vue.toDisplayString(chat.chatName || "未命名会话"),
                             1
                             /* TEXT */
                           ),
-                          chat.messageCount ? (vue.openBlock(), vue.createElementBlock(
-                            "text",
-                            {
-                              key: 0,
-                              class: "history-count"
-                            },
-                            vue.toDisplayString(chat.messageCount) + "条消息",
-                            1
-                            /* TEXT */
-                          )) : vue.createCommentVNode("v-if", true)
-                        ]),
-                        vue.createCommentVNode(" 会话操作按钮 "),
-                        vue.createElementVNode("view", {
-                          class: "history-actions",
-                          onClick: _cache[0] || (_cache[0] = vue.withModifiers(() => {
-                          }, ["stop"]))
-                        }, [
+                          vue.createElementVNode("view", { class: "history-meta" }, [
+                            vue.createElementVNode(
+                              "text",
+                              { class: "history-time" },
+                              vue.toDisplayString($setup.formatDate(chat.createdAt)),
+                              1
+                              /* TEXT */
+                            ),
+                            chat.messageCount ? (vue.openBlock(), vue.createElementBlock(
+                              "text",
+                              {
+                                key: 0,
+                                class: "history-count"
+                              },
+                              vue.toDisplayString(chat.messageCount) + "条消息",
+                              1
+                              /* TEXT */
+                            )) : vue.createCommentVNode("v-if", true)
+                          ]),
+                          vue.createCommentVNode(" 会话操作按钮 "),
                           vue.createElementVNode("view", {
-                            class: "icon-wrapper action-btn edit-btn",
-                            onClick: ($event) => $setup.editChat(chat)
+                            class: "history-actions",
+                            onClick: _cache[0] || (_cache[0] = vue.withModifiers(() => {
+                            }, ["stop"]))
                           }, [
-                            vue.createVNode(_component_uni_icons, {
-                              type: "compose",
-                              size: "20",
-                              color: "#999"
-                            })
-                          ], 8, ["onClick"]),
-                          vue.createElementVNode("view", {
-                            class: "icon-wrapper action-btn delete-btn",
-                            onClick: ($event) => $setup.confirmDeleteChat(chat)
-                          }, [
-                            vue.createVNode(_component_uni_icons, {
-                              type: "trash-filled",
-                              size: "22",
-                              color: "#ff5a5f"
-                            })
-                          ], 8, ["onClick"])
-                        ])
-                      ], 10, ["onClick"]);
-                    }),
-                    128
-                    /* KEYED_FRAGMENT */
-                  )),
-                  $setup.chatStore.chatHistory.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
-                    key: 0,
-                    class: "empty-history"
-                  }, [
-                    vue.createElementVNode("text", null, "暂无会话历史")
-                  ])) : vue.createCommentVNode("v-if", true)
-                ])
+                            vue.createElementVNode("view", {
+                              class: "icon-wrapper action-btn edit-btn",
+                              onClick: vue.withModifiers(($event) => $setup.editChat(chat), ["stop"])
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "compose",
+                                size: "20",
+                                color: "#999"
+                              })
+                            ], 8, ["onClick"]),
+                            vue.createElementVNode("view", {
+                              class: "icon-wrapper action-btn delete-btn",
+                              onClick: vue.withModifiers(($event) => $setup.confirmDeleteChat(chat), ["stop"])
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "trash-filled",
+                                size: "22",
+                                color: "#ff5a5f"
+                              })
+                            ], 8, ["onClick"])
+                          ])
+                        ], 10, ["onClick"]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    )),
+                    $setup.validChatHistory.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+                      key: 0,
+                      class: "empty-history"
+                    }, [
+                      vue.createElementVNode("text", null, "暂无会话历史")
+                    ])) : vue.createCommentVNode("v-if", true),
+                    vue.createCommentVNode(" 非常小的底部间距，只为了防止内容紧贴底部 "),
+                    vue.createElementVNode("view", { class: "history-bottom-space" })
+                  ],
+                  32
+                  /* NEED_HYDRATION */
+                )
               ],
-              6
-              /* CLASS, STYLE */
+              38
+              /* CLASS, STYLE, NEED_HYDRATION */
             )
           ],
-          2
-          /* CLASS */
+          34
+          /* CLASS, NEED_HYDRATION */
         )) : vue.createCommentVNode("v-if", true),
         vue.createCommentVNode(" 聊天消息列表区域 "),
         vue.createElementVNode("scroll-view", {
@@ -13872,7 +14044,7 @@ ${text}</tr>
             key: 0,
             class: "empty-hint"
           }, [
-            $setup.chatStore.chatHistory.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+            $setup.validChatHistory.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
               key: 0,
               class: "hint-text"
             }, "暂无会话先创建会话把")) : (vue.openBlock(), vue.createElementBlock("view", {
@@ -13901,7 +14073,7 @@ ${text}</tr>
               vue.withDirectives(vue.createElementVNode("input", {
                 class: "message-input",
                 type: "text",
-                "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.inputMessage = $event),
+                "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $setup.inputMessage = $event),
                 placeholder: "询问任何问题",
                 "confirm-type": "send",
                 onConfirm: $setup.handleConfirmSend,
@@ -13955,7 +14127,7 @@ ${text}</tr>
               "view",
               {
                 class: vue.normalizeClass(["modal-content", { "active": $setup.modalActive, "closing": $setup.modalClosing }]),
-                onClick: _cache[5] || (_cache[5] = vue.withModifiers(() => {
+                onClick: _cache[11] || (_cache[11] = vue.withModifiers(() => {
                 }, ["stop"]))
               },
               [
@@ -13993,7 +14165,7 @@ ${text}</tr>
                     "input",
                     {
                       class: "task-input chat-name-input",
-                      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.newChat.chatName = $event),
+                      "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $setup.newChat.chatName = $event),
                       placeholder: "不填则AI自动生成",
                       maxlength: "10"
                     },
@@ -14092,7 +14264,7 @@ ${text}</tr>
                       "view",
                       {
                         class: vue.normalizeClass(["role-list", { "closing": $setup.rolePickerClosing }]),
-                        onClick: _cache[4] || (_cache[4] = vue.withModifiers(() => {
+                        onClick: _cache[10] || (_cache[10] = vue.withModifiers(() => {
                         }, ["stop"]))
                       },
                       [
@@ -14173,9 +14345,9 @@ ${text}</tr>
       /* NEED_HYDRATION */
     );
   }
-  const PagesChatChat = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-0a633310"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/chat/chat.vue"]]);
+  const PagesChatChat = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__scopeId", "data-v-0a633310"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/chat/chat.vue"]]);
   const CANCEL_DISTANCE = 100;
-  const _sfc_main$3 = {
+  const _sfc_main$5 = {
     name: "voice-recognition",
     data() {
       return {
@@ -14337,7 +14509,7 @@ ${text}</tr>
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_popup = vue.resolveComponent("uni-popup");
     return vue.openBlock(), vue.createElementBlock("view", { class: "voice-recognition" }, [
       vue.createVNode(_component_uni_popup, {
@@ -14421,8 +14593,8 @@ ${text}</tr>
       }, 8, ["onChange"])
     ]);
   }
-  const PagesTestVoiceTestVoice = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-b72c4926"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/testVoice/testVoice.vue"]]);
-  const _sfc_main$2 = {
+  const PagesTestVoiceTestVoice = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__scopeId", "data-v-b72c4926"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/testVoice/testVoice.vue"]]);
+  const _sfc_main$4 = {
     __name: "aiRole",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -15075,7 +15247,7 @@ ${text}</tr>
       return __returned__;
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     const _component_uni_card = resolveEasycom(vue.resolveDynamicComponent("uni-card"), __easycom_1);
     return vue.openBlock(), vue.createElementBlock("view", { class: "role-container" }, [
@@ -15691,8 +15863,8 @@ ${text}</tr>
       )) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAiRoleAiRole = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-ac864f29"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/aiRole/aiRole.vue"]]);
-  const _sfc_main$1 = {
+  const PagesAiRoleAiRole = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__scopeId", "data-v-ac864f29"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/aiRole/aiRole.vue"]]);
+  const _sfc_main$3 = {
     __name: "aiSetting",
     setup(__props, { expose: __expose }) {
       __expose();
@@ -15758,7 +15930,7 @@ ${text}</tr>
       return __returned__;
     }
   };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "setting-container" }, [
       vue.createCommentVNode(" 背景图片 "),
@@ -15976,7 +16148,3947 @@ ${text}</tr>
       ])
     ]);
   }
-  const PagesAiSettingAiSetting = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-80397b72"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/aiSetting/aiSetting.vue"]]);
+  const PagesAiSettingAiSetting = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__scopeId", "data-v-80397b72"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/aiSetting/aiSetting.vue"]]);
+  const addGoods = (data) => {
+    return request.post("/trade/addGoods", data);
+  };
+  const queryProfit = (data) => {
+    return request.post("/trade/queryProfit", data);
+  };
+  const updGoods = (data) => {
+    return request.post("/trade/updGoods", data);
+  };
+  const delGoods = (id) => {
+    return request.delete(`/trade/delGoods/${id}`);
+  };
+  const queryGoods = (data) => {
+    return request.post("/trade/queryGoods", data);
+  };
+  const queryLog = (data) => {
+    return request.post("/trade/queryLog", data);
+  };
+  const addLog = async (data) => {
+    formatAppLog("log", "at api/tradeApi.js:71", "新建日志API被调用，参数:", data);
+    formatAppLog("log", "at api/tradeApi.js:72", "传入的id:", data.id);
+    formatAppLog("log", "at api/tradeApi.js:73", "传入的inDesc:", data.inDesc);
+    formatAppLog("log", "at api/tradeApi.js:74", "传入的inPrice:", data.inPrice);
+    formatAppLog("log", "at api/tradeApi.js:75", "传入的isRise:", data.isRise);
+    formatAppLog("log", "at api/tradeApi.js:76", "传入的count:", data.count);
+    formatAppLog("log", "at api/tradeApi.js:77", "传入的addInImgs:", data.addInImgs ? "有入场图片文件" : "无入场图片文件");
+    let formData;
+    let contentType = "application/json";
+    try {
+      if (typeof FormData !== "undefined") {
+        formData = new FormData();
+        formData.append("id", data.id);
+        formData.append("inDesc", data.inDesc);
+        formData.append("inPrice", data.inPrice);
+        formData.append("isRise", data.isRise);
+        formData.append("count", data.count);
+        if (data.addInImgs && data.addInImgs.length > 0) {
+          formatAppLog("log", "at api/tradeApi.js:96", "检测到入场图片文件:", data.addInImgs.length, "张");
+          for (let i = 0; i < data.addInImgs.length; i++) {
+            const img = data.addInImgs[i];
+            formatAppLog("log", "at api/tradeApi.js:99", "处理入场图片", i, ":", typeof img, img instanceof File ? "是File对象" : img instanceof Blob ? "是Blob对象" : "其他类型");
+            if (img instanceof File || img instanceof Blob) {
+              formatAppLog("log", "at api/tradeApi.js:103", "添加入场图片文件到FormData, 文件名:", img.name || "未命名文件", "大小:", img.size, "bytes");
+              formData.append("addInImgs", img, img.name || `inImg_${Date.now()}_${i}.jpg`);
+            } else {
+              formatAppLog("error", "at api/tradeApi.js:106", "入场图片不是文件对象:", typeof img);
+            }
+          }
+        }
+        formatAppLog("log", "at api/tradeApi.js:112", "FormData包含的字段:");
+        for (let pair of formData.entries()) {
+          formatAppLog("log", "at api/tradeApi.js:114", pair[0], pair[1] instanceof File ? "是File对象" : typeof pair[1]);
+        }
+        contentType = "multipart/form-data";
+      } else {
+        formatAppLog("warn", "at api/tradeApi.js:120", "FormData不可用，使用JSON格式发送请求");
+        formData = JSON.stringify({
+          id: data.id,
+          inDesc: data.inDesc,
+          inPrice: data.inPrice,
+          isRise: data.isRise,
+          count: data.count
+          // 注意：JSON格式无法处理文件上传
+        });
+      }
+    } catch (formDataError) {
+      formatAppLog("warn", "at api/tradeApi.js:131", "FormData创建失败，使用JSON格式:", formDataError);
+      formData = JSON.stringify({
+        id: data.id,
+        inDesc: data.inDesc,
+        inPrice: data.inPrice,
+        isRise: data.isRise,
+        count: data.count
+      });
+    }
+    let token = "";
+    try {
+      const userInfo = uni.getStorageSync("userInfo");
+      if (userInfo) {
+        const userData = typeof userInfo === "string" ? JSON.parse(userInfo) : userInfo;
+        token = userData.authorization || "";
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:150", "获取token失败:", error);
+      token = "";
+    }
+    formatAppLog("log", "at api/tradeApi.js:154", "准备发送请求, URL:", "http://192.168.199.113:9999/trade/addLog");
+    try {
+      formatAppLog("log", "at api/tradeApi.js:196", "小程序/APP环境，使用uni.request");
+      const hasFiles = contentType !== "application/json";
+      if (hasFiles) {
+        formatAppLog("log", "at api/tradeApi.js:202", "有文件，应该使用uploadFile，但当前版本暂不支持");
+        throw new Error("当前版本不支持文件上传");
+      } else {
+        formatAppLog("log", "at api/tradeApi.js:206", "无文件，使用普通请求");
+        const requestData = JSON.parse(formData);
+        return new Promise((resolve2, reject) => {
+          uni.request({
+            url: "http://192.168.199.113:9999/trade/addLog",
+            method: "POST",
+            data: requestData,
+            header: {
+              // 使用表单格式，完全参考 aiRole.vue 成功模式
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": token ? `Bearer ${token}` : ""
+            },
+            success: (res2) => {
+              var _a2, _b;
+              formatAppLog("log", "at api/tradeApi.js:222", "请求结果:", res2);
+              if (res2.statusCode === 200 && (res2.data.code === 200 || res2.data.code === "200")) {
+                resolve2(res2.data);
+              } else {
+                formatAppLog("error", "at api/tradeApi.js:227", "请求失败:", res2.data);
+                reject(new Error(((_a2 = res2.data) == null ? void 0 : _a2.msg) || ((_b = res2.data) == null ? void 0 : _b.message) || "请求失败"));
+              }
+            },
+            fail: (err) => {
+              formatAppLog("error", "at api/tradeApi.js:232", "请求失败:", err);
+              reject(err);
+            }
+          });
+        });
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:241", "API请求异常:", error);
+      throw error;
+    }
+  };
+  const updLog = async (data) => {
+    formatAppLog("log", "at api/tradeApi.js:259", "更新日志API被调用，参数:", data);
+    formatAppLog("log", "at api/tradeApi.js:260", "传入的id:", data.id);
+    formatAppLog("log", "at api/tradeApi.js:261", "传入的inDesc:", data.inDesc);
+    formatAppLog("log", "at api/tradeApi.js:262", "传入的inPrice:", data.inPrice);
+    formatAppLog("log", "at api/tradeApi.js:263", "传入的isRise:", data.isRise);
+    formatAppLog("log", "at api/tradeApi.js:264", "传入的count:", data.count);
+    formatAppLog("log", "at api/tradeApi.js:265", "传入的inImgs:", data.inImgs || "无已有图片");
+    formatAppLog("log", "at api/tradeApi.js:266", "传入的addInImgs:", data.addInImgs ? "有入场图片文件" : "无入场图片文件");
+    let formData;
+    let contentType = "application/json";
+    try {
+      if (typeof FormData !== "undefined") {
+        formData = new FormData();
+        formData.append("id", data.id);
+        formData.append("inDesc", data.inDesc);
+        formData.append("inPrice", data.inPrice);
+        formData.append("isRise", data.isRise);
+        formData.append("count", data.count);
+        if (data.inImgs) {
+          formData.append("inImgs", data.inImgs);
+          formatAppLog("log", "at api/tradeApi.js:286", "添加已有图片JSON字符串到FormData:", data.inImgs);
+        }
+        if (data.addInImgs && data.addInImgs.length > 0) {
+          formatAppLog("log", "at api/tradeApi.js:291", "检测到入场图片文件:", data.addInImgs.length, "张");
+          for (let i = 0; i < data.addInImgs.length; i++) {
+            const img = data.addInImgs[i];
+            formatAppLog("log", "at api/tradeApi.js:294", "处理入场图片", i, ":", typeof img, img instanceof File ? "是File对象" : img instanceof Blob ? "是Blob对象" : "其他类型");
+            if (img instanceof File || img instanceof Blob) {
+              formatAppLog("log", "at api/tradeApi.js:298", "添加入场图片文件到FormData, 文件名:", img.name || "未命名文件", "大小:", img.size, "bytes");
+              formData.append("addInImgs", img, img.name || `inImg_${Date.now()}_${i}.jpg`);
+            } else {
+              formatAppLog("error", "at api/tradeApi.js:301", "入场图片不是文件对象:", typeof img);
+            }
+          }
+        }
+        formatAppLog("log", "at api/tradeApi.js:307", "FormData包含的字段:");
+        for (let pair of formData.entries()) {
+          formatAppLog("log", "at api/tradeApi.js:309", pair[0], pair[1] instanceof File ? "是File对象" : typeof pair[1]);
+        }
+        contentType = "multipart/form-data";
+      } else {
+        formatAppLog("warn", "at api/tradeApi.js:315", "FormData不可用，使用JSON格式发送请求");
+        formData = JSON.stringify({
+          id: data.id,
+          inDesc: data.inDesc,
+          inPrice: data.inPrice,
+          isRise: data.isRise,
+          count: data.count,
+          inImgs: data.inImgs || ""
+          // 注意：JSON格式无法处理文件上传
+        });
+      }
+    } catch (formDataError) {
+      formatAppLog("warn", "at api/tradeApi.js:327", "FormData创建失败，使用JSON格式:", formDataError);
+      formData = JSON.stringify({
+        id: data.id,
+        inDesc: data.inDesc,
+        inPrice: data.inPrice,
+        isRise: data.isRise,
+        count: data.count,
+        inImgs: data.inImgs || ""
+      });
+    }
+    let token = "";
+    try {
+      const userInfo = uni.getStorageSync("userInfo");
+      if (userInfo) {
+        const userData = typeof userInfo === "string" ? JSON.parse(userInfo) : userInfo;
+        token = userData.authorization || "";
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:347", "获取token失败:", error);
+      token = "";
+    }
+    formatAppLog("log", "at api/tradeApi.js:351", "准备发送请求, URL:", "http://192.168.199.113:9999/trade/updLog");
+    try {
+      formatAppLog("log", "at api/tradeApi.js:393", "小程序/APP环境，使用uni.request");
+      const hasFiles = contentType !== "application/json";
+      if (hasFiles) {
+        formatAppLog("log", "at api/tradeApi.js:399", "有文件，应该使用uploadFile，但当前版本暂不支持");
+        throw new Error("当前版本不支持文件上传");
+      } else {
+        formatAppLog("log", "at api/tradeApi.js:403", "无文件，使用普通请求");
+        const requestData = JSON.parse(formData);
+        return new Promise((resolve2, reject) => {
+          uni.request({
+            url: "http://192.168.199.113:9999/trade/updLog",
+            method: "POST",
+            data: requestData,
+            header: {
+              // 使用表单格式，完全参考 aiRole.vue 成功模式
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": token ? `Bearer ${token}` : ""
+            },
+            success: (res2) => {
+              var _a2, _b;
+              formatAppLog("log", "at api/tradeApi.js:419", "请求结果:", res2);
+              if (res2.statusCode === 200 && (res2.data.code === 200 || res2.data.code === "200")) {
+                resolve2(res2.data);
+              } else {
+                formatAppLog("error", "at api/tradeApi.js:424", "请求失败:", res2.data);
+                reject(new Error(((_a2 = res2.data) == null ? void 0 : _a2.msg) || ((_b = res2.data) == null ? void 0 : _b.message) || "请求失败"));
+              }
+            },
+            fail: (err) => {
+              formatAppLog("error", "at api/tradeApi.js:429", "请求失败:", err);
+              reject(err);
+            }
+          });
+        });
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:438", "API请求异常:", error);
+      throw error;
+    }
+  };
+  const delLog = (id) => {
+    return request.delete(`/trade/delLog/${id}`);
+  };
+  const queryOutLog = (id) => {
+    return request.get(`/trade/queryOutLog/${id}`);
+  };
+  const addOutLog = async (data) => {
+    formatAppLog("log", "at api/tradeApi.js:473", "新建出场日志API被调用，参数:", data);
+    formatAppLog("log", "at api/tradeApi.js:474", "传入的tradeLogId:", data.tradeLogId);
+    formatAppLog("log", "at api/tradeApi.js:475", "传入的count:", data.count);
+    formatAppLog("log", "at api/tradeApi.js:476", "传入的outDesc:", data.outDesc);
+    formatAppLog("log", "at api/tradeApi.js:477", "传入的outPrice:", data.outPrice);
+    formatAppLog("log", "at api/tradeApi.js:478", "传入的outImgs:", data.outImgs || "无已有图片");
+    formatAppLog("log", "at api/tradeApi.js:479", "传入的addOutImgs:", data.addOutImgs ? "有出场图片文件" : "无出场图片文件");
+    let formData;
+    let contentType = "application/json";
+    try {
+      if (typeof FormData !== "undefined") {
+        formData = new FormData();
+        formData.append("tradeLogId", data.tradeLogId);
+        formData.append("count", data.count);
+        formData.append("outDesc", data.outDesc || "");
+        formData.append("outPrice", data.outPrice);
+        if (data.outImgs) {
+          formData.append("outImgs", data.outImgs);
+          formatAppLog("log", "at api/tradeApi.js:498", "添加已有出场图片JSON字符串到FormData:", data.outImgs);
+        }
+        if (data.addOutImgs && data.addOutImgs.length > 0) {
+          formatAppLog("log", "at api/tradeApi.js:503", "检测到出场图片文件:", data.addOutImgs.length, "张");
+          for (let i = 0; i < data.addOutImgs.length; i++) {
+            const img = data.addOutImgs[i];
+            formatAppLog("log", "at api/tradeApi.js:506", "处理出场图片", i, ":", typeof img, img instanceof File ? "是File对象" : img instanceof Blob ? "是Blob对象" : "其他类型");
+            if (img instanceof File || img instanceof Blob) {
+              formatAppLog("log", "at api/tradeApi.js:510", "添加出场图片文件到FormData, 文件名:", img.name || "未命名文件", "大小:", img.size, "bytes");
+              formData.append("addOutImgs", img, img.name || `outImg_${Date.now()}_${i}.jpg`);
+            } else {
+              formatAppLog("error", "at api/tradeApi.js:513", "出场图片不是文件对象:", typeof img);
+            }
+          }
+        }
+        formatAppLog("log", "at api/tradeApi.js:519", "FormData包含的字段:");
+        for (let pair of formData.entries()) {
+          formatAppLog("log", "at api/tradeApi.js:521", pair[0], pair[1] instanceof File ? "是File对象" : typeof pair[1]);
+        }
+        contentType = "multipart/form-data";
+      } else {
+        formatAppLog("warn", "at api/tradeApi.js:527", "FormData不可用，使用JSON格式发送请求");
+        formData = JSON.stringify({
+          tradeLogId: data.tradeLogId,
+          count: data.count,
+          outDesc: data.outDesc || "",
+          outPrice: data.outPrice,
+          outImgs: data.outImgs || ""
+          // 注意：JSON格式无法处理文件上传
+        });
+      }
+    } catch (formDataError) {
+      formatAppLog("warn", "at api/tradeApi.js:538", "FormData创建失败，使用JSON格式:", formDataError);
+      formData = JSON.stringify({
+        tradeLogId: data.tradeLogId,
+        count: data.count,
+        outDesc: data.outDesc || "",
+        outPrice: data.outPrice,
+        outImgs: data.outImgs || ""
+      });
+    }
+    let token = "";
+    try {
+      const userInfo = uni.getStorageSync("userInfo");
+      if (userInfo) {
+        const userData = typeof userInfo === "string" ? JSON.parse(userInfo) : userInfo;
+        token = userData.authorization || "";
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:557", "获取token失败:", error);
+      token = "";
+    }
+    formatAppLog("log", "at api/tradeApi.js:561", "准备发送请求, URL:", "http://192.168.199.113:9999/trade/addOutLog");
+    try {
+      formatAppLog("log", "at api/tradeApi.js:603", "小程序/APP环境，使用uni.request");
+      const hasFiles = contentType !== "application/json";
+      if (hasFiles) {
+        formatAppLog("log", "at api/tradeApi.js:609", "有文件，应该使用uploadFile，但当前版本暂不支持");
+        throw new Error("当前版本不支持文件上传");
+      } else {
+        formatAppLog("log", "at api/tradeApi.js:613", "无文件，使用普通请求");
+        const requestData = JSON.parse(formData);
+        return new Promise((resolve2, reject) => {
+          uni.request({
+            url: "http://192.168.199.113:9999/trade/addOutLog",
+            method: "POST",
+            data: requestData,
+            header: {
+              // 使用表单格式，完全参考 aiRole.vue 成功模式
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": token ? `Bearer ${token}` : ""
+            },
+            success: (res2) => {
+              var _a2, _b;
+              formatAppLog("log", "at api/tradeApi.js:629", "请求结果:", res2);
+              if (res2.statusCode === 200 && (res2.data.code === 200 || res2.data.code === "200")) {
+                resolve2(res2.data);
+              } else {
+                formatAppLog("error", "at api/tradeApi.js:634", "请求失败:", res2.data);
+                reject(new Error(((_a2 = res2.data) == null ? void 0 : _a2.msg) || ((_b = res2.data) == null ? void 0 : _b.message) || "请求失败"));
+              }
+            },
+            fail: (err) => {
+              formatAppLog("error", "at api/tradeApi.js:639", "请求失败:", err);
+              reject(err);
+            }
+          });
+        });
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:648", "API请求异常:", error);
+      throw error;
+    }
+  };
+  const updOutLog = async (data) => {
+    formatAppLog("log", "at api/tradeApi.js:665", "更新出场日志API被调用，参数:", data);
+    let formData;
+    let contentType = "application/json";
+    try {
+      if (typeof FormData !== "undefined" && data.addOutImgs && data.addOutImgs.length > 0) {
+        formatAppLog("log", "at api/tradeApi.js:674", "检测到文件，使用FormData格式");
+        formData = new FormData();
+        formData.append("tradeLogOutId", data.tradeLogOutId);
+        formData.append("count", data.count);
+        formData.append("outDesc", data.outDesc || "");
+        formData.append("outPrice", data.outPrice);
+        if (data.outImgs) {
+          formData.append("outImgs", data.outImgs);
+        }
+        for (let i = 0; i < data.addOutImgs.length; i++) {
+          const img = data.addOutImgs[i];
+          if (img instanceof File || img instanceof Blob) {
+            formData.append("addOutImgs", img);
+            formatAppLog("log", "at api/tradeApi.js:693", "添加出场图片到FormData:", img.name || `blob_${i}`);
+          }
+        }
+        contentType = "multipart/form-data";
+      } else {
+        formatAppLog("warn", "at api/tradeApi.js:700", "FormData不可用或无文件，使用JSON格式发送请求");
+        formData = JSON.stringify({
+          tradeLogOutId: data.tradeLogOutId,
+          count: data.count,
+          outDesc: data.outDesc || "",
+          outPrice: data.outPrice,
+          outImgs: data.outImgs || ""
+        });
+        contentType = "application/json";
+      }
+    } catch (formDataError) {
+      formatAppLog("warn", "at api/tradeApi.js:711", "FormData创建失败，使用JSON格式:", formDataError);
+      formData = JSON.stringify({
+        tradeLogOutId: data.tradeLogOutId,
+        count: data.count,
+        outDesc: data.outDesc || "",
+        outPrice: data.outPrice,
+        outImgs: data.outImgs || ""
+      });
+      contentType = "application/json";
+    }
+    let token = "";
+    try {
+      const userInfo = uni.getStorageSync("userInfo");
+      if (userInfo) {
+        const userData = typeof userInfo === "string" ? JSON.parse(userInfo) : userInfo;
+        token = userData.authorization || "";
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:731", "获取token失败:", error);
+      token = "";
+    }
+    formatAppLog("log", "at api/tradeApi.js:735", "准备发送请求, URL:", "http://192.168.199.113:9999/trade/updOutLog");
+    try {
+      formatAppLog("log", "at api/tradeApi.js:777", "小程序/APP环境，使用uni.request");
+      const hasFiles = contentType !== "application/json";
+      if (hasFiles) {
+        formatAppLog("log", "at api/tradeApi.js:783", "有文件，应该使用uploadFile，但当前版本暂不支持");
+        throw new Error("当前版本不支持文件上传");
+      } else {
+        formatAppLog("log", "at api/tradeApi.js:787", "无文件，使用普通请求");
+        const requestData = JSON.parse(formData);
+        return new Promise((resolve2, reject) => {
+          uni.request({
+            url: "http://192.168.199.113:9999/trade/updOutLog",
+            method: "POST",
+            data: requestData,
+            header: {
+              // 使用表单格式，完全参考 aiRole.vue 成功模式
+              "Content-Type": "application/x-www-form-urlencoded",
+              "Authorization": token ? `Bearer ${token}` : ""
+            },
+            success: (res2) => {
+              var _a2, _b;
+              formatAppLog("log", "at api/tradeApi.js:803", "请求结果:", res2);
+              if (res2.statusCode === 200 && (res2.data.code === 200 || res2.data.code === "200")) {
+                resolve2(res2.data);
+              } else {
+                formatAppLog("error", "at api/tradeApi.js:808", "请求失败:", res2.data);
+                reject(new Error(((_a2 = res2.data) == null ? void 0 : _a2.msg) || ((_b = res2.data) == null ? void 0 : _b.message) || "请求失败"));
+              }
+            },
+            fail: (err) => {
+              formatAppLog("error", "at api/tradeApi.js:813", "请求失败:", err);
+              reject(err);
+            }
+          });
+        });
+      }
+    } catch (error) {
+      formatAppLog("error", "at api/tradeApi.js:822", "API请求异常:", error);
+      throw error;
+    }
+  };
+  const delOutLog = (id) => {
+    return request.delete(`/trade/delOutLog/${id}`);
+  };
+  const tradeApi = {
+    addGoods,
+    updGoods,
+    delGoods,
+    queryGoods,
+    queryLog,
+    queryProfit,
+    addLog,
+    updLog,
+    delLog,
+    queryOutLog,
+    addOutLog,
+    updOutLog,
+    delOutLog
+  };
+  const useConstantsStore = defineStore("constants", () => {
+    const needRefreshGoods = vue.ref(0.1);
+    return {
+      needRefreshGoods
+    };
+  });
+  const _sfc_main$2 = {
+    __name: "trade",
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const userStore = useUserStore();
+      const constantsStore = useConstantsStore();
+      const imageLoadError = vue.ref(false);
+      const refresherTriggered = vue.ref(false);
+      const goodsList = vue.ref([]);
+      const totalProfit = vue.ref(0);
+      const swipeStates = vue.ref({});
+      const touchStartX = vue.ref(0);
+      const touchStartY = vue.ref(0);
+      const currentSwipeGoodsId = vue.ref(null);
+      const searchParams = vue.reactive({
+        name: "",
+        code: ""
+      });
+      const showModal = vue.ref(false);
+      const modalClosing = vue.ref(false);
+      const isEdit = vue.ref(false);
+      const goodsForm = vue.ref({
+        id: null,
+        name: "",
+        code: "",
+        singleProfit: ""
+        // 新增单手单点利润
+      });
+      const showDetailModal = vue.ref(false);
+      const detailModalClosing = vue.ref(false);
+      const currentGoods = vue.ref({});
+      const showSortMenu = vue.ref(false);
+      const currentSortType = vue.ref("default");
+      const sortOptions = [
+        { value: "default", label: "默认" },
+        { value: "profit", label: "盈亏" },
+        { value: "winRate", label: "胜率" },
+        { value: "profitRatio", label: "盈亏比" }
+      ];
+      const originalGoodsList = vue.ref([]);
+      const currentBackgroundImage = vue.computed(() => {
+        return userStore.userInfo.backgroudImg || "";
+      });
+      const formattedProfit = vue.computed(() => {
+        if (totalProfit.value > 0) {
+          return "+" + totalProfit.value.toFixed(2);
+        } else {
+          return totalProfit.value.toFixed(2);
+        }
+      });
+      const currentSortText = vue.computed(() => {
+        const option = sortOptions.find((opt) => opt.value === currentSortType.value);
+        return option ? option.label.replace("（从高到低）", "") : "盈亏";
+      });
+      const goBack = () => {
+        uni.navigateBack();
+      };
+      const handleSearch = () => {
+        var _a2, _b;
+        formatAppLog("log", "at pages/trade/trade.vue:337", "开始搜索, 搜索参数:", searchParams);
+        if (((_a2 = searchParams.name) == null ? void 0 : _a2.trim()) || ((_b = searchParams.code) == null ? void 0 : _b.trim())) {
+          uni.showToast({
+            title: "搜索中...",
+            icon: "loading",
+            duration: 1e3
+          });
+        } else {
+          uni.showToast({
+            title: "加载全部数据...",
+            icon: "loading",
+            duration: 1e3
+          });
+        }
+        fetchGoodsList();
+      };
+      const onSearchInput = () => {
+        var _a2, _b;
+        if (!((_a2 = searchParams.name) == null ? void 0 : _a2.trim()) && !((_b = searchParams.code) == null ? void 0 : _b.trim())) {
+          formatAppLog("log", "at pages/trade/trade.vue:361", "搜索框为空，显示所有数据");
+          fetchGoodsList();
+        }
+      };
+      const handleTouchStart = (e, goodsId) => {
+        touchStartX.value = e.touches[0].clientX;
+        touchStartY.value = e.touches[0].clientY;
+        currentSwipeGoodsId.value = goodsId;
+      };
+      const handleTouchMove = (e, goodsId) => {
+        if (currentSwipeGoodsId.value !== goodsId)
+          return;
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+        const deltaX = touchX - touchStartX.value;
+        const deltaY = touchY - touchStartY.value;
+        if (Math.abs(deltaY) > Math.abs(deltaX))
+          return;
+        if (deltaX < 0) {
+          const translateX = Math.max(deltaX * 0.5, -120);
+          if (!swipeStates.value[goodsId]) {
+            swipeStates.value[goodsId] = {};
+          }
+          swipeStates.value[goodsId].translateX = translateX;
+          swipeStates.value[goodsId].showDelete = translateX < -30;
+        }
+      };
+      const handleTouchEnd = (e, goodsId) => {
+        if (currentSwipeGoodsId.value !== goodsId)
+          return;
+        const state = swipeStates.value[goodsId];
+        if (!state)
+          return;
+        if (state.translateX < -60) {
+          state.translateX = -120;
+          state.showDelete = true;
+        } else if (state.translateX < -30) {
+          state.translateX = -120;
+          state.showDelete = true;
+        } else {
+          resetSwipeState(goodsId);
+        }
+        currentSwipeGoodsId.value = null;
+      };
+      const resetSwipeState = (goodsId) => {
+        if (swipeStates.value[goodsId]) {
+          swipeStates.value[goodsId].translateX = 0;
+          swipeStates.value[goodsId].showDelete = false;
+        }
+      };
+      const resetAllSwipeStates = () => {
+        Object.keys(swipeStates.value).forEach((goodsId) => {
+          resetSwipeState(goodsId);
+        });
+      };
+      const getBalance = (goods) => {
+        const winMoney = Number(goods.winMoney || 0);
+        const lostMoney = Number(goods.lostMoney || 0);
+        const balance = winMoney - lostMoney;
+        return balance >= 0 ? "+" + balance.toFixed(2) : balance.toFixed(2);
+      };
+      const getBalanceClass = (goods) => {
+        const winMoney = Number(goods.winMoney || 0);
+        const lostMoney = Number(goods.lostMoney || 0);
+        const balance = winMoney - lostMoney;
+        return balance > 0 ? "positive" : balance < 0 ? "negative" : "";
+      };
+      const getWinRate = (goods) => {
+        const winCount = Number(goods.winCount || 0);
+        const lostCount = Number(goods.lostCount || 0);
+        const totalCount = winCount + lostCount;
+        if (totalCount === 0)
+          return "0.00%";
+        const winRate = winCount / totalCount * 100;
+        return winRate.toFixed(2) + "%";
+      };
+      const getProfitRatio = (goods) => {
+        const winMoney = Math.abs(Number(goods.winMoney || 0));
+        const lostMoney = Math.abs(Number(goods.lostMoney || 0));
+        if (lostMoney === 0) {
+          if (winMoney === 0)
+            return "0";
+          return "∞";
+        }
+        const ratio = winMoney / lostMoney;
+        return ratio.toFixed(2);
+      };
+      const formatSingleProfit = (value) => {
+        if (isNaN(value) || value === "")
+          return "0.0";
+        return value.toFixed(1);
+      };
+      const showGoodsDetail = (goods) => {
+        resetAllSwipeStates();
+        uni.navigateTo({
+          url: `/pages/logDetail/logDetail?goodsId=${goods.id}&goodsName=${encodeURIComponent(goods.name || "未命名")}&goodsCode=${encodeURIComponent(goods.code || "")}`
+        });
+      };
+      const closeDetailModal = () => {
+        detailModalClosing.value = true;
+        setTimeout(() => {
+          showDetailModal.value = false;
+          detailModalClosing.value = false;
+          currentGoods.value = {};
+        }, 300);
+      };
+      const toggleSortMenu = () => {
+        showSortMenu.value = !showSortMenu.value;
+      };
+      const selectSortType = (option) => {
+        currentSortType.value = option.value;
+        applySorting();
+        showSortMenu.value = false;
+      };
+      const applySorting = () => {
+        if (!goodsList.value || goodsList.value.length === 0)
+          return;
+        if (currentSortType.value === "default") {
+          if (originalGoodsList.value.length > 0) {
+            goodsList.value = [...originalGoodsList.value];
+            formatAppLog("log", "at pages/trade/trade.vue:527", "恢复默认排序（后端返回顺序）");
+          }
+          return;
+        }
+        const sorted = [...goodsList.value].sort((a, b) => {
+          switch (currentSortType.value) {
+            case "profit":
+              const profitA = Number(a.winMoney || 0) - Number(a.lostMoney || 0);
+              const profitB = Number(b.winMoney || 0) - Number(b.lostMoney || 0);
+              return profitB - profitA;
+            case "winRate":
+              const winRateA = getWinRateNumber(a);
+              const winRateB = getWinRateNumber(b);
+              return winRateB - winRateA;
+            case "profitRatio":
+              const ratioA = getProfitRatioNumber(a);
+              const ratioB = getProfitRatioNumber(b);
+              return ratioB - ratioA;
+            default:
+              return 0;
+          }
+        });
+        goodsList.value = sorted;
+        formatAppLog("log", "at pages/trade/trade.vue:558", `按${currentSortText.value}排序完成`);
+      };
+      const getWinRateNumber = (goods) => {
+        const winCount = Number(goods.winCount || 0);
+        const lostCount = Number(goods.lostCount || 0);
+        const totalCount = winCount + lostCount;
+        if (totalCount === 0)
+          return 0;
+        return winCount / totalCount * 100;
+      };
+      const getProfitRatioNumber = (goods) => {
+        const winMoney = Math.abs(Number(goods.winMoney || 0));
+        const lostMoney = Math.abs(Number(goods.lostMoney || 0));
+        if (lostMoney === 0) {
+          return winMoney === 0 ? 0 : 999999;
+        }
+        return winMoney / lostMoney;
+      };
+      const refreshData = async () => {
+        try {
+          await Promise.all([fetchProfitData(), fetchGoodsList()]);
+          uni.showToast({
+            title: "刷新成功",
+            icon: "success",
+            duration: 1500
+          });
+        } catch (error) {
+          formatAppLog("error", "at pages/trade/trade.vue:593", "刷新数据失败:", error);
+          uni.showToast({
+            title: "刷新失败",
+            icon: "none",
+            duration: 2e3
+          });
+        }
+      };
+      async function fetchProfitData() {
+        try {
+          const res2 = await tradeApi.queryProfit({});
+          if (res2.code === 200 || res2.code === "200") {
+            totalProfit.value = Number(res2.data || 0);
+          } else {
+            formatAppLog("error", "at pages/trade/trade.vue:609", "获取总盈亏数据失败:", res2.message);
+          }
+        } catch (error) {
+          formatAppLog("error", "at pages/trade/trade.vue:612", "获取总盈亏数据异常:", error);
+          totalProfit.value = 0;
+        }
+      }
+      const allGoodsList = vue.ref([]);
+      async function fetchGoodsList() {
+        var _a2, _b;
+        try {
+          const queryParams = {
+            name: ((_a2 = searchParams.name) == null ? void 0 : _a2.trim()) || "",
+            code: ((_b = searchParams.code) == null ? void 0 : _b.trim()) || ""
+          };
+          formatAppLog("log", "at pages/trade/trade.vue:628", "搜索参数:", queryParams);
+          const isEmptySearch = !queryParams.name && !queryParams.code;
+          const res2 = await tradeApi.queryGoods(isEmptySearch ? {} : queryParams);
+          formatAppLog("log", "at pages/trade/trade.vue:634", "API返回结果:", res2);
+          if (res2.code === 200 || res2.code === "200") {
+            const data = res2.data || [];
+            if (isEmptySearch) {
+              allGoodsList.value = data;
+              goodsList.value = data;
+              originalGoodsList.value = [...data];
+              formatAppLog("log", "at pages/trade/trade.vue:644", "加载全部商品列表:", data.length, "条记录");
+            } else {
+              if (data.length === 0 && allGoodsList.value.length > 0) {
+                formatAppLog("log", "at pages/trade/trade.vue:648", "后端搜索无结果，尝试前端过滤");
+                const filtered = allGoodsList.value.filter((item) => {
+                  const nameMatch = !queryParams.name || item.name && item.name.toLowerCase().includes(queryParams.name.toLowerCase());
+                  const codeMatch = !queryParams.code || item.code && item.code.toLowerCase().includes(queryParams.code.toLowerCase());
+                  return nameMatch && codeMatch;
+                });
+                goodsList.value = filtered;
+                originalGoodsList.value = [...filtered];
+                formatAppLog("log", "at pages/trade/trade.vue:658", "前端过滤结果:", filtered.length, "条记录");
+              } else {
+                goodsList.value = data;
+                originalGoodsList.value = [...data];
+                formatAppLog("log", "at pages/trade/trade.vue:662", "后端搜索结果:", data.length, "条记录");
+              }
+            }
+            if (goodsList.value.length > 0 && currentSortType.value !== "default") {
+              applySorting();
+            }
+          } else {
+            formatAppLog("error", "at pages/trade/trade.vue:671", "获取商品列表失败:", res2.message);
+          }
+        } catch (error) {
+          formatAppLog("error", "at pages/trade/trade.vue:674", "获取商品列表异常:", error);
+        }
+      }
+      const showAddModal = () => {
+        isEdit.value = false;
+        goodsForm.value = {
+          id: null,
+          name: "",
+          code: "",
+          singleProfit: ""
+        };
+        showModal.value = true;
+      };
+      const editGoods = (goods) => {
+        isEdit.value = true;
+        goodsForm.value = {
+          id: goods.id,
+          name: goods.name || "",
+          code: goods.code || "",
+          singleProfit: goods.singleProfit || ""
+          // 编辑时也包含单手单点利润
+        };
+        showModal.value = true;
+        if (showDetailModal.value) {
+          closeDetailModal();
+        }
+      };
+      const closeModal = () => {
+        modalClosing.value = true;
+        setTimeout(() => {
+          showModal.value = false;
+          modalClosing.value = false;
+        }, 300);
+      };
+      const saveGoods = async () => {
+        if (!goodsForm.value.name.trim()) {
+          uni.showToast({
+            title: "品种名称必填",
+            icon: "none"
+          });
+          return;
+        }
+        if (!goodsForm.value.code.trim()) {
+          uni.showToast({
+            title: "品种代码必填",
+            icon: "none"
+          });
+          return;
+        }
+        if (!goodsForm.value.singleProfit.trim()) {
+          uni.showToast({
+            title: "1手1点利润必填",
+            icon: "none"
+          });
+          return;
+        }
+        const singleProfitValue = parseFloat(goodsForm.value.singleProfit);
+        if (isNaN(singleProfitValue) || singleProfitValue <= 0) {
+          uni.showToast({
+            title: "请输入有效的1手1点利润",
+            icon: "none"
+          });
+          return;
+        }
+        uni.showLoading({
+          title: isEdit.value ? "保存中..." : "添加中..."
+        });
+        try {
+          const data = {
+            ...goodsForm.value,
+            singleProfit: singleProfitValue
+            // 转换为数字类型
+          };
+          const res2 = isEdit.value ? await tradeApi.updGoods(data) : await tradeApi.addGoods(data);
+          uni.hideLoading();
+          if (res2.code === 200 || res2.code === "200") {
+            uni.showToast({
+              title: isEdit.value ? "保存成功" : "添加成功",
+              icon: "success"
+            });
+            closeModal();
+            fetchGoodsList();
+          } else {
+            uni.showToast({
+              title: res2.message || "操作失败",
+              icon: "none"
+            });
+          }
+        } catch (error) {
+          uni.hideLoading();
+          uni.showToast({
+            title: "操作失败",
+            icon: "none"
+          });
+          formatAppLog("error", "at pages/trade/trade.vue:791", "保存商品失败:", error);
+        }
+      };
+      const confirmDeleteGoods = (goods) => {
+        resetAllSwipeStates();
+        uni.showModal({
+          title: "删除确认",
+          content: `确定要删除"${goods.name || "未命名品种"}"吗？`,
+          confirmColor: "#f56c6c",
+          success: async (res2) => {
+            if (res2.confirm) {
+              await deleteGoods(goods.id);
+              if (showDetailModal.value) {
+                closeDetailModal();
+              }
+            }
+          }
+        });
+      };
+      const deleteGoods = async (id) => {
+        if (!id)
+          return;
+        uni.showLoading({
+          title: "删除中..."
+        });
+        try {
+          const res2 = await tradeApi.delGoods(id);
+          uni.hideLoading();
+          if (res2.code === 200 || res2.code === "200") {
+            uni.showToast({
+              title: "删除成功",
+              icon: "success"
+            });
+            fetchGoodsList();
+          } else {
+            uni.showToast({
+              title: res2.message || "删除失败",
+              icon: "none"
+            });
+          }
+        } catch (error) {
+          uni.hideLoading();
+          uni.showToast({
+            title: "删除失败",
+            icon: "none"
+          });
+          formatAppLog("error", "at pages/trade/trade.vue:847", "删除商品失败:", error);
+        }
+      };
+      const handleRefresherRefresh = async () => {
+        refresherTriggered.value = true;
+        resetAllSwipeStates();
+        try {
+          await refreshData();
+        } catch (error) {
+          formatAppLog("error", "at pages/trade/trade.vue:860", "下拉刷新失败:", error);
+        } finally {
+          setTimeout(() => {
+            refresherTriggered.value = false;
+          }, 1e3);
+        }
+      };
+      const formatTime = (timestamp) => {
+        if (!timestamp)
+          return "";
+        const date = new Date(timestamp);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        const hour = String(date.getHours()).padStart(2, "0");
+        const minute = String(date.getMinutes()).padStart(2, "0");
+        return `${year}-${month}-${day} ${hour}:${minute}`;
+      };
+      const handleImageError = () => {
+        imageLoadError.value = true;
+        uni.showToast({
+          title: "背景图片加载失败",
+          icon: "none"
+        });
+      };
+      const handleImageLoad = () => {
+        imageLoadError.value = false;
+      };
+      vue.watch(() => constantsStore.needRefreshGoods, async (newValue) => {
+        if (newValue) {
+          formatAppLog("log", "at pages/trade/trade.vue:899", "检测到需要刷新商品数据，开始刷新...", newValue);
+          try {
+            await Promise.all([
+              fetchProfitData(),
+              fetchGoodsList()
+            ]);
+            formatAppLog("log", "at pages/trade/trade.vue:906", "商品数据刷新完成");
+          } catch (error) {
+            formatAppLog("error", "at pages/trade/trade.vue:908", "刷新商品数据失败:", error);
+          }
+        }
+      });
+      const handleListClick = () => {
+        if (showSortMenu.value) {
+          showSortMenu.value = false;
+        }
+      };
+      vue.onMounted(async () => {
+        userStore.initUserInfo();
+        try {
+          await Promise.all([
+            fetchProfitData(),
+            fetchGoodsList()
+          ]);
+        } catch (error) {
+          formatAppLog("error", "at pages/trade/trade.vue:930", "加载数据失败:", error);
+        }
+      });
+      const __returned__ = { userStore, constantsStore, imageLoadError, refresherTriggered, goodsList, totalProfit, swipeStates, touchStartX, touchStartY, currentSwipeGoodsId, searchParams, showModal, modalClosing, isEdit, goodsForm, showDetailModal, detailModalClosing, currentGoods, showSortMenu, currentSortType, sortOptions, originalGoodsList, currentBackgroundImage, formattedProfit, currentSortText, goBack, handleSearch, onSearchInput, handleTouchStart, handleTouchMove, handleTouchEnd, resetSwipeState, resetAllSwipeStates, getBalance, getBalanceClass, getWinRate, getProfitRatio, formatSingleProfit, showGoodsDetail, closeDetailModal, toggleSortMenu, selectSortType, applySorting, getWinRateNumber, getProfitRatioNumber, refreshData, fetchProfitData, allGoodsList, fetchGoodsList, showAddModal, editGoods, closeModal, saveGoods, confirmDeleteGoods, deleteGoods, handleRefresherRefresh, formatTime, handleImageError, handleImageLoad, handleListClick, ref: vue.ref, computed: vue.computed, onMounted: vue.onMounted, reactive: vue.reactive, watch: vue.watch, get userApi() {
+        return userApi;
+      }, get tradeApi() {
+        return tradeApi;
+      }, get useUserStore() {
+        return useUserStore;
+      }, get useConstantsStore() {
+        return useConstantsStore;
+      } };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "trade-container" }, [
+      vue.createCommentVNode(" 背景图片 "),
+      $setup.currentBackgroundImage ? (vue.openBlock(), vue.createElementBlock("image", {
+        key: 0,
+        src: $setup.currentBackgroundImage,
+        class: "background-image",
+        mode: "aspectFill",
+        onError: $setup.handleImageError,
+        onLoad: $setup.handleImageLoad
+      }, null, 40, ["src"])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 顶部导航 "),
+      vue.createElementVNode("view", { class: "nav-header" }, [
+        vue.createElementVNode("view", { class: "nav-left" }, [
+          vue.createElementVNode("view", {
+            class: "icon-wrapper",
+            onClick: $setup.goBack
+          }, [
+            vue.createVNode(_component_uni_icons, {
+              type: "back",
+              size: "24",
+              color: "#fff"
+            })
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "nav-center" }, [
+          vue.createElementVNode("text", { class: "profit-text" }, [
+            vue.createTextVNode(" 总盈亏: "),
+            vue.createElementVNode(
+              "text",
+              {
+                class: vue.normalizeClass(["profit-number", { "profit-positive": $setup.totalProfit > 0, "profit-negative": $setup.totalProfit < 0 }])
+              },
+              vue.toDisplayString($setup.formattedProfit),
+              3
+              /* TEXT, CLASS */
+            )
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "nav-right" }, [
+          vue.createCommentVNode(" 去掉刷新图标 ")
+        ])
+      ]),
+      vue.createCommentVNode(" 搜索区域 "),
+      vue.createElementVNode("view", { class: "search-area" }, [
+        vue.createElementVNode("view", { class: "search-box" }, [
+          vue.createCommentVNode(" 排序按钮 "),
+          vue.createElementVNode("view", { class: "sort-btn-container" }, [
+            vue.createElementVNode("view", {
+              class: "sort-btn",
+              onClick: $setup.toggleSortMenu
+            }, [
+              vue.createVNode(_component_uni_icons, {
+                type: "list",
+                size: "18",
+                color: "#667eea"
+              }),
+              vue.createElementVNode(
+                "text",
+                { class: "sort-text" },
+                vue.toDisplayString($setup.currentSortText),
+                1
+                /* TEXT */
+              ),
+              vue.createVNode(_component_uni_icons, {
+                type: $setup.showSortMenu ? "up" : "down",
+                size: "14",
+                color: "#667eea"
+              }, null, 8, ["type"])
+            ]),
+            vue.createCommentVNode(" 下拉菜单 "),
+            $setup.showSortMenu ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "sort-dropdown"
+            }, [
+              (vue.openBlock(), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($setup.sortOptions, (option, index) => {
+                  return vue.createElementVNode("view", {
+                    class: vue.normalizeClass(["sort-option", { "active": $setup.currentSortType === option.value }]),
+                    key: index,
+                    onClick: ($event) => $setup.selectSortType(option)
+                  }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "option-text" },
+                      vue.toDisplayString(option.label),
+                      1
+                      /* TEXT */
+                    ),
+                    $setup.currentSortType === option.value ? (vue.openBlock(), vue.createElementBlock("view", {
+                      key: 0,
+                      class: "option-check"
+                    }, [
+                      vue.createVNode(_component_uni_icons, {
+                        type: "checkmarkempty",
+                        size: "16",
+                        color: "#667eea"
+                      })
+                    ])) : vue.createCommentVNode("v-if", true)
+                  ], 10, ["onClick"]);
+                }),
+                64
+                /* STABLE_FRAGMENT */
+              ))
+            ])) : vue.createCommentVNode("v-if", true)
+          ]),
+          vue.createElementVNode("view", { class: "search-input-wrapper" }, [
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "search-input",
+                type: "text",
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.searchParams.name = $event),
+                placeholder: "品种名称",
+                "confirm-type": "search",
+                onConfirm: $setup.handleSearch,
+                onInput: $setup.onSearchInput
+              },
+              null,
+              544
+              /* NEED_HYDRATION, NEED_PATCH */
+            ), [
+              [vue.vModelText, $setup.searchParams.name]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "search-input-wrapper" }, [
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "search-input",
+                type: "text",
+                "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.searchParams.code = $event),
+                placeholder: "品种代码",
+                "confirm-type": "search",
+                onConfirm: $setup.handleSearch,
+                onInput: $setup.onSearchInput
+              },
+              null,
+              544
+              /* NEED_HYDRATION, NEED_PATCH */
+            ), [
+              [vue.vModelText, $setup.searchParams.code]
+            ])
+          ]),
+          vue.createElementVNode("view", {
+            class: "search-btn",
+            onClick: $setup.handleSearch
+          }, [
+            vue.createVNode(_component_uni_icons, {
+              type: "search",
+              size: "18",
+              color: "#667eea"
+            })
+          ])
+        ])
+      ]),
+      vue.createCommentVNode(" 主要内容 "),
+      vue.createElementVNode("view", {
+        class: "trade-content",
+        onClick: $setup.handleListClick
+      }, [
+        vue.createCommentVNode(" 商品列表 "),
+        vue.createElementVNode("scroll-view", {
+          class: "market-list",
+          "scroll-y": "true",
+          "refresher-enabled": "true",
+          "refresher-background": "transparent",
+          "refresher-triggered": $setup.refresherTriggered,
+          onRefresherrefresh: $setup.handleRefresherRefresh
+        }, [
+          $setup.goodsList.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "goods-list"
+          }, [
+            vue.createCommentVNode(" 商品项 "),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($setup.goodsList, (goods, index) => {
+                var _a2, _b;
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  class: "goods-swipe-container",
+                  key: goods.id
+                }, [
+                  vue.createElementVNode("view", { class: "goods-swipe-wrapper" }, [
+                    vue.createElementVNode("view", {
+                      class: "goods-item",
+                      style: vue.normalizeStyle({ transform: `translateX(${((_a2 = $setup.swipeStates[goods.id]) == null ? void 0 : _a2.translateX) || 0}rpx)` }),
+                      onTouchstart: ($event) => $setup.handleTouchStart($event, goods.id),
+                      onTouchmove: ($event) => $setup.handleTouchMove($event, goods.id),
+                      onTouchend: ($event) => $setup.handleTouchEnd($event, goods.id),
+                      onClick: ($event) => $setup.showGoodsDetail(goods)
+                    }, [
+                      vue.createElementVNode("view", { class: "goods-row" }, [
+                        vue.createElementVNode("view", { class: "goods-name-col" }, [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "goods-name" },
+                            vue.toDisplayString(goods.name || "未命名"),
+                            1
+                            /* TEXT */
+                          ),
+                          vue.createElementVNode(
+                            "text",
+                            { class: "goods-code" },
+                            vue.toDisplayString(goods.code || "-"),
+                            1
+                            /* TEXT */
+                          )
+                        ]),
+                        vue.createElementVNode("view", { class: "goods-stats-col1" }, [
+                          vue.createElementVNode("view", { class: "stats-item" }, [
+                            vue.createElementVNode("text", { class: "stats-label" }, "盈亏:"),
+                            vue.createElementVNode(
+                              "text",
+                              {
+                                class: vue.normalizeClass(["stats-value", $setup.getBalanceClass(goods)])
+                              },
+                              vue.toDisplayString($setup.getBalance(goods)),
+                              3
+                              /* TEXT, CLASS */
+                            )
+                          ]),
+                          vue.createElementVNode("view", { class: "stats-item" }, [
+                            vue.createElementVNode("text", { class: "stats-label" }, "胜率:"),
+                            vue.createElementVNode(
+                              "text",
+                              { class: "stats-value" },
+                              vue.toDisplayString($setup.getWinRate(goods)),
+                              1
+                              /* TEXT */
+                            )
+                          ])
+                        ]),
+                        vue.createElementVNode("view", { class: "goods-stats-col2" }, [
+                          vue.createElementVNode("view", { class: "stats-item" }, [
+                            vue.createElementVNode("text", { class: "stats-label" }, "盈亏比:"),
+                            vue.createElementVNode(
+                              "text",
+                              { class: "stats-value" },
+                              vue.toDisplayString($setup.getProfitRatio(goods)),
+                              1
+                              /* TEXT */
+                            )
+                          ]),
+                          vue.createElementVNode("view", { class: "stats-item" }, [
+                            vue.createElementVNode("text", { class: "stats-label" }, "利润:"),
+                            vue.createElementVNode(
+                              "text",
+                              { class: "stats-value" },
+                              vue.toDisplayString($setup.formatSingleProfit(goods.singleProfit)) + "/点/手",
+                              1
+                              /* TEXT */
+                            )
+                          ])
+                        ]),
+                        vue.createElementVNode("view", {
+                          class: "edit-icon",
+                          onClick: vue.withModifiers(($event) => $setup.editGoods(goods), ["stop"])
+                        }, [
+                          vue.createVNode(_component_uni_icons, {
+                            type: "compose",
+                            size: "22",
+                            color: "#667eea"
+                          })
+                        ], 8, ["onClick"])
+                      ])
+                    ], 44, ["onTouchstart", "onTouchmove", "onTouchend", "onClick"]),
+                    ((_b = $setup.swipeStates[goods.id]) == null ? void 0 : _b.showDelete) ? (vue.openBlock(), vue.createElementBlock("view", {
+                      key: 0,
+                      class: "delete-action",
+                      onClick: ($event) => $setup.confirmDeleteGoods(goods)
+                    }, [
+                      vue.createVNode(_component_uni_icons, {
+                        type: "trash",
+                        size: "24",
+                        color: "#fff"
+                      })
+                    ], 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
+                  ])
+                ]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])) : (vue.openBlock(), vue.createElementBlock(
+            vue.Fragment,
+            { key: 1 },
+            [
+              vue.createCommentVNode(" 空状态 "),
+              vue.createElementVNode("view", { class: "empty-state" }, [
+                vue.createElementVNode("text", { class: "empty-text" }, "暂无交易品种"),
+                vue.createElementVNode("text", { class: "empty-tips" }, '点击下方"+"添加交易品种')
+              ])
+            ],
+            2112
+            /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+          ))
+        ], 40, ["refresher-triggered"])
+      ]),
+      vue.createCommentVNode(" 添加/编辑商品弹窗 "),
+      $setup.showModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "modal-overlay",
+        onClick: $setup.closeModal
+      }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["modal-content", { "closing": $setup.modalClosing }]),
+            onClick: _cache[5] || (_cache[5] = vue.withModifiers(() => {
+            }, ["stop"]))
+          },
+          [
+            vue.createElementVNode("view", { class: "popup-header" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "popup-title" },
+                vue.toDisplayString($setup.isEdit ? "编辑品种" : "添加品种"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("view", {
+                class: "popup-close",
+                onClick: $setup.closeModal
+              }, [
+                vue.createVNode(_component_uni_icons, {
+                  type: "close",
+                  size: "20",
+                  color: "#666"
+                })
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "input-group" }, [
+              vue.createElementVNode("view", { class: "input-label" }, [
+                vue.createElementVNode("text", { class: "required" }, "*"),
+                vue.createTextVNode("品种名称 ")
+              ]),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "goods-input",
+                  "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $setup.goodsForm.name = $event),
+                  placeholder: "请输入品种名称",
+                  maxlength: "50"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $setup.goodsForm.name]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "input-group" }, [
+              vue.createElementVNode("view", { class: "input-label" }, [
+                vue.createElementVNode("text", { class: "required" }, "*"),
+                vue.createTextVNode("品种代码 ")
+              ]),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "goods-input",
+                  "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $setup.goodsForm.code = $event),
+                  placeholder: "请输入品种代码",
+                  maxlength: "20"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $setup.goodsForm.code]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "input-group" }, [
+              vue.createElementVNode("view", { class: "input-label" }, [
+                vue.createElementVNode("text", { class: "required" }, "*"),
+                vue.createTextVNode("1手1点利润 ")
+              ]),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "goods-input",
+                  type: "digit",
+                  "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $setup.goodsForm.singleProfit = $event),
+                  placeholder: "请输入1手1点利润",
+                  maxlength: "20"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $setup.goodsForm.singleProfit]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "popup-actions" }, [
+              vue.createElementVNode("button", {
+                class: "cancel-btn",
+                onClick: $setup.closeModal
+              }, "取消"),
+              vue.createElementVNode("button", {
+                class: "confirm-btn",
+                onClick: $setup.saveGoods,
+                disabled: !$setup.goodsForm.name || !$setup.goodsForm.code || !$setup.goodsForm.singleProfit
+              }, vue.toDisplayString($setup.isEdit ? "保存" : "添加"), 9, ["disabled"])
+            ])
+          ],
+          2
+          /* CLASS */
+        )
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 添加品种按钮 "),
+      vue.createElementVNode("view", { class: "add-goods-container" }, [
+        vue.createElementVNode("view", {
+          class: "add-goods-btn",
+          onClick: $setup.showAddModal
+        }, [
+          vue.createVNode(_component_uni_icons, {
+            type: "plus",
+            size: "20",
+            color: "#fff"
+          }),
+          vue.createElementVNode("text", { class: "add-btn-text" }, "添加品种")
+        ])
+      ]),
+      vue.createCommentVNode(" 品种详情弹窗 "),
+      $setup.showDetailModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 2,
+        class: "modal-overlay",
+        onClick: $setup.closeDetailModal
+      }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["modal-content detail-modal", { "closing": $setup.detailModalClosing }]),
+            onClick: _cache[8] || (_cache[8] = vue.withModifiers(() => {
+            }, ["stop"]))
+          },
+          [
+            vue.createElementVNode("view", { class: "popup-header" }, [
+              vue.createElementVNode("text", { class: "popup-title" }, "品种详情"),
+              vue.createElementVNode("view", {
+                class: "popup-close",
+                onClick: $setup.closeDetailModal
+              }, [
+                vue.createVNode(_component_uni_icons, {
+                  type: "close",
+                  size: "20",
+                  color: "#666"
+                })
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "detail-content" }, [
+              vue.createElementVNode("view", { class: "detail-item" }, [
+                vue.createElementVNode("text", { class: "detail-label" }, "品种名称"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "detail-value" },
+                  vue.toDisplayString($setup.currentGoods.name || "未命名"),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createElementVNode("view", { class: "detail-item" }, [
+                vue.createElementVNode("text", { class: "detail-label" }, "品种代码"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "detail-value" },
+                  vue.toDisplayString($setup.currentGoods.code || "-"),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createElementVNode("view", { class: "detail-item" }, [
+                vue.createElementVNode("text", { class: "detail-label" }, "当前价格"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "detail-value" },
+                  "¥" + vue.toDisplayString(_ctx.formatPrice($setup.currentGoods.price)),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createElementVNode("view", { class: "detail-item" }, [
+                vue.createElementVNode("text", { class: "detail-label" }, "涨跌幅"),
+                vue.createElementVNode(
+                  "text",
+                  {
+                    class: vue.normalizeClass(["detail-value", _ctx.getChangeClass($setup.currentGoods.change)])
+                  },
+                  vue.toDisplayString(_ctx.formatChange($setup.currentGoods.change)),
+                  3
+                  /* TEXT, CLASS */
+                )
+              ]),
+              vue.createElementVNode("view", { class: "detail-item" }, [
+                vue.createElementVNode("text", { class: "detail-label" }, "库存"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "detail-value" },
+                  vue.toDisplayString($setup.currentGoods.stock || 0),
+                  1
+                  /* TEXT */
+                )
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "popup-actions" }, [
+              vue.createElementVNode("button", {
+                class: "action-btn edit",
+                onClick: _cache[6] || (_cache[6] = ($event) => $setup.editGoods($setup.currentGoods))
+              }, "编辑"),
+              vue.createElementVNode("button", {
+                class: "action-btn delete",
+                onClick: _cache[7] || (_cache[7] = ($event) => $setup.confirmDeleteGoods($setup.currentGoods))
+              }, "删除")
+            ])
+          ],
+          2
+          /* CLASS */
+        )
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesTradeTrade = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__scopeId", "data-v-83c5a4cc"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/trade/trade.vue"]]);
+  const _sfc_main$1 = {
+    __name: "logDetail",
+    setup(__props, { expose: __expose }) {
+      __expose();
+      const userStore = useUserStore();
+      const constantsStore = useConstantsStore();
+      const goodsInfo = vue.reactive({
+        id: "",
+        name: "",
+        code: ""
+      });
+      const logsList = vue.ref([]);
+      const refresherTriggered = vue.ref(false);
+      const totalProfit = vue.ref(0);
+      const showLogModal = vue.ref(false);
+      const logModalClosing = vue.ref(false);
+      const isEditMode = vue.ref(false);
+      const showOutLogModal = vue.ref(false);
+      const outLogModalClosing = vue.ref(false);
+      const logForm = vue.reactive({
+        id: null,
+        // 编辑时的日志ID
+        inDesc: "",
+        inPrice: "",
+        isRise: true,
+        // true: 看涨, false: 看跌
+        count: "",
+        // 手数
+        existingImgs: [],
+        // 已有图片数组（用于编辑时显示和删除）
+        addInImgs: []
+        // 新增入场图片数组
+      });
+      const outLogForm = vue.reactive({
+        id: null,
+        // 编辑时的出场记录ID
+        tradeLogId: null,
+        // 入场日志ID
+        count: "",
+        // 平仓手数
+        outPrice: "",
+        // 出场价格
+        outDesc: "",
+        // 出场描述
+        existingImgs: [],
+        // 已有出场图片数组
+        addOutImgs: []
+        // 新增出场图片数组
+      });
+      const isEditOutLogMode = vue.ref(false);
+      const showLogDetailModal = vue.ref(false);
+      const logDetailModalClosing = vue.ref(false);
+      const viewingLog = vue.ref(null);
+      const outLogsList = vue.ref([]);
+      const isLoadingOutLogs = vue.ref(false);
+      const totalOutCount = vue.computed(() => {
+        return outLogsList.value.reduce((sum, outLog) => sum + (outLog.count || 0), 0);
+      });
+      const canAddOutLog = vue.computed(() => {
+        const editMode = isEditMode.value;
+        const count = logForm.count;
+        const inCount = parseInt(logForm.count) || 0;
+        const totalOut = totalOutCount.value;
+        const result = editMode && count && totalOut < inCount;
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:588", "canAddOutLog 检查:", {
+          isEditMode: editMode,
+          logFormCount: count,
+          inCount,
+          totalOutCount: totalOut,
+          result
+        });
+        return result;
+      });
+      const swipeStates = vue.ref({});
+      const touchStartX = vue.ref(0);
+      const touchStartY = vue.ref(0);
+      const currentSwipeLogId = vue.ref(null);
+      const currentBackgroundImage = vue.computed(() => {
+        return userStore.userInfo.backgroudImg || "";
+      });
+      const formattedProfit = vue.computed(() => {
+        if (totalProfit.value > 0) {
+          return "+" + totalProfit.value.toFixed(2);
+        } else {
+          return totalProfit.value.toFixed(2);
+        }
+      });
+      const goBack = () => {
+        uni.navigateBack();
+      };
+      const addLog2 = () => {
+        uni.navigateTo({
+          url: `/pages/addLog/addLog?goodsId=${goodsInfo.id}&goodsName=${encodeURIComponent(goodsInfo.name)}`
+        });
+      };
+      const showAddLogModal = () => {
+        logForm.id = null;
+        logForm.inDesc = "";
+        logForm.inPrice = "";
+        logForm.isRise = true;
+        logForm.count = "";
+        logForm.existingImgs = [];
+        logForm.addInImgs = [];
+        outLogsList.value = [];
+        isEditMode.value = false;
+        showLogModal.value = true;
+      };
+      const closeLogModal = () => {
+        logModalClosing.value = true;
+        setTimeout(() => {
+          showLogModal.value = false;
+          logModalClosing.value = false;
+          outLogsList.value = [];
+        }, 300);
+      };
+      const chooseInImages = () => {
+        uni.chooseImage({
+          count: 9,
+          sizeType: ["original", "compressed"],
+          sourceType: ["album", "camera"],
+          success: (res2) => {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:662", "选择入场图片成功:", res2.tempFilePaths);
+            const newImages = res2.tempFilePaths.map((path, index) => ({
+              url: path,
+              // 用于预览显示
+              path,
+              // 实际文件路径
+              name: `inImg_${Date.now()}_${index}.jpg`,
+              isExisting: false
+              // 明确标记为新上传的图片
+            }));
+            logForm.addInImgs = [...logForm.addInImgs, ...newImages];
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:671", "当前新增图片数组:", logForm.addInImgs);
+          },
+          fail: (error) => {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:674", "选择入场图片失败:", error);
+          }
+        });
+      };
+      const removeInImage = (index) => {
+        logForm.addInImgs.splice(index, 1);
+      };
+      const removeExistingImage = (index) => {
+        logForm.existingImgs.splice(index, 1);
+      };
+      const removeNewImage = (index) => {
+        logForm.addInImgs.splice(index, 1);
+      };
+      const canSaveLog = vue.computed(() => {
+        return logForm.inDesc.trim() && logForm.inPrice && (logForm.isRise === true || logForm.isRise === false) && logForm.count;
+      });
+      const createFileFromPath = async (path, fileName, isExisting = false) => {
+        try {
+          if (isExisting) {
+            return path;
+          }
+          return new Promise((resolve2, reject) => {
+            plus.io.resolveLocalFileSystemURL(path, (entry) => {
+              entry.file((file) => {
+                const reader = new plus.io.FileReader();
+                reader.onloadend = (e) => {
+                  const arrayBuffer = e.target.result;
+                  const blob = new Blob([arrayBuffer], { type: "image/jpeg" });
+                  const fileObj = new File([blob], fileName, { type: "image/jpeg" });
+                  resolve2(fileObj);
+                };
+                reader.readAsArrayBuffer(file);
+              }, reject);
+            }, reject);
+          });
+          return null;
+        } catch (error) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:735", "创建文件对象失败:", error);
+          return null;
+        }
+      };
+      const saveLog = async () => {
+        if (!canSaveLog.value) {
+          uni.showToast({
+            title: "请填写必填项",
+            icon: "none"
+          });
+          return;
+        }
+        const countValue = parseFloat(logForm.count);
+        if (isNaN(countValue) || countValue <= 0) {
+          uni.showToast({
+            title: "请输入有效的手数",
+            icon: "none"
+          });
+          return;
+        }
+        uni.showLoading({
+          title: isEditMode.value ? "更新中..." : "保存中..."
+        });
+        try {
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:765", "开始保存交易日志");
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:766", "表单数据:", logForm);
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:767", "编辑模式:", isEditMode.value);
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:768", "goodsInfo.id:", goodsInfo.id);
+          if (!isEditMode.value) {
+            if (!goodsInfo.id || goodsInfo.id === "") {
+              uni.hideLoading();
+              uni.showToast({
+                title: "商品ID不能为空，请重新进入页面",
+                icon: "error",
+                duration: 3e3
+              });
+              return;
+            }
+          } else {
+            if (!logForm.id) {
+              uni.hideLoading();
+              uni.showToast({
+                title: "日志ID不能为空",
+                icon: "error"
+              });
+              return;
+            }
+          }
+          const data = {
+            id: isEditMode.value ? logForm.id : goodsInfo.id,
+            // 编辑模式传日志ID，新增模式传商品ID
+            inDesc: logForm.inDesc.trim(),
+            inPrice: parseFloat(logForm.inPrice),
+            isRise: logForm.isRise,
+            count: parseInt(logForm.count)
+          };
+          if (logForm.outDesc && logForm.outDesc.trim()) {
+            data.outDesc = logForm.outDesc.trim();
+          }
+          if (logForm.outPrice && logForm.outPrice !== "") {
+            data.outPrice = parseFloat(logForm.outPrice);
+          }
+          data.outImgs = "";
+          if (isEditMode.value && logForm.existingImgs && logForm.existingImgs.length > 0) {
+            const existingImgUrls = logForm.existingImgs.map((img) => img.url);
+            data.inImgs = JSON.stringify(existingImgUrls);
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:819", "已有入场图片JSON字符串:", data.inImgs);
+          } else {
+            data.inImgs = "";
+          }
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:826", "最终发送的数据:", data);
+          const hasFiles = logForm.addInImgs && logForm.addInImgs.length > 0;
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:830", "是否有文件需要上传:", hasFiles);
+          const url = isEditMode.value ? `${baseURL_}/trade/updLog` : `${baseURL_}/trade/addLog`;
+          let res2;
+          if (hasFiles) {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:841", "有文件，准备上传多个文件:", logForm.addInImgs.length, "张");
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:900", "小程序/APP环境，准备上传", logForm.addInImgs.length, "张图片");
+            const firstFile = logForm.addInImgs[0];
+            const firstFilePath = firstFile.path || firstFile.url;
+            const firstRequestData = {
+              id: data.id.toString(),
+              inDesc: data.inDesc,
+              inPrice: data.inPrice.toString(),
+              isRise: data.isRise.toString(),
+              count: data.count.toString(),
+              inImgs: data.inImgs || "",
+              outDesc: data.outDesc || "",
+              outImgs: data.outImgs || ""
+            };
+            if (data.outPrice !== void 0) {
+              firstRequestData.outPrice = data.outPrice.toString();
+            }
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:921", "Step 1: 上传第一张图片，调用", isEditMode.value ? "updLog" : "addLog");
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:922", "第一张图片路径:", firstFilePath);
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:923", "第一张图片请求参数:", firstRequestData);
+            res2 = await new Promise((resolve2, reject) => {
+              uni.uploadFile({
+                url,
+                // addLog 或 updLog
+                filePath: firstFilePath,
+                name: "addInImgs",
+                formData: firstRequestData,
+                header: {
+                  Authorization: userStore.userInfo.authorization ? `Bearer ${userStore.userInfo.authorization}` : ""
+                },
+                success: (uploadRes) => {
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:937", "第一张图片上传结果:", uploadRes);
+                  try {
+                    const responseData = typeof uploadRes.data === "string" ? JSON.parse(uploadRes.data) : uploadRes.data;
+                    formatAppLog("log", "at pages/logDetail/logDetail.vue:943", "解析后的第一张图片上传结果:", responseData);
+                    if (responseData && (responseData.code == 200 || responseData.code == "200")) {
+                      resolve2(responseData);
+                    } else {
+                      reject(new Error((responseData == null ? void 0 : responseData.msg) || (responseData == null ? void 0 : responseData.message) || "第一张图片上传失败"));
+                    }
+                  } catch (e) {
+                    reject(new Error("解析第一张图片响应失败"));
+                  }
+                },
+                fail: (err) => {
+                  formatAppLog("error", "at pages/logDetail/logDetail.vue:955", "第一张图片上传失败:", err);
+                  reject(err);
+                }
+              });
+            });
+            if (logForm.addInImgs.length > 1 && res2 && (res2.code == 200 || res2.code == "200")) {
+              formatAppLog("log", "at pages/logDetail/logDetail.vue:963", "Step 2: 继续上传剩余", logForm.addInImgs.length - 1, "张图片");
+              let tradeLogId;
+              if (isEditMode.value) {
+                tradeLogId = data.id;
+              } else {
+                tradeLogId = res2.data || res2.message;
+              }
+              formatAppLog("log", "at pages/logDetail/logDetail.vue:974", "获取到的交易记录ID:", tradeLogId);
+              if (!tradeLogId) {
+                formatAppLog("warn", "at pages/logDetail/logDetail.vue:977", "无法获取交易记录ID，跳过剩余图片上传");
+              } else {
+                const additionalUrl = isEditMode.value ? `${baseURL_}/trade/updLog` : `${baseURL_}/trade/addLog`;
+                for (let i = 1; i < logForm.addInImgs.length; i++) {
+                  const additionalFile = logForm.addInImgs[i];
+                  const additionalFilePath = additionalFile.path || additionalFile.url;
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:989", `Step 2.${i}: 上传第${i + 1}张图片，调用${isEditMode.value ? "updLog" : "addLog"}接口，isUpload=true`);
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:990", "图片路径:", additionalFilePath);
+                  const additionalRequestData = {
+                    id: tradeLogId.toString(),
+                    // 使用交易记录ID
+                    inDesc: data.inDesc,
+                    inPrice: data.inPrice.toString(),
+                    isRise: data.isRise.toString(),
+                    count: data.count.toString(),
+                    inImgs: data.inImgs || "",
+                    outDesc: data.outDesc || "",
+                    outImgs: data.outImgs || "",
+                    isUpload: "true"
+                    // 关键参数：标识这是追加图片
+                  };
+                  if (data.outPrice !== void 0) {
+                    additionalRequestData.outPrice = data.outPrice.toString();
+                  }
+                  try {
+                    const additionalRes = await new Promise((resolve2, reject) => {
+                      uni.uploadFile({
+                        url: additionalUrl,
+                        // 根据模式选择接口
+                        filePath: additionalFilePath,
+                        name: "addInImgs",
+                        formData: additionalRequestData,
+                        header: {
+                          Authorization: userStore.userInfo.authorization ? `Bearer ${userStore.userInfo.authorization}` : ""
+                        },
+                        success: (uploadRes) => {
+                          formatAppLog("log", "at pages/logDetail/logDetail.vue:1021", `第${i + 1}张图片上传结果:`, uploadRes);
+                          try {
+                            const responseData = typeof uploadRes.data === "string" ? JSON.parse(uploadRes.data) : uploadRes.data;
+                            if (responseData && (responseData.code == 200 || responseData.code == "200")) {
+                              resolve2(responseData);
+                            } else {
+                              reject(new Error((responseData == null ? void 0 : responseData.msg) || (responseData == null ? void 0 : responseData.message) || `第${i + 1}张图片上传失败`));
+                            }
+                          } catch (e) {
+                            reject(new Error(`解析第${i + 1}张图片响应失败`));
+                          }
+                        },
+                        fail: (err) => {
+                          formatAppLog("error", "at pages/logDetail/logDetail.vue:1037", `第${i + 1}张图片上传失败:`, err);
+                          reject(err);
+                        }
+                      });
+                    });
+                    formatAppLog("log", "at pages/logDetail/logDetail.vue:1043", `第${i + 1}张图片上传成功`);
+                  } catch (error) {
+                    formatAppLog("error", "at pages/logDetail/logDetail.vue:1045", `第${i + 1}张图片上传失败:`, error);
+                  }
+                }
+                formatAppLog("log", "at pages/logDetail/logDetail.vue:1050", "所有图片上传完成");
+              }
+            }
+          } else {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1056", "无文件，使用普通请求");
+            res2 = await new Promise((resolve2, reject) => {
+              uni.request({
+                url,
+                method: "POST",
+                data,
+                header: {
+                  // 使用表单格式，完全参考人设接口
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  "Authorization": userStore.userInfo.authorization ? `Bearer ${userStore.userInfo.authorization}` : ""
+                },
+                success: (res3) => {
+                  var _a2, _b;
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:1071", "请求结果:", res3);
+                  if (res3.statusCode === 200 && (res3.data.code === 200 || res3.data.code === "200")) {
+                    resolve2(res3.data);
+                  } else {
+                    formatAppLog("error", "at pages/logDetail/logDetail.vue:1076", "请求失败:", res3.data);
+                    reject(new Error(((_a2 = res3.data) == null ? void 0 : _a2.msg) || ((_b = res3.data) == null ? void 0 : _b.message) || "请求失败"));
+                  }
+                },
+                fail: (err) => {
+                  formatAppLog("error", "at pages/logDetail/logDetail.vue:1081", "请求失败:", err);
+                  reject(err);
+                }
+              });
+            });
+          }
+          uni.hideLoading();
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:1090", "保存交易日志响应:", res2);
+          if (res2.code === 200 || res2.code === "200") {
+            uni.showToast({
+              title: isEditMode.value ? "更新成功" : "添加成功",
+              icon: "success"
+            });
+            closeLogModal();
+            constantsStore.needRefreshGoods = Math.random();
+            if (logForm.id) {
+              logOutRecordsCache.value.delete(logForm.id);
+              logSummaries.value.delete(logForm.id);
+            }
+            await Promise.all([fetchLogs(), fetchProfitData()]);
+          } else {
+            uni.showToast({
+              title: res2.message || (isEditMode.value ? "更新失败" : "添加失败"),
+              icon: "none"
+            });
+          }
+        } catch (error) {
+          uni.hideLoading();
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1115", "保存交易日志异常:", error);
+          uni.showToast({
+            title: isEditMode.value ? "更新失败" : "添加失败",
+            icon: "none"
+          });
+        }
+      };
+      const fetchProfitData = async () => {
+        if (!goodsInfo.id)
+          return;
+        try {
+          const res2 = await tradeApi.queryProfit({
+            goodsId: goodsInfo.id
+          });
+          if (res2.code === 200 || res2.code === "200") {
+            totalProfit.value = Number(res2.data || 0);
+          } else {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:1134", "获取商品盈亏数据失败:", res2.message);
+          }
+        } catch (error) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1137", "获取商品盈亏数据异常:", error);
+          totalProfit.value = 0;
+        }
+      };
+      const fetchLogs = async () => {
+        var _a2;
+        if (!goodsInfo.id)
+          return;
+        try {
+          const res2 = await tradeApi.queryLog({
+            goodsId: goodsInfo.id,
+            pageSize: 50,
+            pageNo: 1
+          });
+          if (res2.code === 200 || res2.code === "200") {
+            logsList.value = ((_a2 = res2.data) == null ? void 0 : _a2.list) || [];
+            loadAllLogSummaries();
+          } else {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:1158", "获取交易日志失败:", res2.message);
+          }
+        } catch (error) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1161", "获取交易日志异常:", error);
+        }
+      };
+      const loadAllLogSummaries = async () => {
+        for (const log of logsList.value) {
+          if (!logSummaries.value.has(log.id)) {
+            const summary = await getLogSummary(log);
+            logSummaries.value.set(log.id, summary);
+          }
+        }
+      };
+      const fetchOutLogs = async (logId) => {
+        if (!logId)
+          return;
+        isLoadingOutLogs.value = true;
+        try {
+          const res2 = await tradeApi.queryOutLog(logId);
+          if (res2.code === 200 || res2.code === "200") {
+            outLogsList.value = res2.data || [];
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1185", "获取出场记录成功:", outLogsList.value);
+          } else {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:1187", "获取出场记录失败:", res2.message);
+            outLogsList.value = [];
+          }
+        } catch (error) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1191", "获取出场记录异常:", error);
+          outLogsList.value = [];
+        } finally {
+          isLoadingOutLogs.value = false;
+        }
+      };
+      const handleRefresh = async () => {
+        refresherTriggered.value = true;
+        resetAllSwipeStates();
+        logOutRecordsCache.value.clear();
+        logSummaries.value.clear();
+        try {
+          await Promise.all([fetchProfitData(), fetchLogs()]);
+        } catch (error) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1210", "刷新失败:", error);
+        } finally {
+          setTimeout(() => {
+            refresherTriggered.value = false;
+          }, 1e3);
+        }
+      };
+      const formatDate = (timestamp) => {
+        if (!timestamp)
+          return "";
+        const date = new Date(timestamp);
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        const hour = String(date.getHours()).padStart(2, "0");
+        const minute = String(date.getMinutes()).padStart(2, "0");
+        return `${month}-${day} ${hour}:${minute}`;
+      };
+      const formatProfit = (profit) => {
+        if (!profit)
+          return "0.00";
+        return profit > 0 ? `+${profit.toFixed(2)}` : profit.toFixed(2);
+      };
+      const getProfitClass = (profit) => {
+        if (!profit)
+          return "";
+        return profit > 0 ? "profit-positive" : "profit-negative";
+      };
+      const formatBalance = () => {
+        const total = logsList.value.reduce((sum, log) => sum + (log.profit || 0), 0);
+        return total > 0 ? `+${total.toFixed(2)}` : total.toFixed(2);
+      };
+      const getBalanceClass = () => {
+        const total = logsList.value.reduce((sum, log) => sum + (log.profit || 0), 0);
+        return total > 0 ? "profit-positive" : total < 0 ? "profit-negative" : "";
+      };
+      const formatWinRate = () => {
+        if (logsList.value.length === 0)
+          return "0.00%";
+        const winCount = logsList.value.filter((log) => (log.profit || 0) > 0).length;
+        const winRate = winCount / logsList.value.length * 100;
+        return winRate.toFixed(2) + "%";
+      };
+      const handleTouchStart = (e, logId) => {
+        touchStartX.value = e.touches[0].clientX;
+        touchStartY.value = e.touches[0].clientY;
+        currentSwipeLogId.value = logId;
+      };
+      const handleTouchMove = (e, logId) => {
+        if (currentSwipeLogId.value !== logId)
+          return;
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+        const deltaX = touchX - touchStartX.value;
+        const deltaY = touchY - touchStartY.value;
+        if (Math.abs(deltaY) > Math.abs(deltaX))
+          return;
+        if (deltaX < 0) {
+          const translateX = Math.max(deltaX * 0.5, -120);
+          if (!swipeStates.value[logId]) {
+            swipeStates.value[logId] = {};
+          }
+          swipeStates.value[logId].translateX = translateX;
+          swipeStates.value[logId].showDelete = translateX < -30;
+        }
+      };
+      const handleTouchEnd = (e, logId) => {
+        if (currentSwipeLogId.value !== logId)
+          return;
+        const state = swipeStates.value[logId];
+        if (!state)
+          return;
+        if (state.translateX < -60) {
+          state.translateX = -120;
+          state.showDelete = true;
+        } else if (state.translateX < -30) {
+          state.translateX = -120;
+          state.showDelete = true;
+        } else {
+          resetSwipeState(logId);
+        }
+        currentSwipeLogId.value = null;
+      };
+      const resetSwipeState = (logId) => {
+        if (swipeStates.value[logId]) {
+          swipeStates.value[logId].translateX = 0;
+          swipeStates.value[logId].showDelete = false;
+        }
+      };
+      const resetAllSwipeStates = () => {
+        Object.keys(swipeStates.value).forEach((logId) => {
+          resetSwipeState(logId);
+        });
+      };
+      const confirmDeleteLog = (log) => {
+        resetAllSwipeStates();
+        uni.showModal({
+          title: "删除确认",
+          content: `确定要删除这条交易记录吗？`,
+          confirmColor: "#f56c6c",
+          success: async (res2) => {
+            if (res2.confirm) {
+              await deleteLog(log.id);
+            }
+          }
+        });
+      };
+      const confirmDeleteOutLog = (outLog) => {
+        uni.showModal({
+          title: "删除确认",
+          content: `确定要删除这条平仓记录吗？`,
+          confirmColor: "#f56c6c",
+          success: async (res2) => {
+            if (res2.confirm) {
+              await deleteOutLog(outLog.id);
+            }
+          }
+        });
+      };
+      const deleteLog = async (id) => {
+        if (!id)
+          return;
+        uni.showLoading({
+          title: "删除中..."
+        });
+        try {
+          const res2 = await tradeApi.delLog(id);
+          uni.hideLoading();
+          if (res2.code === 200 || res2.code === "200") {
+            uni.showToast({
+              title: "删除成功",
+              icon: "success"
+            });
+            constantsStore.needRefreshGoods = Math.random();
+            await Promise.all([fetchLogs(), fetchProfitData()]);
+          } else {
+            uni.showToast({
+              title: res2.message || "删除失败",
+              icon: "none"
+            });
+          }
+        } catch (error) {
+          uni.hideLoading();
+          uni.showToast({
+            title: "删除失败",
+            icon: "none"
+          });
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1396", "删除交易日志失败:", error);
+        }
+      };
+      const deleteOutLog = async (id) => {
+        if (!id)
+          return;
+        uni.showLoading({
+          title: "删除中..."
+        });
+        try {
+          const res2 = await tradeApi.delOutLog(id);
+          uni.hideLoading();
+          if (res2.code === 200 || res2.code === "200") {
+            uni.showToast({
+              title: "删除成功",
+              icon: "success"
+            });
+            constantsStore.needRefreshGoods = Math.random();
+            await Promise.all([fetchOutLogs(logForm.id), fetchLogs(), fetchProfitData()]);
+          } else {
+            uni.showToast({
+              title: res2.message || "删除失败",
+              icon: "none"
+            });
+          }
+        } catch (error) {
+          uni.hideLoading();
+          uni.showToast({
+            title: "删除失败",
+            icon: "none"
+          });
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1433", "删除平仓记录失败:", error);
+        }
+      };
+      const editLog = (log) => {
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1439", "编辑交易日志，log.inImgs:", log.inImgs);
+        logForm.id = log.id;
+        logForm.inDesc = log.inDesc || "";
+        logForm.inPrice = log.inPrice || "";
+        logForm.isRise = log.isRise;
+        logForm.count = log.count || "";
+        if (log.inImgs && Array.isArray(log.inImgs) && log.inImgs.length > 0) {
+          logForm.existingImgs = log.inImgs.map((url, index) => ({
+            url,
+            path: url,
+            name: `existingImg_${log.id}_${index}.jpg`,
+            isExisting: true
+          }));
+        } else if (log.inImgs && typeof log.inImgs === "string") {
+          try {
+            const parsedImgs = JSON.parse(log.inImgs);
+            if (Array.isArray(parsedImgs)) {
+              logForm.existingImgs = parsedImgs.map((url, index) => ({
+                url,
+                path: url,
+                name: `existingImg_${log.id}_${index}.jpg`,
+                isExisting: true
+              }));
+            } else {
+              logForm.existingImgs = [];
+            }
+          } catch (e) {
+            const urlRegex = /https?:\/\/[^\s"',\]]+/g;
+            const urls = log.inImgs.match(urlRegex) || [];
+            logForm.existingImgs = urls.map((url, index) => {
+              const cleanUrl2 = url.replace(/[,\]"']+$/, "");
+              return {
+                url: cleanUrl2,
+                path: cleanUrl2,
+                name: `existingImg_${log.id}_${index}.jpg`,
+                isExisting: true
+              };
+            });
+          }
+        } else {
+          logForm.existingImgs = [];
+        }
+        logForm.addInImgs = [];
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1493", "处理后的已有图片数组:", logForm.existingImgs);
+        fetchOutLogs(log.id);
+        isEditMode.value = true;
+        showLogModal.value = true;
+      };
+      const handleImageLoad = (src, index) => {
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1504", `图片加载成功: ${src}, 索引: ${index}`);
+      };
+      const handleImageError = (src, index) => {
+        formatAppLog("error", "at pages/logDetail/logDetail.vue:1509", `图片加载失败: ${src}, 索引: ${index}`);
+      };
+      const previewImage = (current, urls) => {
+        uni.previewImage({
+          urls,
+          // 所有图片的URL数组
+          current,
+          // 当前显示的图片URL
+          success: (res2) => {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1518", "图片预览成功");
+          },
+          fail: (err) => {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:1521", "图片预览失败:", err);
+            uni.showToast({
+              title: "图片预览失败",
+              icon: "none"
+            });
+          }
+        });
+      };
+      const getAllImageUrls = () => {
+        const urls = [];
+        logForm.existingImgs.forEach((img) => urls.push(img.url));
+        logForm.addInImgs.forEach((img) => urls.push(img.url));
+        return urls;
+      };
+      const parseOutImages = (imgUrls) => {
+        if (!imgUrls || typeof imgUrls !== "string")
+          return [];
+        try {
+          const parsedImgs = JSON.parse(imgUrls);
+          if (Array.isArray(parsedImgs)) {
+            return parsedImgs;
+          }
+        } catch (e) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:1547", "解析出场图片URL失败:", e);
+        }
+        return [];
+      };
+      const previewOutImage = (current, urls) => {
+        uni.previewImage({
+          urls,
+          // 所有图片的URL数组
+          current,
+          // 当前显示的图片URL
+          success: (res2) => {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1558", "出场图片预览成功");
+          },
+          fail: (err) => {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:1561", "出场图片预览失败:", err);
+            uni.showToast({
+              title: "出场图片预览失败",
+              icon: "none"
+            });
+          }
+        });
+      };
+      const showAddOutLogModal = () => {
+        const remainingCount = parseInt(logForm.count) - totalOutCount.value;
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1574", "显示新增平仓记录弹窗");
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1575", "入场手数:", logForm.count);
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1576", "已平仓手数:", totalOutCount.value);
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:1577", "剩余未平仓手数:", remainingCount);
+        outLogForm.id = null;
+        outLogForm.tradeLogId = logForm.id;
+        outLogForm.count = "";
+        outLogForm.outPrice = "";
+        outLogForm.outDesc = "";
+        outLogForm.existingImgs = [];
+        outLogForm.addOutImgs = [];
+        isEditOutLogMode.value = false;
+        showOutLogModal.value = true;
+      };
+      const closeOutLogModal = () => {
+        outLogModalClosing.value = true;
+        setTimeout(() => {
+          showOutLogModal.value = false;
+          outLogModalClosing.value = false;
+          isEditOutLogMode.value = false;
+          outLogForm.id = null;
+        }, 300);
+      };
+      const canSaveOutLog = vue.computed(() => {
+        const count = parseInt(outLogForm.count) || 0;
+        const outPrice = parseFloat(outLogForm.outPrice) || 0;
+        if (count <= 0 || outPrice <= 0) {
+          return false;
+        }
+        if (isEditOutLogMode.value) {
+          return true;
+        } else {
+          const remainingCount = parseInt(logForm.count) - totalOutCount.value;
+          return count <= remainingCount;
+        }
+      });
+      const chooseOutImages = () => {
+        uni.chooseImage({
+          count: 9,
+          sizeType: ["original", "compressed"],
+          sourceType: ["album", "camera"],
+          success: (res2) => {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1636", "选择出场图片成功:", res2.tempFilePaths);
+            const newImages = res2.tempFilePaths.map((path, index) => ({
+              url: path,
+              // 用于预览显示
+              path,
+              // 实际文件路径
+              name: `outImg_${Date.now()}_${index}.jpg`,
+              isExisting: false
+              // 明确标记为新上传的图片
+            }));
+            outLogForm.addOutImgs = [...outLogForm.addOutImgs, ...newImages];
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1645", "当前新增出场图片数组:", outLogForm.addOutImgs);
+          },
+          fail: (error) => {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:1648", "选择出场图片失败:", error);
+          }
+        });
+      };
+      const removeExistingOutImage = (index) => {
+        outLogForm.existingImgs.splice(index, 1);
+      };
+      const removeNewOutImage = (index) => {
+        outLogForm.addOutImgs.splice(index, 1);
+      };
+      const getAllOutImageUrls = () => {
+        const urls = [];
+        outLogForm.existingImgs.forEach((img) => urls.push(img.url));
+        outLogForm.addOutImgs.forEach((img) => urls.push(img.url));
+        return urls;
+      };
+      const saveOutLog = async () => {
+        if (!canSaveOutLog.value) {
+          uni.showToast({
+            title: "请填写必填项",
+            icon: "none"
+          });
+          return;
+        }
+        const count = parseInt(outLogForm.count) || 0;
+        if (isEditOutLogMode.value) {
+          if (count <= 0) {
+            uni.showToast({
+              title: "手数必须大于0",
+              icon: "none"
+            });
+            return;
+          }
+        } else {
+          const remainingCount = parseInt(logForm.count) - totalOutCount.value;
+          if (count <= 0 || count > remainingCount) {
+            uni.showToast({
+              title: `平仓手数必须在1-${remainingCount}之间`,
+              icon: "none"
+            });
+            return;
+          }
+        }
+        uni.showLoading({
+          title: "保存中..."
+        });
+        try {
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:1711", "开始保存平仓记录");
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:1712", "表单数据:", outLogForm);
+          const data = {
+            count,
+            outPrice: parseFloat(outLogForm.outPrice),
+            outDesc: outLogForm.outDesc.trim() || ""
+          };
+          if (isEditOutLogMode.value) {
+            data.tradeLogOutId = outLogForm.id;
+          } else {
+            data.tradeLogId = outLogForm.tradeLogId;
+          }
+          if (outLogForm.addOutImgs && outLogForm.addOutImgs.length > 0) {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1732", "处理新增出场图片:", outLogForm.addOutImgs.length, "张");
+            data.hasOutImgs = true;
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1759", "iOS/小程序环境，标记有出场图片文件");
+          }
+          if (isEditOutLogMode.value && outLogForm.existingImgs && outLogForm.existingImgs.length > 0) {
+            const existingImgUrls = outLogForm.existingImgs.map((img) => img.url);
+            data.outImgs = JSON.stringify(existingImgUrls);
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1767", "已有出场图片JSON字符串:", data.outImgs);
+          } else if (isEditOutLogMode.value) {
+            data.outImgs = JSON.stringify([]);
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1771", "已有出场图片为空，传递空数组JSON字符串");
+          }
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:1774", "最终发送的平仓数据:", data);
+          const hasFiles = outLogForm.addOutImgs && outLogForm.addOutImgs.length > 0 || data.hasOutImgs;
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:1778", "是否有文件需要上传:", hasFiles);
+          const url = isEditOutLogMode.value ? `${baseURL_}/trade/updOutLog` : `${baseURL_}/trade/addOutLog`;
+          let res2;
+          if (hasFiles) {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1789", "有文件，准备上传多个出场图片:", outLogForm.addOutImgs.length, "张");
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1844", "小程序/APP环境，准备上传", outLogForm.addOutImgs.length, "张出场图片");
+            const firstFile = outLogForm.addOutImgs[0];
+            const firstFilePath = firstFile.path || firstFile.url;
+            const firstRequestData = {
+              count: data.count.toString(),
+              outPrice: data.outPrice.toString(),
+              outDesc: data.outDesc || "",
+              outImgs: data.outImgs || ""
+            };
+            if (data.tradeLogId) {
+              firstRequestData.tradeLogId = data.tradeLogId.toString();
+            }
+            if (data.tradeLogOutId) {
+              firstRequestData.tradeLogOutId = data.tradeLogOutId.toString();
+            }
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1864", "Step 1: 上传第一张出场图片，调用", isEditOutLogMode.value ? "updOutLog" : "addOutLog");
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1865", "第一张出场图片路径:", firstFilePath);
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:1866", "第一张出场图片请求参数:", firstRequestData);
+            res2 = await new Promise((resolve2, reject) => {
+              uni.uploadFile({
+                url,
+                // addOutLog 或 updOutLog
+                filePath: firstFilePath,
+                name: "addOutImgs",
+                formData: firstRequestData,
+                header: {
+                  Authorization: userStore.userInfo.authorization ? `Bearer ${userStore.userInfo.authorization}` : ""
+                },
+                success: (uploadRes) => {
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:1880", "第一张出场图片上传结果:", uploadRes);
+                  try {
+                    const responseData = typeof uploadRes.data === "string" ? JSON.parse(uploadRes.data) : uploadRes.data;
+                    formatAppLog("log", "at pages/logDetail/logDetail.vue:1886", "解析后的第一张出场图片上传结果:", responseData);
+                    if (responseData && (responseData.code == 200 || responseData.code == "200")) {
+                      resolve2(responseData);
+                    } else {
+                      reject(new Error((responseData == null ? void 0 : responseData.msg) || (responseData == null ? void 0 : responseData.message) || "第一张出场图片上传失败"));
+                    }
+                  } catch (e) {
+                    reject(new Error("解析第一张出场图片响应失败"));
+                  }
+                },
+                fail: (err) => {
+                  formatAppLog("error", "at pages/logDetail/logDetail.vue:1898", "第一张出场图片上传失败:", err);
+                  reject(err);
+                }
+              });
+            });
+            if (outLogForm.addOutImgs.length > 1 && res2 && (res2.code == 200 || res2.code == "200")) {
+              formatAppLog("log", "at pages/logDetail/logDetail.vue:1906", "Step 2: 继续上传剩余", outLogForm.addOutImgs.length - 1, "张出场图片");
+              let outRecordId;
+              if (isEditOutLogMode.value) {
+                outRecordId = data.tradeLogOutId;
+              } else {
+                outRecordId = res2.data || res2.message;
+              }
+              formatAppLog("log", "at pages/logDetail/logDetail.vue:1917", "获取到的平仓记录ID:", outRecordId);
+              if (!outRecordId) {
+                formatAppLog("warn", "at pages/logDetail/logDetail.vue:1920", "无法获取平仓记录ID，跳过剩余图片上传");
+              } else {
+                const additionalUrl = isEditOutLogMode.value ? `${baseURL_}/trade/updOutLog` : `${baseURL_}/trade/addOutLog`;
+                for (let i = 1; i < outLogForm.addOutImgs.length; i++) {
+                  const additionalFile = outLogForm.addOutImgs[i];
+                  const additionalFilePath = additionalFile.path || additionalFile.url;
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:1932", `Step 2.${i}: 上传第${i + 1}张出场图片，调用${isEditOutLogMode.value ? "updOutLog" : "addOutLog"}接口，isUpload=true`);
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:1933", "出场图片路径:", additionalFilePath);
+                  const additionalRequestData = {
+                    count: data.count.toString(),
+                    outPrice: data.outPrice.toString(),
+                    outDesc: data.outDesc || "",
+                    outImgs: data.outImgs || "",
+                    isUpload: "true"
+                    // 关键参数：标识这是追加图片
+                  };
+                  if (isEditOutLogMode.value) {
+                    additionalRequestData.tradeLogOutId = outRecordId.toString();
+                  } else {
+                    additionalRequestData.tradeLogId = outRecordId.toString();
+                  }
+                  try {
+                    const additionalRes = await new Promise((resolve2, reject) => {
+                      uni.uploadFile({
+                        url: additionalUrl,
+                        // 根据模式选择接口
+                        filePath: additionalFilePath,
+                        name: "addOutImgs",
+                        formData: additionalRequestData,
+                        header: {
+                          Authorization: userStore.userInfo.authorization ? `Bearer ${userStore.userInfo.authorization}` : ""
+                        },
+                        success: (uploadRes) => {
+                          formatAppLog("log", "at pages/logDetail/logDetail.vue:1965", `第${i + 1}张出场图片上传结果:`, uploadRes);
+                          try {
+                            const responseData = typeof uploadRes.data === "string" ? JSON.parse(uploadRes.data) : uploadRes.data;
+                            if (responseData && (responseData.code == 200 || responseData.code == "200")) {
+                              resolve2(responseData);
+                            } else {
+                              reject(new Error((responseData == null ? void 0 : responseData.msg) || (responseData == null ? void 0 : responseData.message) || `第${i + 1}张出场图片上传失败`));
+                            }
+                          } catch (e) {
+                            reject(new Error(`解析第${i + 1}张出场图片响应失败`));
+                          }
+                        },
+                        fail: (err) => {
+                          formatAppLog("error", "at pages/logDetail/logDetail.vue:1981", `第${i + 1}张出场图片上传失败:`, err);
+                          reject(err);
+                        }
+                      });
+                    });
+                    formatAppLog("log", "at pages/logDetail/logDetail.vue:1987", `第${i + 1}张出场图片上传成功`);
+                  } catch (error) {
+                    formatAppLog("error", "at pages/logDetail/logDetail.vue:1989", `第${i + 1}张出场图片上传失败:`, error);
+                  }
+                }
+                formatAppLog("log", "at pages/logDetail/logDetail.vue:1994", "所有出场图片上传完成");
+              }
+            }
+          } else {
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:2000", "无文件，使用普通请求");
+            res2 = await new Promise((resolve2, reject) => {
+              uni.request({
+                url,
+                method: "POST",
+                data,
+                header: {
+                  // 使用表单格式，完全参考 saveLog 接口
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  "Authorization": userStore.userInfo.authorization ? `Bearer ${userStore.userInfo.authorization}` : ""
+                },
+                success: (res3) => {
+                  var _a2, _b;
+                  formatAppLog("log", "at pages/logDetail/logDetail.vue:2015", "请求结果:", res3);
+                  if (res3.statusCode === 200 && (res3.data.code === 200 || res3.data.code === "200")) {
+                    resolve2(res3.data);
+                  } else {
+                    formatAppLog("error", "at pages/logDetail/logDetail.vue:2020", "请求失败:", res3.data);
+                    reject(new Error(((_a2 = res3.data) == null ? void 0 : _a2.msg) || ((_b = res3.data) == null ? void 0 : _b.message) || "请求失败"));
+                  }
+                },
+                fail: (err) => {
+                  formatAppLog("error", "at pages/logDetail/logDetail.vue:2025", "请求失败:", err);
+                  reject(err);
+                }
+              });
+            });
+          }
+          uni.hideLoading();
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:2034", "保存平仓记录响应:", res2);
+          if (res2.code === 200 || res2.code === "200") {
+            uni.showToast({
+              title: isEditOutLogMode.value ? "平仓记录更新成功" : "平仓记录添加成功",
+              icon: "success"
+            });
+            closeOutLogModal();
+            constantsStore.needRefreshGoods = Math.random();
+            await Promise.all([fetchOutLogs(logForm.id), fetchLogs(), fetchProfitData()]);
+          } else {
+            uni.showToast({
+              title: res2.message || (isEditOutLogMode.value ? "平仓记录更新失败" : "平仓记录添加失败"),
+              icon: "none"
+            });
+          }
+        } catch (error) {
+          uni.hideLoading();
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:2054", "保存平仓记录异常:", error);
+          uni.showToast({
+            title: "平仓记录添加失败",
+            icon: "none"
+          });
+        }
+      };
+      onLoad((options) => {
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2064", "页面参数:", options);
+        goodsInfo.id = options.goodsId || "";
+        goodsInfo.name = decodeURIComponent(options.goodsName || "");
+        goodsInfo.code = decodeURIComponent(options.goodsCode || "");
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2071", "解析后的商品信息:", goodsInfo);
+        uni.setNavigationBarTitle({
+          title: goodsInfo.name || "交易日志"
+        });
+      });
+      vue.onMounted(() => {
+        userStore.initUserInfo();
+        Promise.all([fetchProfitData(), fetchLogs()]);
+      });
+      const handleOutCountBlur = (e) => {
+        const inputValue = outLogForm.count;
+        const maxCount = parseInt(logForm.count) - totalOutCount.value;
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2094", "失焦检查 - 当前值:", inputValue, "最大值:", maxCount);
+        if (!inputValue || inputValue === "") {
+          return;
+        }
+        const countValue = parseInt(inputValue);
+        if (isNaN(countValue) || countValue <= 0) {
+          outLogForm.count = "";
+          return;
+        }
+        if (countValue > maxCount && maxCount > 0) {
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:2112", "失焦时超过最大值，强制设置为:", maxCount);
+          outLogForm.count = maxCount.toString();
+          vue.nextTick(() => {
+            uni.showToast({
+              title: `已自动调整为最大可平仓手数${maxCount}手`,
+              icon: "none",
+              duration: 2e3
+            });
+          });
+        }
+      };
+      vue.watch(() => outLogForm.count, (newValue) => {
+        if (!newValue || newValue === "")
+          return;
+        const maxCount = parseInt(logForm.count) - totalOutCount.value;
+        const countValue = parseInt(newValue);
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2133", "实时监听 - 新值:", newValue, "最大值:", maxCount);
+        if (countValue > maxCount && maxCount > 0) {
+          setTimeout(() => {
+            if (parseInt(outLogForm.count) > maxCount) {
+              formatAppLog("log", "at pages/logDetail/logDetail.vue:2140", "实时检测超过最大值，调整为:", maxCount);
+              outLogForm.count = maxCount.toString();
+              uni.showToast({
+                title: `最多只能平仓${maxCount}手`,
+                icon: "none",
+                duration: 1500
+              });
+            }
+          }, 500);
+        }
+      }, { immediate: false });
+      const editOutLog = (outLog) => {
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2154", "编辑出场记录:", outLog);
+        isEditOutLogMode.value = true;
+        outLogForm.id = outLog.id;
+        outLogForm.tradeLogId = outLog.tradeLogId;
+        outLogForm.count = outLog.count.toString();
+        outLogForm.outPrice = outLog.outPrice ? outLog.outPrice.toString() : "";
+        outLogForm.outDesc = outLog.outDesc || "";
+        if (outLog.outImgs) {
+          try {
+            const parsedImgs = JSON.parse(outLog.outImgs);
+            if (Array.isArray(parsedImgs)) {
+              outLogForm.existingImgs = parsedImgs.map((url, index) => ({
+                url,
+                path: url,
+                name: `existingOutImg_${outLog.id}_${index}.jpg`,
+                isExisting: true
+              }));
+            } else {
+              outLogForm.existingImgs = [];
+            }
+          } catch (e) {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:2181", "解析出场图片失败:", e);
+            outLogForm.existingImgs = [];
+          }
+        } else {
+          outLogForm.existingImgs = [];
+        }
+        outLogForm.addOutImgs = [];
+        showOutLogModal.value = true;
+      };
+      const viewLogDetail = (log) => {
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2197", "查看日志详情:", log);
+        viewingLog.value = { ...log };
+        fetchOutLogs(log.id);
+        showLogDetailModal.value = true;
+      };
+      const closeLogDetailModal = () => {
+        logDetailModalClosing.value = true;
+        setTimeout(() => {
+          showLogDetailModal.value = false;
+          logDetailModalClosing.value = false;
+          viewingLog.value = null;
+        }, 300);
+      };
+      const parseInImages = (imgUrls) => {
+        if (!imgUrls)
+          return [];
+        if (Array.isArray(imgUrls)) {
+          return imgUrls;
+        }
+        if (typeof imgUrls === "string") {
+          try {
+            const parsedImgs = JSON.parse(imgUrls);
+            if (Array.isArray(parsedImgs)) {
+              return parsedImgs;
+            }
+          } catch (e) {
+            formatAppLog("error", "at pages/logDetail/logDetail.vue:2236", "解析入场图片URL失败:", e);
+            const urlRegex = /https?:\/\/[^\s"',\]]+/g;
+            const urls = imgUrls.match(urlRegex) || [];
+            return urls.map((url) => url.replace(/[,\]"']+$/, ""));
+          }
+        }
+        return [];
+      };
+      const getLogOutRecords = async (logId) => {
+        try {
+          const res2 = await tradeApi.queryOutLog(logId);
+          if (res2.code === 200 || res2.code === "200") {
+            return res2.data || [];
+          }
+        } catch (error) {
+          formatAppLog("error", "at pages/logDetail/logDetail.vue:2255", "获取出场记录失败:", error);
+        }
+        return [];
+      };
+      const getUnClosedCount = (log, outRecords = []) => {
+        const totalCount = log.count || 0;
+        const outCount = outRecords.reduce((sum, record) => sum + (record.count || 0), 0);
+        return totalCount - outCount;
+      };
+      const getHoldingTime = (log, outRecords = []) => {
+        let createTime;
+        if (typeof log.createTime === "number") {
+          createTime = new Date(log.createTime);
+        } else if (typeof log.createTime === "string") {
+          createTime = new Date(log.createTime);
+        } else {
+          createTime = new Date(log.createTime);
+        }
+        const unClosedCount = getUnClosedCount(log, outRecords);
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2281", `[持仓时间计算] 日志ID: ${log.id}, 入场时间: ${log.createTime} -> ${createTime}, 未平手数: ${unClosedCount}`);
+        let endTime;
+        if (unClosedCount > 0 || outRecords.length === 0) {
+          endTime = /* @__PURE__ */ new Date();
+          formatAppLog("log", "at pages/logDetail/logDetail.vue:2287", `[持仓时间计算] 使用当前时间: ${endTime}`);
+        } else {
+          const validOutTimes = [];
+          outRecords.forEach((record, index) => {
+            let outTime;
+            if (typeof record.createTime === "number") {
+              outTime = new Date(record.createTime);
+            } else if (typeof record.createTime === "string") {
+              outTime = new Date(record.createTime);
+            } else {
+              outTime = new Date(record.createTime);
+            }
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:2302", `[持仓时间计算] 出场记录${index + 1}: ${record.createTime} -> ${outTime}`);
+            if (!isNaN(outTime.getTime())) {
+              validOutTimes.push(outTime.getTime());
+            }
+          });
+          if (validOutTimes.length > 0) {
+            const latestOutTime = Math.max(...validOutTimes);
+            endTime = new Date(latestOutTime);
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:2312", `[持仓时间计算] 使用最晚平仓时间: ${endTime}`);
+          } else {
+            endTime = /* @__PURE__ */ new Date();
+            formatAppLog("log", "at pages/logDetail/logDetail.vue:2316", `[持仓时间计算] 无有效出场时间，使用当前时间: ${endTime}`);
+          }
+        }
+        const diffMs = endTime.getTime() - createTime.getTime();
+        if (diffMs < 0) {
+          formatAppLog("warn", "at pages/logDetail/logDetail.vue:2324", `[持仓时间计算] 时间差为负数: ${diffMs}ms，使用绝对值`);
+          const absDiffMs = Math.abs(diffMs);
+          const diffHours2 = Math.floor(absDiffMs / (1e3 * 60 * 60));
+          const diffMinutes2 = Math.floor(absDiffMs % (1e3 * 60 * 60) / (1e3 * 60));
+          return {
+            hours: diffHours2,
+            minutes: diffMinutes2,
+            isOpen: unClosedCount > 0
+          };
+        }
+        const diffHours = Math.floor(diffMs / (1e3 * 60 * 60));
+        const diffMinutes = Math.floor(diffMs % (1e3 * 60 * 60) / (1e3 * 60));
+        formatAppLog("log", "at pages/logDetail/logDetail.vue:2340", `[持仓时间计算] 时间差: ${diffMs}ms -> ${diffHours}h${diffMinutes}m`);
+        return {
+          hours: diffHours,
+          minutes: diffMinutes,
+          isOpen: unClosedCount > 0
+          // 是否还有未平仓
+        };
+      };
+      const formatHoldingTime = (timeInfo) => {
+        return `${timeInfo.hours}h${timeInfo.minutes}m`;
+      };
+      const logOutRecordsCache = vue.ref(/* @__PURE__ */ new Map());
+      const logSummaries = vue.ref(/* @__PURE__ */ new Map());
+      const getLogSummary = async (log) => {
+        let outRecords = logOutRecordsCache.value.get(log.id);
+        if (!outRecords) {
+          outRecords = await getLogOutRecords(log.id);
+          logOutRecordsCache.value.set(log.id, outRecords);
+        }
+        const unClosedCount = getUnClosedCount(log, outRecords);
+        const holdingTime = getHoldingTime(log, outRecords);
+        return {
+          entryPrice: log.inPrice || 0,
+          totalCount: log.count || 0,
+          unClosedCount,
+          holdingTime: formatHoldingTime(holdingTime),
+          isOpen: holdingTime.isOpen
+        };
+      };
+      const __returned__ = { userStore, constantsStore, goodsInfo, logsList, refresherTriggered, totalProfit, showLogModal, logModalClosing, isEditMode, showOutLogModal, outLogModalClosing, logForm, outLogForm, isEditOutLogMode, showLogDetailModal, logDetailModalClosing, viewingLog, outLogsList, isLoadingOutLogs, totalOutCount, canAddOutLog, swipeStates, touchStartX, touchStartY, currentSwipeLogId, currentBackgroundImage, formattedProfit, goBack, addLog: addLog2, showAddLogModal, closeLogModal, chooseInImages, removeInImage, removeExistingImage, removeNewImage, canSaveLog, createFileFromPath, saveLog, fetchProfitData, fetchLogs, loadAllLogSummaries, fetchOutLogs, handleRefresh, formatDate, formatProfit, getProfitClass, formatBalance, getBalanceClass, formatWinRate, handleTouchStart, handleTouchMove, handleTouchEnd, resetSwipeState, resetAllSwipeStates, confirmDeleteLog, confirmDeleteOutLog, deleteLog, deleteOutLog, editLog, handleImageLoad, handleImageError, previewImage, getAllImageUrls, parseOutImages, previewOutImage, showAddOutLogModal, closeOutLogModal, canSaveOutLog, chooseOutImages, removeExistingOutImage, removeNewOutImage, getAllOutImageUrls, saveOutLog, handleOutCountBlur, editOutLog, viewLogDetail, closeLogDetailModal, parseInImages, getLogOutRecords, getUnClosedCount, getHoldingTime, formatHoldingTime, logOutRecordsCache, logSummaries, getLogSummary, ref: vue.ref, reactive: vue.reactive, computed: vue.computed, onMounted: vue.onMounted, watch: vue.watch, nextTick: vue.nextTick, get onLoad() {
+        return onLoad;
+      }, get tradeApi() {
+        return tradeApi;
+      }, get useUserStore() {
+        return useUserStore;
+      }, get useConstantsStore() {
+        return useConstantsStore;
+      }, get baseURL_() {
+        return baseURL_;
+      } };
+      Object.defineProperty(__returned__, "__isScriptSetup", { enumerable: false, value: true });
+      return __returned__;
+    }
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_uni_icons = resolveEasycom(vue.resolveDynamicComponent("uni-icons"), __easycom_0);
+    return vue.openBlock(), vue.createElementBlock("view", { class: "log-detail-container" }, [
+      vue.createCommentVNode(" 背景图片 "),
+      $setup.currentBackgroundImage ? (vue.openBlock(), vue.createElementBlock("image", {
+        key: 0,
+        src: $setup.currentBackgroundImage,
+        class: "background-image",
+        mode: "aspectFill"
+      }, null, 8, ["src"])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 导航栏 "),
+      vue.createElementVNode("view", { class: "nav-header" }, [
+        vue.createElementVNode("view", { class: "nav-left" }, [
+          vue.createElementVNode("view", {
+            class: "icon-wrapper",
+            onClick: $setup.goBack
+          }, [
+            vue.createVNode(_component_uni_icons, {
+              type: "back",
+              size: "24",
+              color: "#fff"
+            })
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "nav-center" }, [
+          vue.createElementVNode("text", { class: "profit-text" }, [
+            vue.createTextVNode(
+              vue.toDisplayString($setup.goodsInfo.code) + " 盈亏: ",
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode(
+              "text",
+              {
+                class: vue.normalizeClass(["profit-number", { "profit-positive": $setup.totalProfit > 0, "profit-negative": $setup.totalProfit < 0 }])
+              },
+              vue.toDisplayString($setup.formattedProfit),
+              3
+              /* TEXT, CLASS */
+            )
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "nav-right" }, [
+          vue.createCommentVNode(" 去掉右上角的添加图标 ")
+        ])
+      ]),
+      vue.createCommentVNode(" 主要内容 "),
+      vue.createElementVNode("view", { class: "log-content" }, [
+        vue.createCommentVNode(" 日志列表 "),
+        vue.createElementVNode("scroll-view", {
+          class: "logs-list",
+          "scroll-y": "true",
+          "refresher-enabled": "true",
+          "refresher-background": "transparent",
+          "refresher-triggered": $setup.refresherTriggered,
+          onRefresherrefresh: $setup.handleRefresh
+        }, [
+          $setup.logsList.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "logs-container"
+          }, [
+            vue.createCommentVNode(" 日志项 "),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($setup.logsList, (log, index) => {
+                var _a2, _b;
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  class: "log-swipe-container",
+                  key: log.id
+                }, [
+                  vue.createElementVNode("view", { class: "log-swipe-wrapper" }, [
+                    vue.createElementVNode("view", {
+                      class: "log-item",
+                      style: vue.normalizeStyle({ transform: `translateX(${((_a2 = $setup.swipeStates[log.id]) == null ? void 0 : _a2.translateX) || 0}rpx)` }),
+                      onTouchstart: ($event) => $setup.handleTouchStart($event, log.id),
+                      onTouchmove: ($event) => $setup.handleTouchMove($event, log.id),
+                      onTouchend: ($event) => $setup.handleTouchEnd($event, log.id),
+                      onClick: ($event) => $setup.viewLogDetail(log)
+                    }, [
+                      vue.createElementVNode("view", { class: "log-row" }, [
+                        vue.createElementVNode("view", { class: "log-date-col" }, [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "log-date" },
+                            vue.toDisplayString($setup.formatDate(log.createTime)),
+                            1
+                            /* TEXT */
+                          )
+                        ]),
+                        vue.createElementVNode("view", { class: "log-info-col" }, [
+                          $setup.logSummaries.get(log.id) ? (vue.openBlock(), vue.createElementBlock("view", {
+                            key: 0,
+                            class: "log-summary"
+                          }, [
+                            vue.createElementVNode("view", { class: "summary-row" }, [
+                              vue.createElementVNode(
+                                "text",
+                                { class: "summary-item" },
+                                "开仓: $" + vue.toDisplayString($setup.logSummaries.get(log.id).entryPrice),
+                                1
+                                /* TEXT */
+                              ),
+                              vue.createElementVNode(
+                                "text",
+                                { class: "summary-item" },
+                                "手数: " + vue.toDisplayString($setup.logSummaries.get(log.id).totalCount),
+                                1
+                                /* TEXT */
+                              ),
+                              vue.createElementVNode(
+                                "text",
+                                {
+                                  class: vue.normalizeClass(["direction-tag", log.isRise ? "direction-long" : "direction-short"])
+                                },
+                                vue.toDisplayString(log.isRise ? "多" : "空"),
+                                3
+                                /* TEXT, CLASS */
+                              )
+                            ]),
+                            vue.createElementVNode("view", { class: "summary-row" }, [
+                              vue.createElementVNode(
+                                "text",
+                                {
+                                  class: vue.normalizeClass(["summary-item", { "unclosed-text": $setup.logSummaries.get(log.id).isOpen }])
+                                },
+                                " 未平: " + vue.toDisplayString($setup.logSummaries.get(log.id).unClosedCount) + "手 ",
+                                3
+                                /* TEXT, CLASS */
+                              ),
+                              vue.createElementVNode(
+                                "text",
+                                {
+                                  class: vue.normalizeClass(["summary-item", { "holding-open": $setup.logSummaries.get(log.id).isOpen }])
+                                },
+                                " 持仓: " + vue.toDisplayString($setup.logSummaries.get(log.id).holdingTime),
+                                3
+                                /* TEXT, CLASS */
+                              )
+                            ])
+                          ])) : (vue.openBlock(), vue.createElementBlock("view", {
+                            key: 1,
+                            class: "log-summary loading"
+                          }, [
+                            vue.createElementVNode("text", { class: "loading-text" }, "加载中...")
+                          ]))
+                        ]),
+                        vue.createElementVNode("view", { class: "log-profit-col" }, [
+                          vue.createElementVNode(
+                            "text",
+                            {
+                              class: vue.normalizeClass(["log-profit", $setup.getProfitClass(log.profit)])
+                            },
+                            vue.toDisplayString($setup.formatProfit(log.profit)),
+                            3
+                            /* TEXT, CLASS */
+                          )
+                        ]),
+                        vue.createElementVNode("view", {
+                          class: "edit-icon",
+                          onClick: vue.withModifiers(($event) => $setup.editLog(log), ["stop"])
+                        }, [
+                          vue.createVNode(_component_uni_icons, {
+                            type: "compose",
+                            size: "22",
+                            color: "#667eea"
+                          })
+                        ], 8, ["onClick"])
+                      ])
+                    ], 44, ["onTouchstart", "onTouchmove", "onTouchend", "onClick"]),
+                    ((_b = $setup.swipeStates[log.id]) == null ? void 0 : _b.showDelete) ? (vue.openBlock(), vue.createElementBlock("view", {
+                      key: 0,
+                      class: "delete-action",
+                      onClick: ($event) => $setup.confirmDeleteLog(log)
+                    }, [
+                      vue.createVNode(_component_uni_icons, {
+                        type: "trash",
+                        size: "24",
+                        color: "#fff"
+                      })
+                    ], 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
+                  ])
+                ]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])) : (vue.openBlock(), vue.createElementBlock(
+            vue.Fragment,
+            { key: 1 },
+            [
+              vue.createCommentVNode(" 空状态 "),
+              vue.createElementVNode("view", { class: "empty-state" }, [
+                vue.createElementVNode("text", { class: "empty-text" }, "暂无交易记录"),
+                vue.createElementVNode("text", { class: "empty-tips" }, '点击下方按钮"+"添加交易记录')
+              ])
+            ],
+            2112
+            /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+          ))
+        ], 40, ["refresher-triggered"])
+      ]),
+      vue.createCommentVNode(" 添加交易日志按钮 "),
+      vue.createElementVNode("view", { class: "add-log-container" }, [
+        vue.createElementVNode("view", {
+          class: "add-log-btn",
+          onClick: $setup.showAddLogModal
+        }, [
+          vue.createVNode(_component_uni_icons, {
+            type: "plus",
+            size: "20",
+            color: "#fff"
+          }),
+          vue.createElementVNode("text", { class: "add-btn-text" }, "添加交易记录")
+        ])
+      ]),
+      vue.createCommentVNode(" 添加交易日志弹窗 "),
+      $setup.showLogModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "modal-overlay",
+        onClick: $setup.closeLogModal
+      }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["modal-content log-modal", { "closing": $setup.logModalClosing }]),
+            onClick: _cache[5] || (_cache[5] = vue.withModifiers(() => {
+            }, ["stop"]))
+          },
+          [
+            vue.createElementVNode("view", { class: "popup-header" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "popup-title" },
+                vue.toDisplayString($setup.isEditMode ? "编辑交易日志" : "添加交易日志"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("view", {
+                class: "popup-close",
+                onClick: $setup.closeLogModal
+              }, [
+                vue.createVNode(_component_uni_icons, {
+                  type: "close",
+                  size: "20",
+                  color: "#666"
+                })
+              ])
+            ]),
+            vue.createElementVNode("scroll-view", {
+              class: "form-content",
+              "scroll-y": "true"
+            }, [
+              vue.createCommentVNode(" 入场描述 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, [
+                  vue.createElementVNode("text", { class: "required" }, "*"),
+                  vue.createTextVNode("入场描述 ")
+                ]),
+                vue.withDirectives(vue.createElementVNode(
+                  "textarea",
+                  {
+                    class: "log-textarea",
+                    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $setup.logForm.inDesc = $event),
+                    placeholder: "请输入入场描述",
+                    maxlength: "500",
+                    "auto-height": ""
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $setup.logForm.inDesc]
+                ])
+              ]),
+              vue.createCommentVNode(" 入场价格 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, [
+                  vue.createElementVNode("text", { class: "required" }, "*"),
+                  vue.createTextVNode("入场价格 ")
+                ]),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "log-input",
+                    type: "digit",
+                    "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $setup.logForm.inPrice = $event),
+                    placeholder: "请输入入场价格"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $setup.logForm.inPrice]
+                ])
+              ]),
+              vue.createCommentVNode(" 交易方向 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, [
+                  vue.createElementVNode("text", { class: "required" }, "*"),
+                  vue.createTextVNode("交易方向 ")
+                ]),
+                vue.createElementVNode("view", { class: "radio-group" }, [
+                  vue.createElementVNode("view", {
+                    class: "radio-item",
+                    onClick: _cache[2] || (_cache[2] = ($event) => $setup.logForm.isRise = true)
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      {
+                        class: vue.normalizeClass(["radio", { "checked": $setup.logForm.isRise === true }])
+                      },
+                      [
+                        $setup.logForm.isRise === true ? (vue.openBlock(), vue.createElementBlock("view", {
+                          key: 0,
+                          class: "radio-inner"
+                        })) : vue.createCommentVNode("v-if", true)
+                      ],
+                      2
+                      /* CLASS */
+                    ),
+                    vue.createElementVNode("text", { class: "radio-text" }, "做多(看涨)")
+                  ]),
+                  vue.createElementVNode("view", {
+                    class: "radio-item",
+                    onClick: _cache[3] || (_cache[3] = ($event) => $setup.logForm.isRise = false)
+                  }, [
+                    vue.createElementVNode(
+                      "view",
+                      {
+                        class: vue.normalizeClass(["radio", { "checked": $setup.logForm.isRise === false }])
+                      },
+                      [
+                        $setup.logForm.isRise === false ? (vue.openBlock(), vue.createElementBlock("view", {
+                          key: 0,
+                          class: "radio-inner"
+                        })) : vue.createCommentVNode("v-if", true)
+                      ],
+                      2
+                      /* CLASS */
+                    ),
+                    vue.createElementVNode("text", { class: "radio-text" }, "做空(看跌)")
+                  ])
+                ])
+              ]),
+              vue.createCommentVNode(" 手数 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, [
+                  vue.createElementVNode("text", { class: "required" }, "*"),
+                  vue.createTextVNode("手数 ")
+                ]),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "log-input",
+                    type: "digit",
+                    "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $setup.logForm.count = $event),
+                    placeholder: "请输入手数"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $setup.logForm.count]
+                ])
+              ]),
+              vue.createCommentVNode(" 入场图片 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "入场依据"),
+                vue.createElementVNode("view", { class: "image-upload" }, [
+                  vue.createCommentVNode(" 统一显示所有图片和上传按钮 "),
+                  vue.createElementVNode("view", { class: "image-grid" }, [
+                    vue.createCommentVNode(" 上传按钮 "),
+                    vue.createElementVNode("view", {
+                      class: "upload-btn",
+                      onClick: $setup.chooseInImages
+                    }, [
+                      vue.createVNode(_component_uni_icons, {
+                        type: "plus",
+                        size: "30",
+                        color: "#667eea"
+                      })
+                    ]),
+                    vue.createCommentVNode(" 已有图片 "),
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($setup.logForm.existingImgs, (img, index) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          class: "image-item",
+                          key: "existing-" + index
+                        }, [
+                          vue.createElementVNode("image", {
+                            src: img.url,
+                            class: "preview-image",
+                            mode: "aspectFill",
+                            onClick: ($event) => $setup.previewImage(img.url, $setup.getAllImageUrls()),
+                            onError: ($event) => $setup.handleImageError(img.url, index),
+                            onLoad: ($event) => $setup.handleImageLoad(img.url, index)
+                          }, null, 40, ["src", "onClick", "onError", "onLoad"]),
+                          vue.createElementVNode("view", {
+                            class: "delete-image",
+                            onClick: vue.withModifiers(($event) => $setup.removeExistingImage(index), ["stop"])
+                          }, [
+                            vue.createVNode(_component_uni_icons, {
+                              type: "close",
+                              size: "16",
+                              color: "#fff"
+                            })
+                          ], 8, ["onClick"])
+                        ]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    )),
+                    vue.createCommentVNode(" 新增图片 "),
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($setup.logForm.addInImgs, (img, index) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          class: "image-item",
+                          key: "new-" + index
+                        }, [
+                          vue.createElementVNode("image", {
+                            src: img.url,
+                            class: "preview-image",
+                            mode: "aspectFill",
+                            onClick: ($event) => $setup.previewImage(img.url, $setup.getAllImageUrls())
+                          }, null, 8, ["src", "onClick"]),
+                          vue.createElementVNode("view", {
+                            class: "delete-image",
+                            onClick: vue.withModifiers(($event) => $setup.removeNewImage(index), ["stop"])
+                          }, [
+                            vue.createVNode(_component_uni_icons, {
+                              type: "close",
+                              size: "16",
+                              color: "#fff"
+                            })
+                          ], 8, ["onClick"])
+                        ]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
+                  ])
+                ])
+              ]),
+              vue.createCommentVNode(" 出场记录列表 "),
+              $setup.isEditMode && $setup.outLogsList.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 0,
+                class: "out-logs-section"
+              }, [
+                vue.createElementVNode("view", { class: "section-title" }, "平仓记录"),
+                vue.createElementVNode("view", { class: "out-logs-list" }, [
+                  (vue.openBlock(true), vue.createElementBlock(
+                    vue.Fragment,
+                    null,
+                    vue.renderList($setup.outLogsList, (outLog, index) => {
+                      return vue.openBlock(), vue.createElementBlock("view", {
+                        class: "out-log-item",
+                        key: outLog.id
+                      }, [
+                        vue.createElementVNode("view", { class: "out-log-header" }, [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "out-log-date" },
+                            vue.toDisplayString($setup.formatDate(outLog.createTime)),
+                            1
+                            /* TEXT */
+                          ),
+                          vue.createElementVNode("view", { class: "out-log-right" }, [
+                            vue.createElementVNode(
+                              "text",
+                              {
+                                class: vue.normalizeClass(["out-log-profit", $setup.getProfitClass(outLog.profit)])
+                              },
+                              vue.toDisplayString($setup.formatProfit(outLog.profit)),
+                              3
+                              /* TEXT, CLASS */
+                            ),
+                            vue.createElementVNode("view", {
+                              class: "out-edit-icon",
+                              onClick: vue.withModifiers(($event) => $setup.editOutLog(outLog), ["stop"])
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "compose",
+                                size: "20",
+                                color: "#667eea"
+                              })
+                            ], 8, ["onClick"]),
+                            vue.createElementVNode("view", {
+                              class: "out-delete-icon",
+                              onClick: vue.withModifiers(($event) => $setup.confirmDeleteOutLog(outLog), ["stop"])
+                            }, [
+                              vue.createVNode(_component_uni_icons, {
+                                type: "trash",
+                                size: "20",
+                                color: "#f56c6c"
+                              })
+                            ], 8, ["onClick"])
+                          ])
+                        ]),
+                        vue.createElementVNode("view", { class: "out-log-content" }, [
+                          vue.createElementVNode("view", { class: "out-log-info" }, [
+                            vue.createElementVNode(
+                              "text",
+                              { class: "out-count" },
+                              "手数: " + vue.toDisplayString(outLog.count),
+                              1
+                              /* TEXT */
+                            )
+                          ]),
+                          outLog.outDesc ? (vue.openBlock(), vue.createElementBlock("view", {
+                            key: 0,
+                            class: "out-log-desc"
+                          }, [
+                            vue.createElementVNode(
+                              "text",
+                              { class: "desc-text" },
+                              vue.toDisplayString(outLog.outDesc),
+                              1
+                              /* TEXT */
+                            )
+                          ])) : vue.createCommentVNode("v-if", true),
+                          vue.createCommentVNode(" 出场图片 "),
+                          outLog.outImgs ? (vue.openBlock(), vue.createElementBlock("view", {
+                            key: 1,
+                            class: "out-log-images"
+                          }, [
+                            vue.createElementVNode("view", { class: "out-images-grid" }, [
+                              (vue.openBlock(true), vue.createElementBlock(
+                                vue.Fragment,
+                                null,
+                                vue.renderList($setup.parseOutImages(outLog.outImgs), (imgUrl, imgIndex) => {
+                                  return vue.openBlock(), vue.createElementBlock("view", {
+                                    class: "out-image-item",
+                                    key: imgIndex
+                                  }, [
+                                    vue.createElementVNode("image", {
+                                      src: imgUrl,
+                                      class: "out-preview-image",
+                                      mode: "aspectFill",
+                                      onClick: ($event) => $setup.previewOutImage(imgUrl, $setup.parseOutImages(outLog.outImgs))
+                                    }, null, 8, ["src", "onClick"])
+                                  ]);
+                                }),
+                                128
+                                /* KEYED_FRAGMENT */
+                              ))
+                            ])
+                          ])) : vue.createCommentVNode("v-if", true)
+                        ])
+                      ]);
+                    }),
+                    128
+                    /* KEYED_FRAGMENT */
+                  ))
+                ])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createCommentVNode(" 新增平仓记录按钮区域 - 独立显示 "),
+              $setup.canAddOutLog ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 1,
+                class: "add-out-log-section"
+              }, [
+                vue.createElementVNode("view", { class: "add-out-log-item" }, [
+                  vue.createElementVNode("view", { class: "add-out-content" }, [
+                    vue.createElementVNode("view", { class: "remaining-info" }, [
+                      vue.createElementVNode("text", { class: "remaining-label" }, "剩余未平仓:"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "remaining-count" },
+                        vue.toDisplayString(parseInt($setup.logForm.count) - $setup.totalOutCount) + " 手",
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("button", {
+                      class: "inline-add-btn",
+                      onClick: $setup.showAddOutLogModal
+                    }, [
+                      vue.createElementVNode("text", { class: "btn-text" }, "新增平仓")
+                    ])
+                  ])
+                ])
+              ])) : vue.createCommentVNode("v-if", true)
+            ]),
+            vue.createElementVNode("view", { class: "popup-actions" }, [
+              vue.createElementVNode("button", {
+                class: "cancel-btn",
+                onClick: $setup.closeLogModal
+              }, "取消"),
+              vue.createElementVNode("button", {
+                class: "confirm-btn",
+                onClick: $setup.saveLog,
+                disabled: !$setup.canSaveLog
+              }, vue.toDisplayString($setup.isEditMode ? "更新" : "保存"), 9, ["disabled"])
+            ])
+          ],
+          2
+          /* CLASS */
+        )
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 新增平仓记录弹窗 "),
+      $setup.showOutLogModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 2,
+        class: "modal-overlay",
+        onClick: $setup.closeOutLogModal
+      }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["modal-content out-log-modal", { "closing": $setup.outLogModalClosing }]),
+            onClick: _cache[9] || (_cache[9] = vue.withModifiers(() => {
+            }, ["stop"]))
+          },
+          [
+            vue.createElementVNode("view", { class: "popup-header" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "popup-title" },
+                vue.toDisplayString($setup.isEditOutLogMode ? "编辑平仓记录" : "新增平仓记录"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("view", {
+                class: "popup-close",
+                onClick: $setup.closeOutLogModal
+              }, [
+                vue.createVNode(_component_uni_icons, {
+                  type: "close",
+                  size: "20",
+                  color: "#666"
+                })
+              ])
+            ]),
+            vue.createElementVNode("scroll-view", {
+              class: "form-content",
+              "scroll-y": "true"
+            }, [
+              vue.createCommentVNode(" 平仓手数 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, [
+                  vue.createElementVNode("text", { class: "required" }, "*"),
+                  vue.createTextVNode("平仓手数 ")
+                ]),
+                vue.withDirectives(vue.createElementVNode("input", {
+                  class: "log-input",
+                  type: "digit",
+                  "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $setup.outLogForm.count = $event),
+                  onBlur: $setup.handleOutCountBlur,
+                  placeholder: `最多可平仓 ${parseInt($setup.logForm.count) - $setup.totalOutCount} 手`
+                }, null, 40, ["placeholder"]), [
+                  [vue.vModelText, $setup.outLogForm.count]
+                ]),
+                vue.createElementVNode("view", { class: "input-hint" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "hint-text" },
+                    "剩余未平仓: " + vue.toDisplayString(parseInt($setup.logForm.count) - $setup.totalOutCount) + " 手",
+                    1
+                    /* TEXT */
+                  )
+                ])
+              ]),
+              vue.createCommentVNode(" 出场价格 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, [
+                  vue.createElementVNode("text", { class: "required" }, "*"),
+                  vue.createTextVNode("出场价格 ")
+                ]),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "log-input",
+                    type: "digit",
+                    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $setup.outLogForm.outPrice = $event),
+                    placeholder: "请输入出场价格"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $setup.outLogForm.outPrice]
+                ])
+              ]),
+              vue.createCommentVNode(" 出场描述 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "出场描述"),
+                vue.withDirectives(vue.createElementVNode(
+                  "textarea",
+                  {
+                    class: "log-textarea",
+                    "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $setup.outLogForm.outDesc = $event),
+                    placeholder: "请输入出场描述（可选）",
+                    maxlength: "500",
+                    "auto-height": ""
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $setup.outLogForm.outDesc]
+                ])
+              ]),
+              vue.createCommentVNode(" 出场图片 "),
+              vue.createElementVNode("view", { class: "input-group" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "出场图片"),
+                vue.createElementVNode("view", { class: "image-upload" }, [
+                  vue.createCommentVNode(" 统一显示所有图片和上传按钮 "),
+                  vue.createElementVNode("view", { class: "image-grid" }, [
+                    vue.createCommentVNode(" 上传按钮 "),
+                    vue.createElementVNode("view", {
+                      class: "upload-btn",
+                      onClick: $setup.chooseOutImages
+                    }, [
+                      vue.createVNode(_component_uni_icons, {
+                        type: "plus",
+                        size: "30",
+                        color: "#667eea"
+                      })
+                    ]),
+                    vue.createCommentVNode(" 已有图片 "),
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($setup.outLogForm.existingImgs, (img, index) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          class: "image-item",
+                          key: "existing-" + index
+                        }, [
+                          vue.createElementVNode("image", {
+                            src: img.url,
+                            class: "preview-image",
+                            mode: "aspectFill",
+                            onClick: ($event) => $setup.previewImage(img.url, $setup.getAllOutImageUrls())
+                          }, null, 8, ["src", "onClick"]),
+                          vue.createElementVNode("view", {
+                            class: "delete-image",
+                            onClick: vue.withModifiers(($event) => $setup.removeExistingOutImage(index), ["stop"])
+                          }, [
+                            vue.createVNode(_component_uni_icons, {
+                              type: "close",
+                              size: "16",
+                              color: "#fff"
+                            })
+                          ], 8, ["onClick"])
+                        ]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    )),
+                    vue.createCommentVNode(" 新增图片 "),
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($setup.outLogForm.addOutImgs, (img, index) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          class: "image-item",
+                          key: "new-" + index
+                        }, [
+                          vue.createElementVNode("image", {
+                            src: img.url,
+                            class: "preview-image",
+                            mode: "aspectFill",
+                            onClick: ($event) => $setup.previewImage(img.url, $setup.getAllOutImageUrls())
+                          }, null, 8, ["src", "onClick"]),
+                          vue.createElementVNode("view", {
+                            class: "delete-image",
+                            onClick: vue.withModifiers(($event) => $setup.removeNewOutImage(index), ["stop"])
+                          }, [
+                            vue.createVNode(_component_uni_icons, {
+                              type: "close",
+                              size: "16",
+                              color: "#fff"
+                            })
+                          ], 8, ["onClick"])
+                        ]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
+                  ])
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "popup-actions" }, [
+              vue.createElementVNode("button", {
+                class: "cancel-btn",
+                onClick: $setup.closeOutLogModal
+              }, "取消"),
+              vue.createElementVNode("button", {
+                class: "confirm-btn",
+                onClick: $setup.saveOutLog,
+                disabled: !$setup.canSaveOutLog
+              }, vue.toDisplayString($setup.isEditOutLogMode ? "更新" : "保存"), 9, ["disabled"])
+            ])
+          ],
+          2
+          /* CLASS */
+        )
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 日志详情查看弹窗 "),
+      $setup.showLogDetailModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 3,
+        class: "modal-overlay",
+        onClick: $setup.closeLogDetailModal
+      }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["modal-content log-detail-view-modal", { "closing": $setup.logDetailModalClosing }]),
+            onClick: _cache[10] || (_cache[10] = vue.withModifiers(() => {
+            }, ["stop"]))
+          },
+          [
+            vue.createElementVNode("view", { class: "popup-header" }, [
+              vue.createElementVNode("text", { class: "popup-title" }, "交易日志详情"),
+              vue.createElementVNode("view", {
+                class: "popup-close",
+                onClick: $setup.closeLogDetailModal
+              }, [
+                vue.createVNode(_component_uni_icons, {
+                  type: "close",
+                  size: "20",
+                  color: "#666"
+                })
+              ])
+            ]),
+            $setup.viewingLog ? (vue.openBlock(), vue.createElementBlock("scroll-view", {
+              key: 0,
+              class: "form-content",
+              "scroll-y": "true"
+            }, [
+              vue.createCommentVNode(" 入场描述 "),
+              vue.createElementVNode("view", { class: "input-group readonly" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "入场描述"),
+                vue.createElementVNode(
+                  "view",
+                  { class: "readonly-content" },
+                  vue.toDisplayString($setup.viewingLog.inDesc || "无"),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createCommentVNode(" 入场价格 "),
+              vue.createElementVNode("view", { class: "input-group readonly" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "入场价格"),
+                vue.createElementVNode(
+                  "view",
+                  { class: "readonly-content" },
+                  "¥" + vue.toDisplayString($setup.viewingLog.inPrice),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createCommentVNode(" 交易方向 "),
+              vue.createElementVNode("view", { class: "input-group readonly" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "交易方向"),
+                vue.createElementVNode("view", { class: "readonly-content" }, [
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["direction-tag", $setup.viewingLog.isRise ? "rise" : "fall"])
+                    },
+                    vue.toDisplayString($setup.viewingLog.isRise ? "做多(看涨)" : "做空(看跌)"),
+                    3
+                    /* TEXT, CLASS */
+                  )
+                ])
+              ]),
+              vue.createCommentVNode(" 手数 "),
+              vue.createElementVNode("view", { class: "input-group readonly" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "手数"),
+                vue.createElementVNode(
+                  "view",
+                  { class: "readonly-content" },
+                  vue.toDisplayString($setup.viewingLog.count) + "手",
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createCommentVNode(" 创建时间 "),
+              vue.createElementVNode("view", { class: "input-group readonly" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "创建时间"),
+                vue.createElementVNode(
+                  "view",
+                  { class: "readonly-content" },
+                  vue.toDisplayString($setup.formatDate($setup.viewingLog.createTime)),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createCommentVNode(" 总盈亏 "),
+              vue.createElementVNode("view", { class: "input-group readonly" }, [
+                vue.createElementVNode("view", { class: "input-label" }, "总盈亏"),
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: vue.normalizeClass(["readonly-content", $setup.getProfitClass($setup.viewingLog.profit)])
+                  },
+                  vue.toDisplayString($setup.formatProfit($setup.viewingLog.profit)),
+                  3
+                  /* TEXT, CLASS */
+                )
+              ]),
+              vue.createCommentVNode(" 入场图片 "),
+              $setup.viewingLog.inImgs ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 0,
+                class: "input-group readonly"
+              }, [
+                vue.createElementVNode("view", { class: "input-label" }, "入场图片"),
+                vue.createElementVNode("view", { class: "readonly-images" }, [
+                  vue.createElementVNode("view", { class: "image-grid" }, [
+                    (vue.openBlock(true), vue.createElementBlock(
+                      vue.Fragment,
+                      null,
+                      vue.renderList($setup.parseInImages($setup.viewingLog.inImgs), (imgUrl, imgIndex) => {
+                        return vue.openBlock(), vue.createElementBlock("view", {
+                          class: "image-item",
+                          key: imgIndex
+                        }, [
+                          vue.createElementVNode("image", {
+                            src: imgUrl,
+                            class: "preview-image",
+                            mode: "aspectFill",
+                            onClick: ($event) => $setup.previewImage(imgUrl, $setup.parseInImages($setup.viewingLog.inImgs))
+                          }, null, 8, ["src", "onClick"])
+                        ]);
+                      }),
+                      128
+                      /* KEYED_FRAGMENT */
+                    ))
+                  ]),
+                  $setup.parseInImages($setup.viewingLog.inImgs).length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 0,
+                    class: "no-images-text"
+                  }, " 无入场图片 ")) : vue.createCommentVNode("v-if", true)
+                ])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createCommentVNode(" 出场记录列表 "),
+              $setup.outLogsList.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 1,
+                class: "out-logs-section readonly"
+              }, [
+                vue.createElementVNode("view", { class: "section-title" }, "出场记录"),
+                vue.createElementVNode("view", { class: "out-logs-list" }, [
+                  (vue.openBlock(true), vue.createElementBlock(
+                    vue.Fragment,
+                    null,
+                    vue.renderList($setup.outLogsList, (outLog, index) => {
+                      return vue.openBlock(), vue.createElementBlock("view", {
+                        class: "out-log-item readonly",
+                        key: outLog.id
+                      }, [
+                        vue.createElementVNode("view", { class: "out-log-header" }, [
+                          vue.createElementVNode(
+                            "text",
+                            { class: "out-log-date" },
+                            vue.toDisplayString($setup.formatDate(outLog.createTime)),
+                            1
+                            /* TEXT */
+                          ),
+                          vue.createElementVNode(
+                            "text",
+                            {
+                              class: vue.normalizeClass(["out-log-profit", $setup.getProfitClass(outLog.profit)])
+                            },
+                            vue.toDisplayString($setup.formatProfit(outLog.profit)),
+                            3
+                            /* TEXT, CLASS */
+                          )
+                        ]),
+                        vue.createElementVNode("view", { class: "out-log-content" }, [
+                          vue.createElementVNode("view", { class: "out-log-info" }, [
+                            vue.createElementVNode(
+                              "text",
+                              { class: "out-count" },
+                              "手数: " + vue.toDisplayString(outLog.count),
+                              1
+                              /* TEXT */
+                            )
+                          ]),
+                          outLog.outDesc ? (vue.openBlock(), vue.createElementBlock("view", {
+                            key: 0,
+                            class: "out-log-desc"
+                          }, [
+                            vue.createElementVNode(
+                              "text",
+                              { class: "desc-text" },
+                              vue.toDisplayString(outLog.outDesc),
+                              1
+                              /* TEXT */
+                            )
+                          ])) : vue.createCommentVNode("v-if", true),
+                          vue.createCommentVNode(" 出场图片 "),
+                          outLog.outImgs ? (vue.openBlock(), vue.createElementBlock("view", {
+                            key: 1,
+                            class: "out-log-images"
+                          }, [
+                            vue.createElementVNode("view", { class: "out-images-grid" }, [
+                              (vue.openBlock(true), vue.createElementBlock(
+                                vue.Fragment,
+                                null,
+                                vue.renderList($setup.parseOutImages(outLog.outImgs), (imgUrl, imgIndex) => {
+                                  return vue.openBlock(), vue.createElementBlock("view", {
+                                    class: "out-image-item",
+                                    key: imgIndex
+                                  }, [
+                                    vue.createElementVNode("image", {
+                                      src: imgUrl,
+                                      class: "out-preview-image",
+                                      mode: "aspectFill",
+                                      onClick: ($event) => $setup.previewOutImage(imgUrl, $setup.parseOutImages(outLog.outImgs))
+                                    }, null, 8, ["src", "onClick"])
+                                  ]);
+                                }),
+                                128
+                                /* KEYED_FRAGMENT */
+                              ))
+                            ])
+                          ])) : vue.createCommentVNode("v-if", true)
+                        ])
+                      ]);
+                    }),
+                    128
+                    /* KEYED_FRAGMENT */
+                  ))
+                ])
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createCommentVNode(" 加载中状态 "),
+              $setup.isLoadingOutLogs ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 2,
+                class: "loading-section"
+              }, [
+                vue.createElementVNode("text", { class: "loading-text" }, "正在加载出场记录...")
+              ])) : vue.createCommentVNode("v-if", true),
+              vue.createCommentVNode(" 无出场记录提示 "),
+              !$setup.isLoadingOutLogs && $setup.outLogsList.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 3,
+                class: "no-out-logs"
+              }, [
+                vue.createElementVNode("text", { class: "no-out-logs-text" }, "暂无出场记录")
+              ])) : vue.createCommentVNode("v-if", true)
+            ])) : vue.createCommentVNode("v-if", true),
+            vue.createElementVNode("view", { class: "popup-actions" }, [
+              vue.createElementVNode("button", {
+                class: "cancel-btn full-width",
+                onClick: $setup.closeLogDetailModal
+              }, "关闭")
+            ])
+          ],
+          2
+          /* CLASS */
+        )
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesLogDetailLogDetail = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__scopeId", "data-v-003a6ece"], ["__file", "C:/Users/Administrator/Documents/HBuilderProjects/todoPlus/pages/logDetail/logDetail.vue"]]);
   __definePage("pages/index/index", PagesIndexIndex);
   __definePage("pages/home/home", PagesHomeHome);
   __definePage("pages/register/register", PagesRegisterRegister);
@@ -15992,6 +20104,8 @@ ${text}</tr>
   __definePage("pages/testVoice/testVoice", PagesTestVoiceTestVoice);
   __definePage("pages/aiRole/aiRole", PagesAiRoleAiRole);
   __definePage("pages/aiSetting/aiSetting", PagesAiSettingAiSetting);
+  __definePage("pages/trade/trade", PagesTradeTrade);
+  __definePage("pages/logDetail/logDetail", PagesLogDetailLogDetail);
   const _sfc_main = {
     onLaunch: function() {
       formatAppLog("log", "at App.vue:4", "App Launch");
